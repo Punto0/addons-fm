@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template id="assets_common" name="fairmarket_tunes_assets" inherit_id="web.assets_common">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/fairmarket_tunes/static/src/css/fairmarket_tunes.css"/>
+                <script type="text/javascript" src="/fairmarket_tunes/static/src/js/fairmarket_tunes.js"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>

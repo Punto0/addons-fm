@@ -1,0 +1,27 @@
+<openerp>
+    <data>
+        <template id="custom_products" inherit_id="website_sale.products" name="Custom Products">
+            <!-- Assign an id  -->
+             <xpath expr="//div" position="attributes">
+                  <attribute name="id">my_products</attribute>
+             </xpath>
+
+             <xpath expr="//div[@id='products_grid_before']" position="inside">
+<!--                 <div class="col-md-3 mb32" id="partner_left"> -->
+                     <ul id="reseller_countries" class="nav nav-pills nav-stacked mt16">
+                         <li class="nav-header"><h3>Filter by Country</h3></li>
+                         <t t-foreach="countries" t-as="country">
+                             <li t-if="country['country_id']" t-att-class="country['active'] and 'active' or ''">
+                                 <a t-attf-href="/shop#{ current_grade and '/grade/%s' % slug(current_grade) or ''}#{country['country_id'][0] and '/country/%s' % country['country_id'][0] or '' }#{ '?' + (search_path or '') + (country['country_id'][0] == 0 and '&amp;country_all=True' or '')}">
+                                     <span class="badge pull-right" t-esc="country['country_id_count'] or ''"/>
+                                     <t t-esc="country['country_id'][1]"/>
+                                 </a>
+                             </li>
+                         </t>
+                     </ul>
+<!--                </div> -->
+             </xpath>
+        </template>
+    </data>
+</openerp>
+

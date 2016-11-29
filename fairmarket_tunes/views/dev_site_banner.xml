@@ -1,0 +1,20 @@
+<openerp>
+    <data>
+        <!-- Customize header  -->
+        <template id="custom_header" inherit_id="website.layout" name="Custom Header">
+             <!-- Assign an id  -->
+             <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+                  <attribute name="id">my_header</attribute>
+             </xpath>
+             <!-- Add an element after the top menu  -->
+             <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
+                 <div class="container">
+                    <div class="alert alert-info mt16" role="alert">
+                        <center><p><strong>This is our development site!</strong></p>
+                        <p>Follow <a href="https://market.fair.coop"> this link</a> to go to the production market</p></center>
+                    </div>
+                 </div>
+             </xpath>
+        </template>
+    </data>
+</openerp>

@@ -1,0 +1,34 @@
+<openerp>
+    <data>
+        <template id="custom_product" inherit_id="website_sale.product" name="Custom Product">
+            <!-- Assign an id  -->
+             <xpath expr="//div" position="attributes">
+                  <attribute name="id">my_product</attribute>
+             </xpath>
+             <xpath expr="//p[@t-field='product.description_sale']" position="after">
+                <div class="container">
+                    <div class="alert alert-info mt16" role="alert" style="background-color:#FAFAFA">
+                         <center>
+                         <span t-field="product.product_brand_id.logo" t-field-options='{"widget": "image"}' />
+                         <p>This product is offered by</p>
+                         <p> <strong><span t-field="product.product_brand_id.name"/></strong></p>
+                         <p><span t-field="product.company_id.rml_header1" /></p>
+                         <span t-field="product.company_id.logo_web" t-field-options='{"widget": "image"}' />
+                         <p>Please, do not hesitate to contact us if you have any question about the product.</p>
+                         <p t-if = "product.company_id.sale_note"><strong>Terms and Conditions:</strong>
+                         <span t-field="product.company_id.sale_note" /></p>
+                         <div t-field="product.company_id.partner_id" t-field-options='{
+                         "widget": "contact",
+                         "fields": ["address", "phone", "email"]
+                         }'/>
+                         <p><a t-att-href="product.company_id.website" t-if="product.company_id.website"><span t-field="product.company_id.website" /></a></p>
+                         <p><a class="my_button" t-att-href="url_for('/shop/brands?brand=' + str(product.product_brand_id.id))">         
+                         Click here to see all our products
+                         </a></p>
+                         </center>
+                    </div>
+                 </div>
+             </xpath>
+        </template>
+    </data>
+</openerp>

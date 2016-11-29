@@ -1,0 +1,21 @@
+/* Menu de navegacion backend */
+#oe_main_menu_navbar {
+    background-color: #584858 !important; 
+
+    }
+.navbar-inverse .navbar-nav > li > a {
+    color: #ccc;
+}
+
+li.active {
+    background-color: #9c9;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #334433;
+}
+/*
+a.oe_menu_toggler {
+    background-color: #202020 !important; 
+    color: #FFFF00;
+    } */

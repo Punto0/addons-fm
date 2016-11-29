@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <record id="view_form_product_brand_inherited" model="ir.ui.view">
+            <field name="name">Product Brand form – User extension</field>
+            <field name="model">product.brand</field>
+            <field name="inherit_id" ref="product_brand.view_product_brand_form"/>
+            <field name="arch" type="xml">
+              <xpath expr="//sheet" position="before">
+                  <header>
+                      <div class="oe_inline" invisible="not context.get('view_buttons')" > 
+                      <button class="oe_highlight" name="button_save" string="Save" type="object" />
+<!--                      <button class="oe_link" special="cancel" string="Cancel" /> -->
+                      </div>
+                  </header> 
+             </xpath>
+              <field name="logo" position="before" >
+                  <field name="company_logo" widget="image" class="oe_avatar oe_left"/> 
+                  <div attrs="{'invisible' : [('company_logo','!=',False)]}" class="oe_view_nocontent oe_clear">
+                        <p class="oe_view_nocontent_create oe_edit_only">
+                            Click to set your company logo.
+                        </p>
+                  </div>
+                </field>              
+ <!--               <field name="description" position="after" >        -->
+                <xpath expr="//group[@string='Description']" position="replace">
+                    <group groups="base.group_multi_company">
+                        <field name="user_id" string="User" help="The user authorized for this brand" required="True" groups="base.group_multi_company"/>
+                        <field name="company_id" string="Project" help="The project for this brand" required="True" groups="base.group_multi_company"/>
+                    </group>
+                    <group>
+                        <group>
+                          <label for="company_street" string="Address"/>
+                          <div>
+                            <field name="company_street" placeholder="Street..."/>
+                            <div>
+                              <field name="company_city" placeholder="City" style="width: 40%"/>
+                              <field name="company_state_id" class="oe_no_button" placeholder="State" />
+                              <field name="company_zip" placeholder="ZIP" style="width: 34%"/>
+                            </div>
+                            <field name="company_country_id" placeholder="Country" class="oe_no_button" options="{&quot;no_open&quot;: True}" />
+                          </div>  
+                          <label for="rml_header1" string="Short Description"/>
+                          <div>
+                            <field name="company_rml_header1" placeholder="e.g. Fair Coop Solutions"/>
+                          </div>
+                        </group>
+                        <group>
+                          <field name="company_website" widget="url" placeholder="e.g. www.fair.coop" />
+                          <field name="company_phone" />
+                          <field name="company_email" />
+                          <field name="company_faircoin_account" placeholder="Your FairCoin address" required="False"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                         <field name="description" nolabel="1"/>
+                    </group>
+                    <group name="sale_grp" string="Terms and Conditions">
+                        <field name="company_sale_note" nolabel="1" placeholder="Default terms &amp; conditions of your shop..."/>
+                    </group>
+                    <div class="alert alert-info mt4" role="alert">
+                       <center><p><strong>Privacy Warning!</strong></p></center>
+                       <p>All the data submitted in this form, except your FairCoin address, will be publicly avalaible in the web.
+                       Do <b>not</b> introduce any data that you do not want to show to the public.</p>
+                       <p>You can leave fields empty, although if you do not introduce the country, the regional module will not work with your shop.
+                       If you do not introduce a contact the public will not be able to comunicate with you.
+                       If you do not fill the FairCoin address field, we can not send you the FairCoins for your sells in FairMarket.</p>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_open_my_brand" model="ir.actions.server">
+            <field name="name">Project Setup</field>
+            <field name="condition">True</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_product_brand" />
+            <field name="code">action = self.search_brand(cr, uid,[], context=context)</field>
+        </record>  
+
+        <menuitem id="shop_configuration" name="Project Configuration" parent="base.menu_base_partner" sequence="1"/>
+        <menuitem id="product_my_brand" name="Configure" parent="shop_configuration" action="action_open_my_brand"/>
+    </data>
+</openerp> 
