@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<template id="better_confirmation" inherit_id="website_sale.confirmation">
+  <xpath expr="//div[@class='oe_website_sale_tx_status']" position="after">
+      <p>Your partner will contact with as soon as posible.</p>
+      <div class="col-md-3 col-md-offset-1 text-muted" id="right_column">
+                  <span t-field="order.company_id.logo_web" t-field-options='{"widget": "image"}' />
+                  <div t-field="order.company_id.partner_id" t-field-options='{
+                    "widget": "contact",
+                    "fields": ["address", "name", "phone", "email","website"]
+                    }'/>
+      </div>
+  </xpath>
+</template>
+
+</data>
+</openerp>
