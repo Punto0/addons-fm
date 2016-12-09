@@ -24,10 +24,10 @@
                 </field>              
  <!--               <field name="description" position="after" >        -->
                 <xpath expr="//group[@string='Description']" position="replace">
-                    <group groups="base.group_multi_company">
+                    <div class="inline" groups="base.group_multi_company">
                         <field name="user_id" string="User" help="The user authorized for this brand" required="True" groups="base.group_multi_company"/>
                         <field name="company_id" string="Project" help="The project for this brand" required="True" groups="base.group_multi_company"/>
-                    </group>
+                    </div>
                     <group>
                         <group>
                           <label for="company_street" string="Address"/>
@@ -50,6 +50,7 @@
                           <field name="company_phone" />
                           <field name="company_email" />
                           <field name="company_faircoin_account" placeholder="Your FairCoin address" required="False"/>
+                          <field name="company_supplier" string="Supplier in Collective Purchases" help="Set this box to be listed as supplier for collective purchases. If set to no you only will be selling your products in the normal shop"/> 
                         </group>
                     </group>
                     <group string="Description">

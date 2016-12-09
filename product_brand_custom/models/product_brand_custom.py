@@ -26,6 +26,7 @@ class ProductBrand(models.Model):
   company_email = fields.Char(string="email", related='company_id.email')
   company_faircoin_account = fields.Char(string="FairCoin address", related='company_id.faircoin_account')
   company_sale_note = fields.Text(string="Terms and Conditions",related='company_id.sale_note')
+  company_supplier = fields.Boolean(string="Sell in Collective Orders", related='company_id.partner_id.supplier')
 
   def button_save(self, cr, uid, vals, context=None):
         return {'type': 'ir.actions.act_window_close'}
