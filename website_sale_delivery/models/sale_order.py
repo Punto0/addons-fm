@@ -96,16 +96,16 @@ class SaleOrder(orm.Model):
         carrier_obj = self.pool.get('delivery.carrier')
         # Modificación para mostrar solo los carriers de la compañia
         company_id = order.order_line[0].product_id.company_id.partner_id.id
-        logging.info("Product id %s" %order.order_line[0].product_id.display_name)
-        logging.info("Company_id.partner_id.id : %s " %company_id)
+        #logging.info("Product id %s" %order.order_line[0].product_id.display_name)
+        #logging.info("Company_id.partner_id.id : %s " %company_id)
         delivery_ids = carrier_obj.search(cr, uid, [('website_published','=',True),('partner_id','=',company_id)], context=context)
         # Following loop is done to avoid displaying delivery methods who are not available for this order
         # This can surely be done in a more efficient way, but at the moment, it mimics the way it's
         # done in delivery_set method of sale.py, from delivery module
-        logging.info("Delivery ids searched: %s" %delivery_ids)
+        #logging.info("Delivery ids searched: %s" %delivery_ids)
         if not delivery_ids:
             delivery_ids = carrier_obj.search(cr, uid, [('website_published','=',True),('partner_id','=',1)], context=context)
-            logging.info("Adding Delivery ids : %s" %delivery_ids)
+            #logging.info("Adding Delivery ids : %s" %delivery_ids)
 
         #for delivery_id in carrier_obj.browse(cr, SUPERUSER_ID, delivery_ids, context=dict(context, order_id=order.id)):
         #    logging.info("Delivery partner : %s" %delivery_id.partner_id.id)
@@ -115,7 +115,7 @@ class SaleOrder(orm.Model):
         #         logging.info("Removing delivery : %s" %delivery_id.id)
 
                  
-        logging.info("Delivery ids : %s" %delivery_ids)
+        #logging.info("Delivery ids : %s" %delivery_ids)
         return delivery_ids
 
     def _get_errors(self, cr, uid, order, context=None):
