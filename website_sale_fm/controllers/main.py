@@ -13,7 +13,7 @@ import openerp.addons.website_sale.controllers.main
 
 _logger = logging.getLogger(__name__)
 
-class Website_Sale_inherited(openerp.addons.website_sale.controllers.main.website_sale):
+class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
     """
     # Update the total amount in the parent cp and subscribe the user to the wall
     @http.route(['/shop/confirmation'], type='http', auth="public", website=True)
@@ -42,12 +42,18 @@ class Website_Sale_inherited(openerp.addons.website_sale.controllers.main.websit
         companies = [1]
 
         for order_line in order.order_line:
+            if not order_line.product_id.sale_ok:
+                logging.info("Este producto no se puede vender en la tienda") 
+                # ToDo: mostrar ventana warning
+                return request.redirect("/purchase/open")
+
+        for order_line in order.order_line:
             company = order_line.product_id.company_id.id
             if not company in companies:
                 companies.append(company) 
 
         if len(companies) > 2:
-            logging.info("Más de dos compañias detectada, redirigiendo") 
+            logging.info("Más de dos compañias detectadas, redirigiendo al carro") 
             # ToDo: mostrar ventana warning
             return request.redirect("/shop/cart")
 
@@ -111,7 +117,7 @@ class Website_Sale_inherited(openerp.addons.website_sale.controllers.main.websit
                 order.user_id = order.company_id.user_ids[0] # Cambia el salesman de la orden para que tenga acceso. User: All leads
         """ 
         res = super(website_sale, self).payment(**post) # No usamos res, pero no quiere ejecutarse si en el super
-        _logger.info("res : %s " pprint.pformat(res))
+        _logger.info("res : %s ", pprint.pformat(res))
         return res
         #return request.website.render("website_sale", values)
 
