@@ -67,20 +67,5 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
                 return res
         return request.redirect("/shop/cart")
 
-    """
-    # Update the total amount in the parent cp and subscribe the user to the wall
-    @http.route(['/shop/confirmation'], type='http', auth="public", website=True)
-    def payment_confirmation(self, **post):
-        cr, uid, context = request.cr, request.uid, request.context
-        sale_order_id = request.session.get('sale_last_order_id')
-        if sale_order_id:
-            order = request.registry['sale.order'].browse(cr, SUPERUSER_ID, sale_order_id, context=context)
-        else:
-            return request.redirect('/shop')
-        #order.action_button_confirm()
-        res = super(website_sale, self).payment_confirmation(**post)
-        return res
-    """
-
  # vim:expandtab:tabstop=4:softtabstop=4:shiftwidth=4:
 
