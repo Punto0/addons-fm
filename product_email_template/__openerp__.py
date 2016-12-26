@@ -2,7 +2,7 @@
 
 {
     'name': 'Product Email Template',
-    'depends': ['account'],
+    'depends': ['sale'],
     'author': 'OpenERP SA',
     'category': 'Accounting & Finance',
     'description': """
