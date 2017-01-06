@@ -24,20 +24,21 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
     @http.route(['/shop/checkout'], type='http', auth="public", website=True)
     def checkout(self, **post):
         cr, uid, context = request.cr, request.uid, request.context
-        _logger.info("Start /shop/checkout in website_sale_fm")
+        #_logger.debug("Start /shop/checkout in website_sale_fm")
+
         order = request.website.sale_get_order(force_create=1, context=context)
         companies = [1]
 
         for order_line in order.order_line:
             if not order_line.product_id.sale_ok:
-                logging.info("Este producto no se puede vender en la tienda") 
+                logging.info("This product can not be sold individually in the shop, only in Colelctive Purchases.") 
                 # ToDo: mostrar ventana warning
                 return request.redirect("/purchase/open")
 
         for order_line in order.order_line:
             company = order_line.product_id.company_id.id
             if not company in companies:
-                companies.append(company) 
+                companies.append(company)
 
         if len(companies) > 2:
             logging.info("Más de dos compañias detectadas, redirigiendo al carro") 
@@ -66,6 +67,6 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
                 order.user_id = order.company_id.user_ids[0] # Cambia el salesman de la orden para que tenga acceso. User: All leads
                 return res
         return request.redirect("/shop/cart")
-
+     
  # vim:expandtab:tabstop=4:softtabstop=4:shiftwidth=4:
 
