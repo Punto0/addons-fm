@@ -4,8 +4,10 @@ import logging
 from openerp import models, fields, osv, _
 
 class ProductBrand(models.Model):
-  _inherit = 'product.brand'
+  _name = "product.brand"
+  _inherit = ['product.brand','mail.thread']
   user_id = fields.Many2one('res.users','User',help="User authorized for this Brand")
+  partner_id = fields.Many2one('res.partner', related='company_id.partner_id')
   company_id = fields.Many2one(
         'res.company',
         string='Project',

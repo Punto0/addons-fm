@@ -35,9 +35,9 @@
                <xpath expr="//page[@string='Sales']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>
-               <xpath expr="//page[@string='Variants']" position="attributes">
+<!--               <xpath expr="//page[@string='Variants']" position="attributes">
                     <attribute name="invisible">1</attribute>
-               </xpath>           
+               </xpath>           -->
             </field> 
         </record>
     </data>
