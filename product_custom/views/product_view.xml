@@ -7,22 +7,31 @@
             <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
                 <field name="description" position="before">
+<!--
                     <group name="sale">
-                       <group name="sale_condition" string="Sale Conditions" colspan="6">
+                       <group name="sale_condition" string="Sale Conditions">
                                         <label for="warranty"/>
                                         <div>
                                             <field name="warranty" class="oe_inline"/> months
                                         </div>
                        </group>
-                       <group groups="product.group_uos" string="Unit of Measure">
+                       <group name="website" string="Website">
+                         <field name="website_url" invisible="1"/>
+                         <field name="public_categ_ids" widget="many2many_tags"/>
+                         <field name="website_published" class="pull-right" widget="website_button"/>
+                         <field name="alternative_product_ids" widget="many2many_tags"/>
+                         <field name="accessory_product_ids" widget="many2many_tags"/>
+                         <field name="website_style_ids" widget="many2many_tags"/>
+                         <field name="website_sequence"/> 
+                      </group>
+                    </group>
+                    <div groups="product.group_uos" string="Unit of Measure">
                                         <field name="uos_id"/>
                                         <field name="uos_coeff"/>
                                         <field name="mes_type"/>
-                       </group>
-                    </group>
-                       <group name="website_and_pos" col="2">
-                    </group>
-                    <separator string="Short Description for Quotations"/>
+                    </div>
+-->
+                    <separator string="Short Description"/>
                     <field name="description_sale" placeholder="Short note to be displayed on quotations..."/>
                     <separator string="Long description"/>
                 </field>
@@ -32,13 +41,16 @@
                <xpath expr="//page[@string='Inventory']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>           
-               <xpath expr="//page[@string='Sales']" position="attributes">
+<!--               <xpath expr="//page[@string='Sales']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>
-<!--               <xpath expr="//page[@string='Variants']" position="attributes">
+                    <xpath expr="//page[@string='Variants']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>           -->
             </field> 
+<!--        <field name="sale_ok" position="after"> 
+            </field>
+-->
         </record>
     </data>
 </openerp>
