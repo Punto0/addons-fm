@@ -1,4 +1,5 @@
 import logging
+import pprint
 import werkzeug
 from openerp import http, SUPERUSER_ID
 from openerp.http import request
@@ -255,11 +256,6 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         product_ids = product_obj.search(cr, uid, domain, limit=PPG, offset=pager['offset'], order='website_published desc, website_sequence desc', context=context)
         products = product_obj.browse(cr, uid, product_ids, context=context)
 
-        #_logger.debug("Domain %s" %domain)
-        #_logger.debug("Products %s" %products)
-        #_logger.debug("Product count %s" %product_count)
-        #_logger.debug("Product_ids %s" %product_ids)
-
         style_obj = pool['product.style']
         style_ids = style_obj.search(cr, uid, [], context=context)
         styles = style_obj.browse(cr, uid, style_ids, context=context)
@@ -317,18 +313,18 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
           check=""
           brand_obj = pool['product.brand']
           partner_obj = pool['res.partner']
-          country_obj = request.registry['res.country']
+          country_obj = pool['res.country']
           country_all = post.pop('country_all', False)
           company_obj = pool['res.company']
 
-          domain=[]
-          domain_list=[]
-          empty_domain=[]
+          domain = []
+          domain_list = []
+          empty_domain = []
           brand_values = []
           company_values = []
           countries2 = []
-          total_brands_country=0
-          total_brands=0 
+          total_brands_country = 0
+          total_brands = 0 
           brands_count = 0 
           search = post.get('search', '')
           final_brand_ids = []
@@ -345,24 +341,16 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
               country_ids = country_obj.search(request.cr, request.uid, [('code', '=', country_code)], context=request.context)
               if country_ids:
                 country = country_obj.browse(request.cr, request.uid, country_ids[0], context=request.context)
-
           if country:
             domain_list += [('company_id.partner_id.country_id', '=', country.id)]
-
           brand_domain = list(domain_list)
-
           domain_country = [('company_id.partner_id.is_company', '=', True), ('company_id.partner_id.website_published', '=', True)]
           country_group_domain = [('is_company', '=', True), ('website_published', '=', True)]
-
           country_domain = list(domain_country)
 
           # group partners by country and search brands
-          # countries_all = partner_obj.read_group(cr, SUPERUSER_ID, empty_domain,["country_id", "company_id", "id"],groupby="country_id", orderby="country_id", context=context)
-
           countries = partner_obj.read_group(cr, SUPERUSER_ID, country_group_domain, 
                            ["country_id", "company_id", "id"],groupby="country_id", orderby="country_id", context=context)
-
-          #brand_ids = brand_obj.search_read(cr, SUPERUSER_ID, brand_domain)
           brand_all = brand_obj.search_read(cr, SUPERUSER_ID, empty_domain) 
 
           # format pager
@@ -375,33 +363,31 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
               url_args['search'] = search
           if country_all:
               url_args['country_all'] = True
-
+          
+          # Estos dos bucles son horribles, habria que buscar una solucion mejor con busquedas en la base.
+          # Si suben mucho las brands, se va a volver muy lento...
           # flag active country and update sum of brands in each country
+          brands_count = 0 # Para paginacion
           for country_dict in countries:
-
               country_dict['active'] = country and country_dict['country_id'] and country_dict['country_id'][0] == country.id
-
               for b in brand_all:
-                  if b['company_country_id'] == country_dict['country_id'] and b['products_count'] > 0:
+                  if not b['company_country_id'] or not country_dict['country_id']:
+                      continue     
+                  if b['company_country_id'][0] == country_dict['country_id'][0] and b['products_count'] > 0:
                     total_brands_country += 1
                     total_brands += 1
                     if country_dict['active'] or bool(country is None):
                       final_brand_ids.append(b['id'])
-                      brands_count +=1
-
-              country_dict['country_id_count'] = (total_brands_country)
-
+                      brands_count += 1 
               if (total_brands_country >> 0):
+                  country_dict['country_id_count'] = total_brands_country
                   countries2.append(country_dict)
-
-              total_brands_country = 0
-
+                  total_brands_country = 0
           countries2.insert(0, {
               'country_id_count': total_brands,
               'country_id': (0, ("All Countries")),
               'active': bool(country is None),
           })
-
           #get brands and make pagination
           brands_by_page = brand_obj.browse(cr,SUPERUSER_ID, final_brand_ids, context=context)
           pager = request.website.pager(url=url, total=brands_count, page=page, step=self._references_per_page, scope=6, url_args=url_args)
@@ -425,8 +411,6 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
               values.update({'search': post.get('search')})
           return request.website.render('website_product_brand.product_brands', values)
 
-    # vim:expandtab:tabstop=4:softtabstop=4:shiftwidth=4:
-
     #@http.route(['/<names>',], type='http', auth='public', website=True)
     def countries_link(self, names, page=0, **post):
 		  cr, context, pool = (request.cr, request.context, request.registry)
@@ -435,7 +419,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
 		  domain = [('name', '=', name2)]
 		  country = country_obj.search(cr, SUPERUSER_ID, domain)
 		  country2 = country_obj.browse(cr, SUPERUSER_ID, country, context=context)
-          # format pager
+                  # format pager
 		  values = {'country' : country2,
 		  }
 		  return request.website.render('website_product_brand.countries_link', values)

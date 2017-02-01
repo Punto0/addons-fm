@@ -12,7 +12,7 @@ OpenERP E-Commerce modifications for FairMarket
     'author': 'Punto0 - FairCoop',
     'depends': ['website_sale'],
     'data': [
-        #'views/views.xml',
+        'views/views.xml',
         'views/templates.xml',
     ],
     'demo': [
