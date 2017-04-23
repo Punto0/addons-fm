@@ -35,9 +35,10 @@
                     <field name="description_sale" placeholder="Short note to be displayed on quotations..."/>
                     <separator string="Long description"/>
                 </field>
-               <xpath expr="//page[@string='Procurements']" position="attributes">
+<!--               <xpath expr="//page[@string='Procurements']" position="attributes">
                     <attribute name="invisible">1</attribute>
-               </xpath>           
+               </xpath>
+-->           
                <xpath expr="//page[@string='Inventory']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>           
@@ -46,7 +47,8 @@
                </xpath>
                     <xpath expr="//page[@string='Variants']" position="attributes">
                     <attribute name="invisible">1</attribute>
-               </xpath>           -->
+               </xpath>           
+-->
             </field> 
 <!--        <field name="sale_ok" position="after"> 
             </field>
