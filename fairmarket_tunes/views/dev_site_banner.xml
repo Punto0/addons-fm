@@ -10,8 +10,8 @@
              <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
                  <div class="container">
                     <div class="alert alert-info mt16" role="alert">
-                        <center><p><strong>This is our development site!</strong></p>
-                        <p>Follow <a href="https://market.fair.coop"> this link</a> to go to the production market</p></center>
+                        <center><p><strong>We are upgrading!</strong></p>
+                        <p>We are upgrading our block chain, transactions are disabled until the start of the FairCoin2 blockchain</p></center>
                     </div>
                  </div>
              </xpath>
