@@ -162,7 +162,6 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
  
         if not country:
             country_code = request.session['geoip'].get('country_code')
-            _logger.debug("Country_code %s" %country_code)
             if country_code:
                 country_ids = country_obj.search(cr, uid, [('code', '=', country_code)], context=context)
                 if country_ids:
@@ -177,14 +176,10 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
                     groupby="country_id", orderby="country_id", context=context)
 
         product_ids2 = product_obj.search(cr, SUPERUSER_ID, empty_domain,context=context)
-        #_logger.debug("countries %s " %countries)
-        #_logger.debug("Domain %s" %country_group_domain)
-        # flag active country and select only countries with products
         for country_dict in countries:
             country_dict['active'] = country and country_dict['country_id'] and country_dict['country_id'][0] == country.id
             if country_dict['country_id'] == False:
                 continue
-            #_logger.debug("country_id %s %s" %(country_dict['country_id'][0],country_dict['country_id'][1]))
             for b in product_obj.browse(cr, SUPERUSER_ID, product_ids2, context):
                 if b.website_published == True:
                     if (b.company_id.country_id.id == country_dict['country_id'][0]):
@@ -455,7 +450,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
                        ('product_variant_ids.default_code', 'ilike', search)]
 
         if category:
-            domain += [('public_categ_ids', 'child_of', int(category))] # Demand category harcoded
+            domain += [('public_categ_ids', 'child_of', int(category))]
 
         if not country:
             country_code = request.session['geoip'].get('country_code')
