@@ -7,6 +7,8 @@ from openerp.tools.translate import _
 import openerp.addons.website_sale.controllers.main
 from openerp.addons.website.models.website import slug
 
+demand_cat = 206
+
 PPG = 20
 PPR = 4
 BPP = 23
@@ -156,6 +158,8 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         if category:
             domain += [('public_categ_ids', 'child_of', int(category))]
 
+        domain += [('public_categ_ids', '!=', int(demand_cat))] # Quita la categoria demanda
+ 
         if not country:
             country_code = request.session['geoip'].get('country_code')
             _logger.debug("Country_code %s" %country_code)
@@ -299,6 +303,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
          'style_in_product': lambda style, product: style.id in [ s.id for s in product.website_style_ids ],
          'attrib_encode': lambda attribs: werkzeug.url_encode([ ('attrib', i) for i in attribs ])})
         return request.website.render('website_sale.products', values)
+
     # Brands Page
     @http.route(['/shops',
                  '/shops/country/<model("res.country"):country>',
@@ -411,196 +416,105 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
               values.update({'search': post.get('search')})
           return request.website.render('website_product_brand.product_brands', values)
 
-    #@http.route(['/<names>',], type='http', auth='public', website=True)
-    def countries_link(self, names, page=0, **post):
-		  cr, context, pool = (request.cr, request.context, request.registry)
-		  country_obj = pool('res.country')
-		  name2 = names.title()
-		  domain = [('name', '=', name2)]
-		  country = country_obj.search(cr, SUPERUSER_ID, domain)
-		  country2 = country_obj.browse(cr, SUPERUSER_ID, country, context=context)
-                  # format pager
-		  values = {'country' : country2,
-		  }
-		  return request.website.render('website_product_brand.countries_link', values)
-
-    #@http.route(['/products/<names>',], type='http', auth='public', website=True)
-    def products_country(self, names, category=None, search='', brand=None, page=0, **post):
-          cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
-          values = {}
-          country_obj = pool('res.country')
-          product_obj = pool.get('product.template')
-          name2 = names.title()
-          domain = [('name', '=', name2)]
-          country = country_obj.search(cr, SUPERUSER_ID, domain)
-          country2 = country_obj.browse(cr, SUPERUSER_ID, country, context=context)
-          product_domain = [('product_brand_id.company_id.partner_id.country_id', '=', country2.id)]
-          if search:
-              product_domain += ['|', '|', '|',
-                         ('name', 'ilike', search),
-                         ('description', 'ilike', search),
-                         ('description_sale', 'ilike', search),
-                         ('product_variant_ids.default_code', 'ilike', search)]
-          if category:
-              product_domain += [('public_categ_ids', 'child_of', int(category))]
-
-          attrib_list = request.httprequest.args.getlist('attrib')
-          attrib_values = [ map(int, v.split('-')) for v in attrib_list if v ]
-          attrib_set = set([ v[1] for v in attrib_values ])
-          if attrib_values:
-              attrib = None
-              ids = []
-              for value in attrib_values:
-                  if not attrib:
-                      attrib = value[0]
-                      ids.append(value[1])
-                  elif value[0] == attrib:
-                      ids.append(value[1])
-                  else:
-                      product_domain += [('attribute_line_ids.value_ids', 'in', ids)]
-                      attrib = value[0]
-                      ids = [value[1]]
-              if attrib:
-                  product_domain += [('attribute_line_ids.value_ids', 'in', ids)]
-
-          keep = QueryURL('/products', category=category and int(category), search=search, names=country2.name, attrib=attrib_list)
-          if not context.get('pricelist'):
-              pricelist = self.get_pricelist()
-              context['pricelist'] = int(pricelist)
-          else:
-              pricelist = pool.get('product.pricelist').browse(cr, uid, context['pricelist'], context)
-
-          # Brand's product search
-          if brand:
-                values.update({'brand': brand})
-                product_designer_obj = pool.get('product.brand')
-                brand_ids = product_designer_obj.search(cr, SUPERUSER_ID, [('id', '=', int(brand))])
-                product_domain += [('product_brand_id', 'in', brand_ids)]
-
-          # format pager
-          url_args = {}
-          if search:
-                url_args['search'] = search
-                post['search'] = search
-          if category:
-                category = pool['product.public.category'].browse(cr, uid, int(category), context=context)
-          else:
-                url = '/shop'
-          product_all = product_obj.search(request.cr, SUPERUSER_ID, product_domain,context=request.context)
-          product_count = product_obj.search_count(cr, uid, domain, context=context)
-
-          pager = request.website.pager(url=url, total=product_count, page=page, step=PPG, scope=7, url_args=post)
-
-          product_ids = product_obj.search(cr, uid, domain, limit=PPG, offset=pager['offset'], order='website_published desc, website_sequence desc', context=context)
-          products = product_obj.browse(cr, uid, product_ids, context=context)
-
-          style_obj = pool['product.style']
-          style_ids = style_obj.search(cr, uid, [], context=context)
-          styles = style_obj.browse(cr, uid, style_ids, context=context)
-
-          category_obj = pool['product.public.category']
-          category_ids = category_obj.search(cr, uid, [], context=context)
-          categories = category_obj.browse(cr, uid, category_ids, context=context)
-          categs = filter(lambda x: not x.parent_id, categories)
-          if category:
-                selected_id = int(category)
-                child_prod_ids = category_obj.search(cr, uid, [('parent_id', '=', selected_id)], context=context)
-                children_ids = category_obj.browse(cr, uid, child_prod_ids)
-                values.update({'child_list': children_ids})
-
-          attributes_obj = request.registry['product.attribute']
-          attributes_ids = attributes_obj.search(cr, uid, [], context=context)
-          attributes = attributes_obj.browse(cr, uid, attributes_ids, context=context)
-
-          from_currency = pool.get('product.price.type')._get_field_currency(cr, uid, 'list_price', context)
-          to_currency = pricelist.currency_id
-          compute_currency = lambda price: pool['res.currency']._compute(cr, uid, from_currency, to_currency, price, context=context)
-
-          values.update({'search': search,
-           'category': category,
-           'country': country2,
-           'current_country': country2,
-           'attrib_values': attrib_values,
-           'attrib_set': attrib_set,
-           'pager': pager,
-           'pricelist': pricelist,
-           'products': product_all,
-           'bins': table_compute().process(products),
-           'rows': PPR,
-           'styles': styles,
-           'categories': categs,
-           'attributes': attributes,
-           'compute_currency': compute_currency,
-           'keep': keep,
-           'style_in_product': lambda style, product: style.id in [ s.id for s in product.website_style_ids ],
-           'attrib_encode': lambda attribs: werkzeug.url_encode([ ('attrib', i) for i in attribs ])})
-          return request.website.render('website_sale.products', values)
-
-    #@http.route(['/companies/<names>',], type='http', auth='public', website=True)
-    def companies_country(self, names, page=0, **post):
-          cr, context, pool = (request.cr, request.context, request.registry)
-          country_obj=pool('res.country')
-          name2= names.title()
-          domain = [('name', '=', name2)]
-          country = country_obj.search(cr, SUPERUSER_ID, domain)
-          country2 = country_obj.browse(cr, SUPERUSER_ID, country, context=context)
-          prova = "adios"
-          values = {'country' : country2,
-                   'prova' : prova
-          }
-          return request.website.render('website_product_brand.countries_link', values)
-
-    #@http.route(['/regionalsmarket',], type='http', auth='public', website=True)
-    def countriesmarket(self, country="", **post):
-          cr, context, pool = (request.cr, request.context, request.registry)
-          country_obj = pool['res.country']
-          partner_obj = pool['res.partner']
-          brand_obj = pool['product.brand']
-          product_obj = pool.get('product.template')
-          country_group_domain = [('is_company', '=', True), ('website_published', '=', True)]
-
-          empty_domain = []
-          countries2 = []
-          TotalCountries = []
-          total_brands_country = 0
-
-          if not country:
-              country_code = request.session['geoip'].get('country_code')
-              if country_code:
-                  country_ids = country_obj.search(request.cr, request.uid, [('code', '=', country_code)], context=request.context)
-                  if country_ids:
-                      country = country_obj.browse(request.cr, request.uid, country_ids[0], context=request.context)
-          if country:
-              domain += [('product_brand_id.company_id.partner_id.country_id', '=', country.id)]
-
-          countries = partner_obj.read_group(
-                               request.cr, SUPERUSER_ID, country_group_domain, ["country_id", "company_id", "id"],
-                               groupby="country_id", orderby="country_id", context=request.context)
-          brand_ids2 = brand_obj.search(cr, SUPERUSER_ID, empty_domain)
-
-          for country_dict in countries:
-              country_dict['active'] = country and country_dict['country_id'] and country_dict['country_id'][0] == country.id
-              for b in brand_obj.browse(cr, SUPERUSER_ID, brand_ids2, context=context):
-                  if b.company_id.partner_id.country_id.id == country_dict['country_id']:
-                      total_brands_country+=1
-                  country_dict['country_id_count']=(total_brands_country)
-              if total_brands_country != 0:
-                  countries2.append(country_dict)
-              total_brands_country = 0
-          # format pager
-          values={ 'countries_total' : countries2,
-          }
-          return request.website.render('website_product_brand.countries_market', values)
-
-    @http.route(['/shop/brands'], type='http', auth='public', website=True)
-    def brands(self, page = 0, category = None, search = '', **post):
-        cr, uid, context, pool = (request.cr,
-         request.uid,
-         request.context,
-         request.registry)
+    @http.route([
+        '/demands',
+        '/demands/country/<model("res.country"):country>',
+        '/demands/country/<model("res.country"):country>/<country_defined>',
+        '/demands/country/<model("res.country"):country>/page/<int:page>',
+        '/demands/country/<model("res.country"):country>/page/<int:page>/<country_defined>'
+        ], type='http', auth='public', website=True)
+    def demands(self, country_defined = None, country = None, page = 0, category = int(demand_cat), search = '', **post): # Demand cat harcoded
+        cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
+        #utilities
         values = {}
-        child_prod_id = []
         domain = request.website.sale_product_domain()
+        country_obj = pool['res.country']
+        partner_obj = pool['res.partner']
+        product_obj = pool.get('product.template')
+        domain_list = []
+        empty_domain = []
+        check = ""
+        country_group_domain = [('is_company', '=', True),('website_published', '=', True)]
+        country_all = post.pop('country_all', False)
+        total_products = 0
+        all_products = 0
+        countries2 = []
+
+        # Problema: Si le pasamos solo el country entra un modelo. si le pasamos la cat y el country entra un unicode
+        # Hay que detectar los unicodes y convertirlos en modelos a partir de aqui
+        if isinstance(country,unicode) and country:
+            country_ids = country_obj.search(cr, uid, [('id', '=', country)], context=context)
+            if country_ids:
+                country = country_obj.browse(cr, uid, country_ids[0], context=context)
+
+        if search:
+            domain += ['|', '|', '|',
+                       ('name', 'ilike', search),
+                       ('description', 'ilike', search),
+                       ('description_sale', 'ilike', search),
+                       ('product_variant_ids.default_code', 'ilike', search)]
+
+        if category:
+            domain += [('public_categ_ids', 'child_of', int(category))] # Demand category harcoded
+
+        if not country:
+            country_code = request.session['geoip'].get('country_code')
+            if country_code:
+                country_ids = country_obj.search(cr, uid, [('code', '=', country_code)], context=context)
+                if country_ids:
+                    country = country_obj.browse(cr, uid, country_ids[0], context=context)
+
+        if country_defined or country:
+            check = "/country_defined"
+            domain += [('company_id.partner_id.country_id.id', '=', country.id )]
+
+        countries = partner_obj.read_group(
+                    cr, SUPERUSER_ID, country_group_domain, ["country_id", "company_id", "id"],
+                    groupby="country_id", orderby="country_id", context=context)
+
+        # get numbers for the regional widget 
+        product_ids2 = product_obj.search(cr, SUPERUSER_ID, [('public_categ_ids', 'child_of', int(category))], context=context)
+        # flag active country and select only countries with products
+        for country_dict in countries:
+            country_dict['active'] = country and country_dict['country_id'] and country_dict['country_id'][0] == country.id
+            if country_dict['country_id'] == False:
+                continue
+            for b in product_obj.browse(cr, SUPERUSER_ID, product_ids2, context):
+                if b.website_published == True:
+                    if (b.company_id.country_id.id == country_dict['country_id'][0]):
+                        total_products+=1
+
+            if total_products!=0:
+                country_dict['country_id_count'] = total_products
+                countries2.append(country_dict)
+
+            total_products = 0
+
+        countries2.insert(0,{
+            'country_id': (0, ("All Countries")),
+            'active': bool(country is None),
+            'country_id_count': all_products,
+        })
+
+        # format pager
+        url_args = {}
+        if search:
+            url_args['search'] = search
+            post['search'] = search
+        if category:
+            category = pool['product.public.category'].browse(cr, uid, int(category), context=context)
+        if country_all:
+            url_args['country_all'] = True
+        if category and not country:
+            url = '/demands/category/' + slug(category)
+        elif country and not category:
+            url = '/demands/country/' + slug(country)
+        elif country and category:
+            url = '/demands/category/' + slug(category) + '/country/' + slug(country)
+        else:
+            url = '/demands'
+
+        domain2 = list(domain_list)
         attrib_list = request.httprequest.args.getlist('attrib')
         attrib_values = [ map(int, v.split('-')) for v in attrib_list if v ]
         attrib_set = set([ v[1] for v in attrib_values ])
@@ -617,52 +531,52 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
                     domain += [('attribute_line_ids.value_ids', 'in', ids)]
                     attrib = value[0]
                     ids = [value[1]]
-
             if attrib:
                 domain += [('attribute_line_ids.value_ids', 'in', ids)]
-
-        keep = QueryURL('/shop', category=category and int(category), search=search, attrib=attrib_list)
+        keep = QueryURL('/demands', category=category and int(category),  country=country and int(country), search=search, attrib=attrib_list)
         if not context.get('pricelist'):
             pricelist = self.get_pricelist()
             context['pricelist'] = int(pricelist)
         else:
             pricelist = pool.get('product.pricelist').browse(cr, uid, context['pricelist'], context)
-        product_obj = pool.get('product.template')
 
-       # Brand's product search
-        brand_id = False
-        if post.get('brand'):
-            product_designer_obj = pool.get('product.brand')
-            brand_ids = product_designer_obj.search(cr, SUPERUSER_ID, [('id', '=', int(post.get('brand')))])
-            domain = [('product_brand_id', 'in', brand_ids)]
-            brand_id = domain
-        url = '/shop'
         product_count = product_obj.search_count(cr, uid, domain, context=context)
-        if search:
-            post['search'] = search
-        if category:
-            category = pool['product.public.category'].browse(cr, uid, int(category), context=context)
-            url = '/shop/category/%s' % slug(category)
+
         pager = request.website.pager(url=url, total=product_count, page=page, step=PPG, scope=7, url_args=post)
-        product_ids = product_obj.search(cr,uid,domain,limit=PPG,offset=pager['offset'],order='website_published desc, website_sequence desc',context=context)
+
+        product_ids = product_obj.search(cr, uid, domain, limit=PPG, offset=pager['offset'], order='website_published desc, website_sequence desc', context=context)
         products = product_obj.browse(cr, uid, product_ids, context=context)
+
         style_obj = pool['product.style']
         style_ids = style_obj.search(cr, uid, [], context=context)
         styles = style_obj.browse(cr, uid, style_ids, context=context)
+
         category_obj = pool['product.public.category']
-        category_ids = category_obj.search(cr, uid, [], context=context)
+        category_ids = category_obj.search(cr, uid, [('parent_id', '=', int(category)) , ('id', '=', int(category))], context=context)
         categories = category_obj.browse(cr, uid, category_ids, context=context)
         categs = filter(lambda x: not x.parent_id, categories)
+        # Category's product search
+        if category:
+            selected_id = int(category)
+            child_prod_ids = category_obj.search(cr, uid, [('parent_id', '=', selected_id)], context=context)
+            children_ids = category_obj.browse(cr, uid, child_prod_ids)
+            values.update({'child_list': children_ids})
+
         attributes_obj = request.registry['product.attribute']
         attributes_ids = attributes_obj.search(cr, uid, [], context=context)
         attributes = attributes_obj.browse(cr, uid, attributes_ids, context=context)
+
         from_currency = pool.get('product.price.type')._get_field_currency(cr, uid, 'list_price', context)
         to_currency = pricelist.currency_id
         compute_currency = lambda price: pool['res.currency']._compute(cr, uid, from_currency, to_currency, price, context=context)
-        brand_obj = pool.get('product.brand')
-        brand = brand_obj.browse(cr, uid, brand_ids, context=context)
-        values.update({'search': search,
+
+        values.update({
+         'demand': True,
+         'search': search,
          'category': category,
+         'countries': countries2,
+         'check' : check,
+         'current_country': country,
          'attrib_values': attrib_values,
          'attrib_set': attrib_set,
          'pager': pager,
@@ -672,11 +586,11 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
          'rows': PPR,
          'styles': styles,
          'categories': categs,
+         'attributes': attributes,
          'compute_currency': compute_currency,
          'keep': keep,
          'style_in_product': lambda style, product: style.id in [ s.id for s in product.website_style_ids ],
-         'attributes': attributes,
-         'brand': brand,
          'attrib_encode': lambda attribs: werkzeug.url_encode([ ('attrib', i) for i in attribs ])})
-        #return request.website.render('website_sale.brand_page', values)
-        return request.website.render('website_product_brand.brand_page', values)
+
+        return request.website.render('website_sale.products', values)
+

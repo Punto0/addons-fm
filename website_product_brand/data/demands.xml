@@ -8,7 +8,7 @@
 -->
         <record id="menu_demands" model="website.menu">
             <field name="name">Demands</field>
-            <field name="url">https://market.fair.coop/es_ES/shop/category/demands-206</field>
+            <field name="url">https://market.fair.coop/demands</field>
             <field name="parent_id" ref="website.main_menu"/>
             <field name="sequence" type="int">25</field>
         </record>

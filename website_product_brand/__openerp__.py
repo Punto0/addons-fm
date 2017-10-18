@@ -33,6 +33,7 @@ This Module depends on product_brand module -https://github.com/OCA/product-attr
         """,
     'depends': ['product_brand_custom','website_sale'],
     'data': [
+        "data/demands.xml",
         "security/ir.model.access.csv",
         "views/product_brand.xml",
         "views/brand_page.xml",
