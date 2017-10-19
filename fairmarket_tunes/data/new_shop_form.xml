@@ -1,0 +1,46 @@
+<openerp>
+<data>
+<record id="request_shop_form_view" model="ir.ui.view">
+    <field name="name">request.shop.form.view</field>
+    <field name="model">crm.lead</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Request Shop">
+        <sheet>  
+            <group>
+              <field name="name" string="Your project name" required="1" />
+              <field name="description" 
+                           placeholder="Please, write us a few lines about how your project is inline with the FairCoop principles"
+                           string="Project presentation"
+                           required="1"/>
+            </group>
+            <p>Your request will be processed in the next hours/days, please be patient.
+               Our admins will look if your project belongs to the fair economy and is not opposed to <a href="https://fair.coop/es/principles-and-objectives/">the FairCoop principles</a>.         
+            </p> 
+        </sheet>  
+      </form>
+    </field>
+</record>
+<record id="action_create_crm_lead" model="ir.actions.act_window">
+    <field name="name">Request shop access</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">crm.lead</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">form</field>
+    <field name="view_id" ref="request_shop_form_view"/>
+    <field name="target">current</field>
+    <field name="context">{ 'default_type': 'lead' }</field>
+</record>
+<menuitem id="menu_request_open_shop_sub"
+                parent="portal.portal_menu"
+                name ="Request a shop" 
+                sequence="20"
+/>
+<menuitem action="action_create_crm_lead" 
+                  id="menu_request_open_shop" 
+                  parent="menu_request_open_shop_sub" 
+                  name ="Request opening a shop in FairMarket!" 
+                  sequence="10" 
+/>
+</data>
+</openerp>
