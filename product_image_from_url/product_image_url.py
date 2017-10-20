@@ -36,12 +36,19 @@ class ProductTemplate(models.Model):
         help='Import an image in this product from a external website'
 	)
 
-    @api.onchange('image_url')
-    def import_image(self):
-       if self.image_url:
+    def create(self, cr, uid, vals, context=None):
+        if vals.get('image_url'):
+            img = self.get_remote_image(vals.get('image_url'))
+            vals['image'] = img
+            vals['image_medium'] = img
+        prod = super(ProductTemplate, self).create(cr, uid, vals, context=context)   
+        return prod	
+
+    def get_remote_image(self, url):
+       if url:
          # logging.info('start import image %s' %self.image_url)
          try:
-           response = requests.get(self.image_url)
+           response = requests.get(url)
          except requests.exceptions.Timeout:
            return {
                     'warning': {'title': "Error", 'message': 'Connection timeout'},
@@ -55,6 +62,10 @@ class ProductTemplate(models.Model):
                     'warning': {'title': "Error", 'message': e},
            }
          except Exception.TypeError as e:
+           return {
+                    'warning': {'title': "Error", 'message': e},
+           }
+         except Exception as e:
            return {
                     'warning': {'title': "Error", 'message': e},
            }
@@ -73,9 +84,12 @@ class ProductTemplate(models.Model):
          output.seek(0)
          output_s = output.read()
          b64 = base64.b64encode(output_s).decode()
-         self.image_medium = b64
-         self.image = b64
+         return b64
+       return False
 
-       return self
-
+    @api.onchange('image_url')
+    def import_image(self):
+        img = self.get_remote_image(self.image_url)
+        self.image_medium = img
+        self.image = img
                   
