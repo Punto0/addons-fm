@@ -26,6 +26,8 @@ import cStringIO
 import logging
 from openerp import models, fields, api
 
+image_size = 600, 600
+
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
@@ -37,24 +39,9 @@ class ProductTemplate(models.Model):
     @api.onchange('image_url')
     def import_image(self):
        if self.image_url:
-         logging.info('start import image %s' %self.image_url)
+         # logging.info('start import image %s' %self.image_url)
          try:
            response = requests.get(self.image_url)
-           response.raise_for_status()
-           img = Image.open(StringIO(response.content))
-           output = cStringIO.StringIO()
-           img.save(output, 'PNG')
-           output.seek(0)
-           output_s = output.read()
-           b64 = base64.b64encode(output_s).decode()
-           self.image_medium = b64
-           self.image = b64
-         except requests.exceptions.HTTPError as err:
-           mess = "Please, check the provided URL.\nHTTPError : %s" %err
-           logging.error(mess)
-           return {
-                    'warning': {'title': "Error", 'message': mess},
-           }
          except requests.exceptions.Timeout:
            return {
                     'warning': {'title': "Error", 'message': 'Connection timeout'},
@@ -67,6 +54,28 @@ class ProductTemplate(models.Model):
            return {
                     'warning': {'title': "Error", 'message': e},
            }
+         except Exception.TypeError as e:
+           return {
+                    'warning': {'title': "Error", 'message': e},
+           }
+         try:
+           response.raise_for_status()
+         except requests.exceptions.HTTPError as err:
+           mess = "Please, check the provided URL.\nHTTPError : %s" %err
+           logging.error(mess)
+           return {
+                    'warning': {'title': "Error", 'message': mess},
+           }
+         img = Image.open(StringIO(response.content))
+         img.thumbnail(image_size, Image.ANTIALIAS)
+         output = cStringIO.StringIO()
+         img.save(output, 'PNG')
+         output.seek(0)
+         output_s = output.read()
+         b64 = base64.b64encode(output_s).decode()
+         self.image_medium = b64
+         self.image = b64
+
        return self
 
                   
