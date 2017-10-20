@@ -46,7 +46,7 @@ class ProductTemplate(models.Model):
 
     def get_remote_image(self, url):
        if url:
-         # logging.info('start import image %s' %self.image_url)
+         logging.info('start import image %s' %url)
          try:
            response = requests.get(url)
          except requests.exceptions.Timeout:
@@ -92,4 +92,4 @@ class ProductTemplate(models.Model):
         img = self.get_remote_image(self.image_url)
         self.image_medium = img
         self.image = img
-                  
+        return self          
