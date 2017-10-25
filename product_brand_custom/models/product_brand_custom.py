@@ -34,28 +34,42 @@ class ProductBrand(models.Model):
         return {'type': 'ir.actions.act_window_close'}
 
   def search_brand(self, cr, uid, vals, context=None):
-    logging.info("search_brand")
-    # Devuelve la ficha en edición de la marca del usuario
     brand_ids = self.pool.get('product.brand').search(cr, uid, [('user_id','=',uid)], context=context)
-    logging.info("Brand ids %s" %brand_ids)
     view_list = self.pool.get('ir.ui.view').search_read(cr, uid, [('name','=','product.brand.form')],context=context )
     for view in view_list:
       if view['xml_id'] == 'product_brand.view_product_brand_form':
         view_id = view['id']
-        break 
-    logging.info("view id : %s" %view_id)
-    # Fin de la chapuza
+        break
     context['view_buttons'] = True
-    view = {
-      'name': _('Project Configuration'),
-      'view_type': 'form',
-      'view_mode': 'form',
-      'res_model': 'product.brand',
-      'view_id': view_id,
-      'type': 'ir.actions.act_window',
-      'target': 'inline',
-      'readonly': False,
-      'context': context,
-      'res_id': brand_ids[0],
-    }
-    return view  
+    if len(brand_ids) == 1:
+      view = {
+        'name': _('Project Configuration'),
+        'view_type': 'form',
+        'view_mode': 'form',
+        'res_model': 'product.brand',
+        'view_id': view_id,
+        'type': 'ir.actions.act_window',
+        'target': 'inline',
+        'readonly': False,
+        'context': context,
+        'res_id': brand_ids[0],
+      }
+    elif len(brand_ids) > 1:
+      dom = "[('id', '=', %s)]" %brand_ids
+      logging.info("dom %s" %dom)
+      view = {
+        'name': _('Projects Configuration'),
+        'view_type': 'form',
+        'view_mode': 'kanban,form,tree',
+        'res_model': 'product.brand',
+        'type': 'ir.actions.act_window',
+        # 'target': 'inline',
+        'res_id': brand_ids,
+        'context': context,
+        'domain': dom,
+      }
+    elif len(brand_ids) == 0:
+      view =  { 'warning': {'title': "Error", 'message': 'We can not find your brand, please contact the admins'} }
+      logging.debug(view)
+
+    return view
