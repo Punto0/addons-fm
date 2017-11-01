@@ -5,7 +5,7 @@ from openerp import models, fields, osv, _
 
 class ProductBrand(models.Model):
   _name = "product.brand"
-  _inherit = ['product.brand','mail.thread']
+  _inherit = ['product.brand']
   user_id = fields.Many2one('res.users','User',help="User authorized for this Brand")
   partner_id = fields.Many2one('res.partner', related='company_id.partner_id')
   company_id = fields.Many2one(
@@ -55,15 +55,14 @@ class ProductBrand(models.Model):
         'res_id': brand_ids[0],
       }
     elif len(brand_ids) > 1:
-      dom = "[('id', '=', %s)]" %brand_ids
-      logging.info("dom %s" %dom)
+      dom = "[('id', 'in', %s)]" %brand_ids
       view = {
         'name': _('Projects Configuration'),
         'view_type': 'form',
         'view_mode': 'kanban,form,tree',
         'res_model': 'product.brand',
         'type': 'ir.actions.act_window',
-        # 'target': 'inline',
+        'target': 'inline',
         'res_id': brand_ids,
         'context': context,
         'domain': dom,
