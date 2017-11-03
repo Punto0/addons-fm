@@ -9,8 +9,15 @@
                <xpath expr="//group/field[@name='type']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>
-               <xpath expr="//group/field[@name='ean13']" position="attributes">
+               <xpath expr="//field[@name='ean13']" position="attributes">
                     <attribute name="invisible">1</attribute>
+               </xpath>
+               <xpath expr="//group/field[@name='company_id']" position="attributes">
+                    <attribute name="domain">[('user_ids','in', [uid])]</attribute>
+                    <attribute name="options">{"no_create": True, "no_open": True }</attribute>
+               </xpath>
+               <xpath expr="//group/field[@name='company_id']" position="after">
+                    <field name="product_brand_id" domain="[('user_id', '=', uid)]" options="{'no_create': True, 'no_open': True }" />
                </xpath>
                 <field name="description" position="before">
                     <separator string="Short Description"/>
