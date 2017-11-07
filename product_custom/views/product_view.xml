@@ -7,13 +7,15 @@
             <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
                <xpath expr="//group/field[@name='type']" position="attributes">
-                    <attribute name="groups">"base.group_system"</attribute>
+                    <attribute name="groups">base.group_erp_manager</attribute>
+                    <attribute name="invisible">0</attribute>
                </xpath>
-               <xpath expr="//field[@name='ean13']" position="attributes">
+               <xpath expr="//group/field[@name='ean13']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>
-               <xpath expr="//field[@name='active']" position="attributes">
-                    <attribute name="groups">"base.group_system"</attribute>
+               <xpath expr="//group/field[@name='active']" position="attributes">
+                    <attribute name="groups">base.group_erp_manager</attribute>
+                    <attribute name="invisible">0</attribute>
                </xpath>
                <xpath expr="//group/field[@name='company_id']" position="attributes">
                     <attribute name="domain">[('user_ids','in', [uid])]</attribute>
@@ -25,9 +27,6 @@
                <xpath expr="//page[@string='Inventory']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>           
-               <xpath expr="//page[@string='Procurements']" position="attributes">
-                    <attribute name="groups">"purchase.group_purchase_collective_manager"</attribute>
-               </xpath>
             </field> 
         </record>
     </data>
