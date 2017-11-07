@@ -19,17 +19,12 @@
                <xpath expr="//group/field[@name='company_id']" position="after">
                     <field name="product_brand_id" domain="[('user_id', '=', uid)]" options="{'no_create': True, 'no_open': True }" />
                </xpath>
-                <field name="description" position="before">
-                    <separator string="Short Description"/>
-                    <field name="description_sale" placeholder="Short note to be displayed on quotations..."/>
-                    <separator string="Long description"/>
-                </field>
                <xpath expr="//page[@string='Inventory']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>           
                <xpath expr="//page[@string='Procurements']" position="attributes">
                     <attribute name="groups">"purchase.group_purchase_collective_manager"</attribute>
-               </xpath>           
+               </xpath>
             </field> 
         </record>
     </data>
