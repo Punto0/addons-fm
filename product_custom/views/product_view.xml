@@ -26,7 +26,10 @@
                </xpath>
                <xpath expr="//page[@string='Inventory']" position="attributes">
                     <attribute name="invisible">1</attribute>
-               </xpath>           
+               </xpath>
+               <xpath expr="//tree/field[@name='attribute_id']" position="attributes"> 
+                   <attribute name="domain">[('create_uid','=',uid)]</attribute>
+               </xpath>
             </field> 
         </record>
     </data>
