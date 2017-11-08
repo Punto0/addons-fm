@@ -20,6 +20,7 @@
                <xpath expr="//group/field[@name='company_id']" position="attributes">
                     <attribute name="domain">[('user_ids','in', [uid])]</attribute>
                     <attribute name="options">{"no_create": True, "no_open": True }</attribute>
+                    <attribute name="groups">base.group_sale_salesman</attribute>
                </xpath>
                <xpath expr="//group/field[@name='company_id']" position="after">
                     <field name="product_brand_id" domain="[('user_id', '=', uid)]" options="{'no_create': True, 'no_open': True }" />
