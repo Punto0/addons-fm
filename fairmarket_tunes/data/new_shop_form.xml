@@ -1,14 +1,5 @@
 <openerp>
 <data>
-<record model="ir.rule" id="ir_crm_lead_create">
-    <field name="name">All create leads</field>
-    <field name="model_id" ref="crm.model_crm_lead"/>
-    <field name="domain_force">[(1,'=',1)]</field>
-    <field name="perm_read" eval="False"/>
-    <field name="perm_write" eval="False"/>
-    <field name="perm_unlink" eval="False"/>
-    <field name="perm_create" eval="True"/>
-</record>
 <record id="request_shop_form_view" model="ir.ui.view">
     <field name="name">request.shop.form.view</field>
     <field name="model">crm.lead</field>
@@ -48,7 +39,7 @@
 <menuitem action="action_create_crm_lead" 
                   id="menu_request_open_shop" 
                   parent="menu_request_open_shop_sub" 
-                  name ="Request opening a shop in FairMarket!" 
+                  name ="Open a shop in FairMarket" 
                   sequence="10" 
 />
 </data>
