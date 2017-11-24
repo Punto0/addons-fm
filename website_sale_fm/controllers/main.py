@@ -15,38 +15,43 @@ _logger = logging.getLogger(__name__)
 
 class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
 
-    #------------------------------------------------------
-    # Checkout
-    # No acepta productos de distintas tiendas, retorna al carro 
-    # La compañia con id 1 se añade para un envío genérico de FairMarket gratutito
-    # Esto es necessario para no bloquear las ordenes a las tiendas que no hayan configurado metodo de envio
-    #------------------------------------------------------
-    @http.route(['/shop/checkout'], type='http', auth="public", website=True)
-    def checkout(self, **post):
-        cr, uid, context = request.cr, request.uid, request.context
-        #_logger.debug("Start /shop/checkout in website_sale_fm")
-
-        order = request.website.sale_get_order(force_create=1, context=context)
+    def check_cart(self):
+        order = request.website.sale_get_order()
+        valid = True
         companies = [1]
-
-        for order_line in order.order_line:
-            if not order_line.product_id.sale_ok:
-                logging.info("This product can not be sold individually in the shop, only in Colelctive Purchases.") 
-                # ToDo: mostrar ventana warning
-                return request.redirect("/purchase/open")
-
         for order_line in order.order_line:
             company = order_line.product_id.company_id.id
             if not company in companies:
                 companies.append(company)
-
         if len(companies) > 2:
-            logging.info("Más de dos compañias detectadas, redirigiendo al carro") 
-            # ToDo: mostrar ventana warning
-            return request.redirect("/shop/cart")
+            logging.debug("Más de dos compañias detectadas, muestra el aviso") 
+            valid = False
+        return valid
 
-        res = super(website_sale, self).checkout(**post)
-        return res
+    # Set Valid/invalid flag to show/hide warning
+    @http.route(['/shop/cart'], type='http', auth="public", website=True)
+    def cart(self, **post):
+        valid = self.check_cart()
+        order = request.website.sale_get_order()
+        values = {
+          'website_sale_order': order,
+          'valid':valid,
+        }
+        return request.render("website_sale.cart", values)
+
+    #------------------------------------------------------
+    # Checkout
+    # No acepta productos de distintas tiendas, retorna al carro 
+    # Esto es necessario para no bloquear las ordenes a las tiendas que no hayan configurado metodo de envio
+    #------------------------------------------------------
+    @http.route(['/shop/checkout'], type='http', auth="public", website=True)
+    def checkout(self, **post):
+        if self.check_cart():
+            cr, uid, context = request.cr, request.uid, request.context
+            order = request.website.sale_get_order(force_create=1, context=context)
+            return super(website_sale, self).checkout(**post)
+        else:
+            return request.redirect("/shop/cart")
 
     #------------------------------------------------------
     # Payment
@@ -54,7 +59,6 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
     # No filtra los acquirers por cia --> No se puede cambiar eso, lo modifico directamente en website_sale
     # ¡Atentos a actualizaciones!!!
     #------------------------------------------------------
-    
     @http.route(['/shop/payment'], type='http', auth="public", website=True)
     def payment(self, **post):
         cr, uid, context = request.cr, request.uid, request.context

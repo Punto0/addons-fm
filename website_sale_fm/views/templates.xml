@@ -12,5 +12,16 @@
       </div>
   </xpath>
 </template>
+<!-- Add warning on website cart page -->
+<template id="payment" inherit_id="website_sale.cart">
+    <xpath expr="//h1" position="after">
+        <t t-if="not valid">
+            <div class="alert alert-danger">
+                <strong>Warning!</strong>
+                <p>You have ordered products from different shops, please request an unique order for each shop.</p>
+            </div>
+        </t>
+    </xpath>
+</template>
 </data>
 </openerp>
