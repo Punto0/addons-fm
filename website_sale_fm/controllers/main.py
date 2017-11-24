@@ -18,13 +18,16 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
     def check_cart(self):
         order = request.website.sale_get_order()
         valid = True
-        companies = [1]
-        for order_line in order.order_line:
-            company = order_line.product_id.company_id.id
-            if not company in companies:
-                companies.append(company)
-        if len(companies) > 2:
-            logging.debug("Más de dos compañias detectadas, muestra el aviso") 
+        if order:
+            companies = [1]
+            for order_line in order.order_line:
+                company = order_line.product_id.company_id.id
+                if not company in companies:
+                    companies.append(company)
+            if len(companies) > 2:
+                logging.debug("Más de dos compañias detectadas, muestra el aviso") 
+                valid = False
+        else:
             valid = False
         return valid
 
@@ -48,7 +51,6 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
     def checkout(self, **post):
         if self.check_cart():
             cr, uid, context = request.cr, request.uid, request.context
-            order = request.website.sale_get_order(force_create=1, context=context)
             return super(website_sale, self).checkout(**post)
         else:
             return request.redirect("/shop/cart")
@@ -68,9 +70,7 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
             if line.product_id.company_id.id is not 1:
                 res = super(website_sale, self).payment(**post)
                 order.company_id = line.product_id.company_id
-                order.user_id = order.company_id.user_ids[0] # Cambia el salesman de la orden para que tenga acceso. User: All leads
+                order.user_id = line.product_id.company_id.user_ids[0] # Cambia el salesman de la orden para que tenga acceso. User: Own leads
                 return res
         return request.redirect("/shop/cart")
-     
- # vim:expandtab:tabstop=4:softtabstop=4:shiftwidth=4:
 
