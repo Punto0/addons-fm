@@ -9,10 +9,32 @@
                     <attribute name="invisible">1</attribute>
                 </xpath>
                 <xpath expr="//group/field[@name='partner_id']" position="attributes">
-                    <attribute name="domain">[('company_id.user_ids','in', [uid])]</attribute>
+                    <attribute name="domain">[('company_id.user_ids', 'in', [uid])]</attribute>
                     <attribute name="options">{'no_create': True, 'no_open': True }</attribute>
                 </xpath>
            </field>
         </record>
+        <record id="action_open_delivery_methods_user" model="ir.actions.act_window">
+            <field name="name">Delivery Methods</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">delivery.carrier</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('partner_id.company_id.user_ids', 'in', [uid])]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to define a new deliver method. 
+              </p><p>
+                Each carrier (e.g. UPS) can have several delivery methods (e.g.
+                UPS Express, UPS Standard) with a set of pricing rules attached
+                to each method.
+              </p><p>
+                These methods allow to automatically compute the delivery price
+                according to your settings; on the sales order (based on the
+                quotation) or the invoice (based on the delivery orders).
+              </p>
+            </field>
+        </record>
+        <menuitem id="user_delivery_methods" name="Delivery Methods" parent="base.menu_sales" action="action_open_delivery_methods_user"/>
     </data>
 </openerp>
