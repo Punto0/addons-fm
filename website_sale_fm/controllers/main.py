@@ -51,26 +51,8 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
     def checkout(self, **post):
         if self.check_cart():
             cr, uid, context = request.cr, request.uid, request.context
+            context['send_email'] = False
             return super(website_sale, self).checkout(**post)
         else:
             return request.redirect("/shop/cart")
-
-    #------------------------------------------------------
-    # Payment
-    # Setea salesman y company de la orden.
-    # No filtra los acquirers por cia --> No se puede cambiar eso, lo modifico directamente en website_sale
-    # ¡Atentos a actualizaciones!!!
-    #------------------------------------------------------
-    @http.route(['/shop/payment'], type='http', auth="public", website=True)
-    def payment(self, **post):
-        cr, uid, context = request.cr, request.uid, request.context
-        order = request.website.sale_get_order(context=context)
-        for line in order.order_line:
-            # puede que haya el metodo de envio generico de fm  
-            if line.product_id.company_id.id is not 1:
-                res = super(website_sale, self).payment(**post)
-                order.company_id = line.product_id.company_id
-                order.user_id = line.product_id.company_id.user_ids[0] # Cambia el salesman de la orden para que tenga acceso. User: Own leads
-                return res
-        return request.redirect("/shop/cart")
 
