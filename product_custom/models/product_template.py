@@ -21,13 +21,41 @@
 from openerp import models, fields, api
 import logging
 
-class ProductTemplate(models.Model):
+class ProductTemplateCustom(models.Model):
     _inherit = 'product.template'
 
     type = fields.Selection(
          [('consu', 'Consumable'),('service','Service')],
          'Product Type',
          required=True,
-         default='service',
-         help="Consumable are product where you don't manage stock, a service is a non-material product provided by a company or an individual.",
+         default='consu',
+         help="Consumable: Apply delivery methods but not stock.\nService: Non-material product, does not apply delivery methods nor stock.",
 	)
+    discount = fields.Boolean('Campaign discount',help="This product apply the 1:1 campaign and it will have a 20% discount on the price.")
+
+    @api.onchange('discount')
+    def check_change_discount(self):
+        if self.discount:
+            self.categ_id = self.env.ref('product_custom.product_category_discount_campaign')
+        else:
+            self.categ_id = self.env.ref('product_custom.product_category_normal')
+
+    # onchange no permite la actualizacion de campos many2many, lo hacemos aqui
+    @api.one
+    def write(self, vals):
+        logging.info("write %s" %vals)
+        #style = self.env.ref("product_custom.product_style_discount_campaign")
+        style = self.env.ref("website_sale.image_promo")
+        if vals.get('discount',False):
+            vals['website_style_ids'] = [[4, style.id, []]]
+        else:
+            vals['website_style_ids'] = [[3, style.id, []]]
+        return super(ProductTemplateCustom, self).write(vals)
+
+    @api.model
+    def create(self, vals):
+        if not vals.get('categ_id'):
+	    vals['categ_id'] = self.env['product.category'].search([('name','=','Normal')])[0]
+        return super(ProductTemplateCustom, self).create(vals)
+
+

@@ -6,13 +6,17 @@
             <field name="model">product.template</field>
             <field name="inherit_id" ref="product.product_template_form_view"/>
             <field name="arch" type="xml">
-               <xpath expr="//group/field[@name='type']" position="attributes">
-                    <attribute name="invisible">0</attribute>
+               <xpath expr="//group/field[@name='list_price']" position="after">
+                    <field name="discount" on_change="1"/>  
+               </xpath>
+<!--
+	            <xpath expr="//group/field[@name='type']" position="attributes">
+                    <attribute name="domain">[('consu','Consumible'),('service','Service')]</attribute>
                     <attribute name="help">Service: Does not apply delivery methods nor stock control.
                                            Consumable: Apply delivery method but not stock control.
-                                           Stockable: Apply delivery methods and stock control.    
                    </attribute>
                </xpath>
+-->
                <xpath expr="//group/field[@name='ean13']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>

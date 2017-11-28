@@ -36,13 +36,13 @@ class ProductTemplate(models.Model):
         help='Import an image in this product from a external website'
 	)
 
-    def create(self, cr, uid, vals, context=None):
+    def create(self, vals, context=None):
         if vals.get('image_url'):
             img = self.get_remote_image(vals.get('image_url'))
             vals['image'] = img
             vals['image_medium'] = img
-        prod = super(ProductTemplate, self).create(cr, uid, vals, context=context)   
-        return prod	
+        prod = super(ProductTemplate, self).create(vals, context=context)
+        return prod
 
     def get_remote_image(self, url):
        if url:
@@ -92,4 +92,4 @@ class ProductTemplate(models.Model):
         img = self.get_remote_image(self.image_url)
         self.image_medium = img
         self.image = img
-        return self          
+        return self

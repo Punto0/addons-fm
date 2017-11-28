@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0">
+        <record id="product_category_discount_campaign" model="product.category">
+            <field name="parent_id" ref="product.product_category_all"/>
+            <field name="name">Discount Campaign</field>
+        </record>
+        <record id="product_category_normal" model="product.category">
+            <field name="parent_id" ref="product.product_category_all"/>
+            <field name="name">Normal</field>
+        </record>
+<!--
+        <record id="product_style_discount_campaign" model="product.style">
+            <field name="name">1:1 Discount Campaign</field>
+            <field name="html_class">oe_discount_campaign</field>
+        </record>
+-->
+</data>
+</openerp>   

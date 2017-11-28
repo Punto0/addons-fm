@@ -1,3 +1,3 @@
 import sale_order
-import product
+#import product
 #import company

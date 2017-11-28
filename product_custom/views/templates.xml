@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="assets_frontend" inherit_id="website.assets_frontend" name="Shop">
+  <xpath expr="." position="inside">
+      <link rel='stylesheet' href='/product_custom/static/src/css/product_custom.css'/>
+  </xpath>
+</template>
+<template id="products_item_custom" inherit_id="website_sale.products_item" name="Shop">
+  <xpath expr="//div[@class='ribbon-wrapper']" position="replace">
+     <div t-if="product.discount" class="ribbon2-wrapper">
+         <div class="ribbon2-w btn btn-danger">1:1 Campaign Discount</div>
+     </div>
+  </xpath>
+</template>
+</data>
+</openerp>

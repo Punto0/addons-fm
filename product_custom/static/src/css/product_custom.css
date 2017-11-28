@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* Ribbon for promotionso on products */
+.oe_product.oe_ribbon .ribbon2-wrapper {
+  display: block;
+}
+.oe_product .ribbon2-wrapper {
+  display: block;
+  width: 192px;
+  height: 80px;
+  z-index: 5;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.oe_product .ribbon2 {
+  font: bold 12px Sans-Serif;
+  color: white;
+  text-align: center;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: 0px;
+  top: 20px;
+  width: 190px;
+  cursor: default;
+}
+
