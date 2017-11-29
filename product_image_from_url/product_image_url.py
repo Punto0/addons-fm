@@ -28,7 +28,7 @@ from openerp import models, fields, api
 
 image_size = 600, 600
 
-class ProductTemplate(models.Model):
+class ProductTemplateImageUrl(models.Model):
     _inherit = 'product.template'
 
     image_url = fields.Char(
@@ -41,8 +41,7 @@ class ProductTemplate(models.Model):
             img = self.get_remote_image(vals.get('image_url'))
             vals['image'] = img
             vals['image_medium'] = img
-        prod = super(ProductTemplate, self).create(vals, context=context)
-        return prod
+        return super(ProductTemplateImageUrl, self).create(vals)
 
     def get_remote_image(self, url):
        if url:

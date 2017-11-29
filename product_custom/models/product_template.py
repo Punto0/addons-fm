@@ -33,29 +33,31 @@ class ProductTemplateCustom(models.Model):
 	)
     discount = fields.Boolean('Campaign discount',help="This product apply the 1:1 campaign and it will have a 20% discount on the price.")
 
-    @api.onchange('discount')
-    def check_change_discount(self):
-        if self.discount:
-            self.categ_id = self.env.ref('product_custom.product_category_discount_campaign')
-        else:
-            self.categ_id = self.env.ref('product_custom.product_category_normal')
-
     # onchange no permite la actualizacion de campos many2many, lo hacemos aqui
     @api.one
     def write(self, vals):
-        logging.info("write %s" %vals)
-        #style = self.env.ref("product_custom.product_style_discount_campaign")
-        style = self.env.ref("website_sale.image_promo")
-        if vals.get('discount',False):
-            vals['website_style_ids'] = [[4, style.id, []]]
+        if 'discount' in vals:
+            new_vals = self.set_style(vals)
         else:
-            vals['website_style_ids'] = [[3, style.id, []]]
-        return super(ProductTemplateCustom, self).write(vals)
+            new_vals = vals
+        return super(ProductTemplateCustom, self).write(new_vals)
 
     @api.model
     def create(self, vals):
         if not vals.get('categ_id'):
 	    vals['categ_id'] = self.env['product.category'].search([('name','=','Normal')])[0]
-        return super(ProductTemplateCustom, self).create(vals)
+        if 'discount' in vals:
+            new_vals = self.set_style(vals)
+        else:
+            new_vals = vals
+        return super(ProductTemplateCustom, self).create(new_vals)
 
-
+    def set_style(self, vals):
+        style = self.env.ref("website_sale.image_promo")
+        if vals.get('discount',False):
+            vals['website_style_ids'] = [[4, style.id, []]]
+            vals['categ_id'] = self.env.ref('product_custom.product_category_discount_campaign').id
+        else:
+            vals['website_style_ids'] = [[3, style.id, []]]
+            vals['categ_id'] = self.env.ref('product_custom.product_category_normal').id
+        return vals
