@@ -16,15 +16,18 @@
       <h5><strong><a itemprop="name" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']>1 else None))" t-field="product.name"/></strong></h5>
       <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids"><br/><br/><br/>
           <b>
-              <t t-if="product.discount">
+            <t t-if="not product.discount">
+                <t t-set="price" t-value="product.lst_price"/>
+            </t>
+            <t t-if="product.discount">
                 <del class="text-danger" style="white-space: nowrap;" t-field="product.lst_price" t-field-options='{
                   "widget": "monetary",
                   "from_currency": "product.company_id.currency_id",
                   "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
                 }'/>&amp;nbsp;
-              </t>
-              <t t-set="price" t-value="product.lst_price * 0.8"/>
-              <span t-esc="price" style="white-space: nowrap;"  t-field-options='{
+                <t t-set="price" t-value="product.lst_price * 0.8"/>
+            </t>
+            <span t-esc="price" style="white-space: nowrap;"  t-field-options='{
                    "widget": "monetary",
                    "from_currency": "product.company_id.currency_id",
                    "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
