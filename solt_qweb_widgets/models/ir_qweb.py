@@ -94,7 +94,7 @@ class table_compute(object):
 
 class WebsiteProducts(orm.AbstractModel):
     _name = 'ir.qweb.widget.website_products'
-    _inherit = 'ir.qweb.widget'
+    _inherit = ['ir.qweb.widget']
 
     #def record_to_html(self, cr, uid, field_name, record, options=None, context=None):
     def _format(self, inner, options, qwebcontext):
@@ -214,7 +214,7 @@ class WebsiteProductsDetails(orm.AbstractModel):
 
         if not request.context.get('pricelist'):
             request.context['pricelist'] = int(get_pricelist())
-            # product = template_obj.browse(cr, uid, int(product), context=context)
+        product = template_obj.browse(cr, uid, int(product), context=context)
 
         values = {
             'search': search,

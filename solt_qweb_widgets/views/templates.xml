@@ -4,8 +4,8 @@
 <template id="products_item" name="Product item">
   <form action="/shop/cart/update" method="post">
   <div itemscope="itemscope" itemtype="http://schema.org/Product">
-  <div class="ribbon-wrapper">
-    <div class="ribbon btn btn-danger">Sale</div>
+  <div t-if="product.discount" class="ribbon2-wrapper">
+    <div class="ribbon2 btn btn-danger">Discount Campaign</div>
   </div>
   <div class="oe_product_image">
       <a itemprop="url" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
@@ -14,16 +14,17 @@
   </div>
   <section>
       <h5><strong><a itemprop="name" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']>1 else None))" t-field="product.name"/></strong></h5>
-      <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
+      <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids"><br/><br/><br/>
           <b>
-              <!-- <t t-if="(compute_currency(product.lst_price) - product.price) &gt; 0.1">
+              <t t-if="product.discount">
                 <del class="text-danger" style="white-space: nowrap;" t-field="product.lst_price" t-field-options='{
                   "widget": "monetary",
                   "from_currency": "product.company_id.currency_id",
                   "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
                 }'/>&amp;nbsp;
-              </t> -->
-              <span t-field="product.lst_price" style="white-space: nowrap;"  t-field-options='{
+              </t>
+              <t t-set="price" t-value="product.lst_price * 0.8"/>
+              <span t-esc="price" style="white-space: nowrap;"  t-field-options='{
                    "widget": "monetary",
                    "from_currency": "product.company_id.currency_id",
                    "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
@@ -127,9 +128,8 @@
                               </div>
                             </div>
                             <t t-set="product_image_big" t-value="td_product['x']+td_product['y'] > 2"/>
-                            <t t-call="solt_qweb_widgets.products_item"/>
+-                           <t t-call="solt_qweb_widgets.products_item" />
                           </div>
-
                       </td>
                       </t>
                       <td t-if="not td_product" class="oe-height-2"/>

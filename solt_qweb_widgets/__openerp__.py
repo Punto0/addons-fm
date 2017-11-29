@@ -6,7 +6,7 @@
     'description': """This module brings some new OpenERP QWeb widgets.""",
     'author': 'aekroft@gmail.com',
     'website': 'www.soltein.org',
-    'depends': ['base','web','website',],
+    'depends': ['base','web','website','website_sale','product'],
     'data': [
         'views/templates.xml',
     ],
