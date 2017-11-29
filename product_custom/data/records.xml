@@ -9,6 +9,14 @@
             <field name="parent_id" ref="product.product_category_all"/>
             <field name="name">Normal</field>
         </record>
+        <record id="discount_item1" model="product.pricelist.item">
+            <field name="price_version_id" ref="product.ver0"/>
+            <field name="base" ref="product.list_price"/>
+            <field name="sequence">10</field>
+            <field name="name">Discount Pricelist Line</field>
+            <field name="categ_id" ref="product_category_discount_campaign"/>
+            <field name="price_discount">-0.2</field>
+        </record>
 <!--
         <record id="product_style_discount_campaign" model="product.style">
             <field name="name">1:1 Discount Campaign</field>
