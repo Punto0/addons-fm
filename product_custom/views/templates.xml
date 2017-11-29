@@ -13,5 +13,14 @@
      </div>
   </xpath>
 </template>
+<template id="product_discount_campaign" inherit_id="website_sale.product" name="Discounted Product">
+    <xpath expr="//div/a[@id='add_to_cart']" position="inside">
+        <div t-if="product.discount" class="ribbon2-wrapper">
+            <div class="container">
+                <div class="ribbon2-w btn btn-danger">1:1 Campaign Discount</div>
+            </div> 
+        </div>
+    </xpath>
+</template>
 </data>
 </openerp>
