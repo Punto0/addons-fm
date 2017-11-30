@@ -38,26 +38,44 @@ class ProductTemplateCustom(models.Model):
     def write(self, vals):
         if 'discount' in vals:
             new_vals = self.set_style(vals)
+            self.set_discount_brand(vals.get('discount'),vals.get('produc_brand_id', False))
         else:
             new_vals = vals
         return super(ProductTemplateCustom, self).write(new_vals)
 
     @api.model
     def create(self, vals):
-        if not vals.get('categ_id'):
-	    vals['categ_id'] = self.env['product.category'].search([('name','=','Normal')])[0]
-        if 'discount' in vals:
+        ''' Set the style and category'''
+        if vals.get('discount', False):
             new_vals = self.set_style(vals)
         else:
             new_vals = vals
-        return super(ProductTemplateCustom, self).create(new_vals)
+            new_vals['categ_id'] = self.env.ref('product_custom.product_category_normal').id # Default cat
+        ''' save the product brand automatically '''
+        if not vals.get('product_brand_id'):
+            brand_id = self.env['product.brand'].search([('company_id', '=', vals['company_id'])])
+            if brand_id:
+                vals['product_brand_id'] = brand_id.id
+        p = super(ProductTemplateCustom, self).create(new_vals)
+        brand_id.check_discount()
+        return p
 
     def set_style(self, vals):
         style = self.env.ref("website_sale.image_promo")
-        if vals.get('discount',False):
+        if vals.get('discount', False):
             vals['website_style_ids'] = [[4, style.id, []]]
             vals['categ_id'] = self.env.ref('product_custom.product_category_discount_campaign').id
         else:
             vals['website_style_ids'] = [[3, style.id, []]]
             vals['categ_id'] = self.env.ref('product_custom.product_category_normal').id
         return vals
+
+    def set_discount_brand(self, discount, brand_id = None):
+        logging.info("set_discount_brand\n%s\n%s" %(discount, brand_id))
+        if brand_id:
+            brand_obj = self.env['product.brand'].browse(brand_id)
+        else:
+            brand_obj = self.product_brand_id
+        res = brand_obj.check_discount()
+        logging.info("res\n%s" %res)
+        return True

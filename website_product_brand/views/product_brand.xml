@@ -64,6 +64,7 @@
                                     <div class="col-md-3" style="display: inline-block;">
                                     <a t-attf-href="/shop#{check}#{ '/country/%s' % slug(current_country) or '' }/brands?brand=#{o.id}">
                                         <div class='row'>
+
                                             <img itemprop="image" width="200px" height="200px" class="img" t-attf-src="/website/image/product.brand/#{o.id}/logo#{'?max_width=300&amp;max_height=300'}"/>
                                         </div>
                                         <div class='row' style='text-align:center;'>
@@ -74,7 +75,10 @@
                                     </div>
                                 </t>
                                 <t t-if="not check">
-                                    <div class="col-md-3" style="display: inline-block;">
+                                    <div class="col-md-3" style="display: inline-block; position:relative;">
+                                        <div t-if="o.discount" class="ribbon2-wrapper">
+                                           <div class="ribbon2-w btn btn-danger">1:1 Campaign Discount</div>
+                                        </div>
                                         <a t-att-href="keep('/shop/brands',brand = o.id)">
                                             <div class='row'>
                                                 <img itemprop="image" width="200px" height="200px" class="img" t-attf-src="/website/image/product.brand/#{o.id}/logo#{'?max_width=300&amp;max_height=300'}"/>
