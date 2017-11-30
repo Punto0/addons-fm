@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+<template id="assets_frontend" inherit_id="website.assets_frontend" name="Shop">
+  <xpath expr="." position="inside">
+      <link rel='stylesheet' href='/product_custom/static/src/css/product_custom.css'/>
+  </xpath>
+</template>
     <!-- Page template for displaying Brands -->
     <template id="product_brands" name="Brands">
         <t t-call="website.layout">
@@ -28,6 +33,7 @@
                             </div>
                         </form>
                     </div>
+<!--
                     <br/>
                     <div class="row" style="width: 100%;">
                         <div class="input-group" style="margin-left:40%">
@@ -37,6 +43,7 @@
                             </div>
                         </div>
                     </div>
+-->
                     <section>
                         <t t-if='not check'>
                             <div class="col-md-3 mb32" id="partner_left">
@@ -59,43 +66,44 @@
                             </div>
                          </t>
                          <t t-if='brand_rec'>
-                            <t t-foreach="brand_rec" t-as="o">
-                                <t t-if="check">
-                                    <div class="col-md-3" style="display: inline-block;">
-                                    <a t-attf-href="/shop#{check}#{ '/country/%s' % slug(current_country) or '' }/brands?brand=#{o.id}">
-                                        <div class='row'>
-
-                                            <img itemprop="image" width="200px" height="200px" class="img" t-attf-src="/website/image/product.brand/#{o.id}/logo#{'?max_width=300&amp;max_height=300'}"/>
-                                        </div>
-                                        <div class='row' style='text-align:center;'>
-                                            <t t-esc='o.name' />
-                                        </div>
-                                    </a>
-                                    <p><t t-esc="o.company_id.partner_id.name"/></p>
-                                    </div>
-                                </t>
-                                <t t-if="not check">
-                                    <div class="col-md-3" style="display: inline-block; position:relative;">
-                                        <div t-if="o.discount" class="ribbon2-wrapper">
-                                           <div class="ribbon2-w btn btn-danger">1:1 Campaign Discount</div>
-                                        </div>
-                                        <a t-att-href="keep('/shop/brands',brand = o.id)">
-                                            <div class='row'>
-                                                <img itemprop="image" width="200px" height="200px" class="img" t-attf-src="/website/image/product.brand/#{o.id}/logo#{'?max_width=300&amp;max_height=300'}"/>
-                                            </div>
-                                            <div class='row' style='text-align:center;'>
-                                                <t t-esc='o.name' />
-                                              - <t t-esc="o.company_id.partner_id.country_id.name"/>
-                                            </div>
-                                        </a>   
-                                    </div>
-                                </t>
-                            </t>
+                           <t t-foreach="brand_rec" t-as="o">
+                             <t t-if="check">
+                               <div class="col-md-3" style="display: inline-block;">
+                                 <a t-attf-href="/shop#{check}#{ '/country/%s' % slug(current_country) or '' }/brands?brand=#{o.id}">
+                                   <div class='row'>
+                                     <img itemprop="image" width="200px" height="200px" class="img" t-attf-src="/website/image/product.brand/#{o.id}/logo#{'?max_width=300&amp;max_height=300'}"/>
+                                   </div>
+                                   <div class='row' style='text-align:center;'>
+                                       <t t-esc='o.name' />
+                                   </div>
+                                 </a>
+                                 <p><t t-esc="o.company_id.partner_id.name"/></p>
+                               </div>
+                             </t>
+                             <t t-if="not check">
+                               <div class="col-md-3" style="display: inline-block;">
+                                 <a t-att-href="keep('/shop/brands',brand = o.id)">
+                                   <div class="row oe_product">
+                                     <div t-if="o.discount" class="ribbon2-wrapper">
+                                       <div class="ribbon2 btn btn-danger">1:1 Campaign Discount</div>
+                                     </div>
+                                     <img itemprop="image" width="250px" height="250px" 
+                                          t-attf-src="/website/image/product.brand/#{o.id}/logo#{'?max_width=300&amp;max_height=300'}"
+                                          t-att-alt="o.name"/>
+                                   </div>
+                                   <div class="row oe-height-2">
+                                     <t t-esc="o.name"/> - 
+                                     <t t-esc="o.company_id.partner_id.country_id.name"/>
+                                   </div>
+                                 </a>
+                               </div>  
+                             </t>
+                           </t>
                         </t>
                         <t t-if='not brand_rec'>
-                            <div class="text-center text-muted">
-                                <h3 class="css_editable_display">No Partners Found</h3>
-                            </div>
+                          <div class="text-center text-muted">
+                            <h3 class="css_editable_display">No Partners Found</h3>
+                          </div>
                         </t>
                     </section>
                     <div class="row" style="width: 100%;">

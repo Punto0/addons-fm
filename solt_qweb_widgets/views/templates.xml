@@ -131,7 +131,7 @@
                               </div>
                             </div>
                             <t t-set="product_image_big" t-value="td_product['x']+td_product['y'] > 2"/>
--                           <t t-call="solt_qweb_widgets.products_item" />
+                            <t t-call="solt_qweb_widgets.products_item" />
                           </div>
                       </td>
                       </t>
