@@ -8,12 +8,33 @@
              </xpath>
              <!-- Add an element after the top menu  -->
              <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
-                 <div class="container">
-                    <div class="alert alert-info mt16" role="alert">
-                        <center><p><strong>We are upgrading!</strong></p>
-                        <p>We are upgrading our block chain, transactions are disabled until the start of the FairCoin2 blockchain</p></center>
+                 <div class="container mt-32" style="display:block; 
+                                               position: relative; 
+                                               text-align: centre; 
+                                               overflow: hidden;
+                                               height: 300px;   
+                                               ">
+                   <center><div class="alert oe_product ribbon2" role="alert" 
+                                style="position: absolute; 
+                                       z-index: 5;
+                                       top: 40%;
+                                       left: 30%;
+                                       color: #000000;
+                                       background-color: bisque;
+                                       opacity: 0.6;
+                                       font-size: large;
+                            ">
+                        <p><strong>1:1 campaign discount!</strong></p>
+                        <p>A lot of products in sale due to the parity between FairCoin and Euros.</p>
                     </div>
-                 </div>
+                    <div class="oe_image" style="text-align: center">
+                        <img itemprop="image" class="img"
+                             width="100%"
+                             height="50%" 
+                             src="/fairmarket_tunes/static/src/img/rebajas.jpeg" 
+                             alt="1:1 campaign discount"/>
+                    </div>
+                 </center></div>
              </xpath>
         </template>
     </data>

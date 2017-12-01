@@ -19,7 +19,7 @@ from openerp.addons.website_sale.controllers.main import QueryURL, get_pricelist
 _logger = logging.getLogger(__name__)
 
 
-PPG = 16 # Products Per Page
+PPG = 8 # Products Per Page
 PPR = 8  # Products Per Row
 
 class table_compute(object):
@@ -97,6 +97,76 @@ class WebsiteProducts(orm.AbstractModel):
     _inherit = ['ir.qweb.widget']
 
     #def record_to_html(self, cr, uid, field_name, record, options=None, context=None):
+    def _format(self, inner, options, qwebcontext):
+        if options is None:
+            options = {}
+        record = self.pool['ir.qweb'].eval(inner, qwebcontext)
+        domain = []
+        if options.get('domain', False):
+            domain += options.get('domain')
+        if options.get('order', False):
+            order = options.get('order')
+        else:
+            order = 'website_published desc, website_sequence desc'
+        template = options.get('template', 'solt_qweb_widgets.website_products')
+        product_obj = self.pool.get('product.template')
+
+        url = "/shop"
+        product_count = product_obj.search_count(qwebcontext.cr, SUPERUSER_ID, domain)
+
+        pager = record.pager(url=url, total=product_count, page=0, step=PPG, scope=7, url_args={})
+        product_ids = product_obj.search(qwebcontext.cr, SUPERUSER_ID, domain, limit=PPG, offset=pager['offset'], order=order)
+        products = product_obj.browse(qwebcontext.cr, SUPERUSER_ID, product_ids)
+
+        style_obj = self.pool['product.style']
+        style_ids = style_obj.search(qwebcontext.cr, SUPERUSER_ID, [])
+        styles = style_obj.browse(qwebcontext.cr, SUPERUSER_ID, style_ids)
+
+        category_obj = self.pool['product.public.category']
+        category_ids = category_obj.search(qwebcontext.cr, SUPERUSER_ID, [('parent_id', '=', False)])
+        categs = category_obj.browse(qwebcontext.cr, SUPERUSER_ID, category_ids)
+
+        attributes_obj = self.pool['product.attribute']
+        attributes_ids = attributes_obj.search(qwebcontext.cr, SUPERUSER_ID, [])
+        attributes = attributes_obj.browse(qwebcontext.cr, SUPERUSER_ID, attributes_ids)
+
+        partner = self.pool['res.users'].browse(qwebcontext.cr, SUPERUSER_ID, SUPERUSER_ID).partner_id
+        pricelist = partner.property_product_pricelist
+
+        from_currency = self.pool.get('product.price.type')._get_field_currency(qwebcontext.cr, SUPERUSER_ID, 'list_price', qwebcontext.context)
+        to_currency = pricelist.currency_id
+        compute_currency = lambda price: self.pool['res.currency']._compute(qwebcontext.cr, SUPERUSER_ID, from_currency, to_currency, price)
+
+        keep = QueryURL('/shop')
+
+        values = {
+            'search': '',
+            'category': None,
+            'attrib_values': [],
+            'attrib_set': set(),
+            'pager': pager,
+            'pricelist': pricelist,
+            'products': products,
+            'bins': table_compute().process(products),
+            'rows': PPR,
+            'PPG':PPG,
+            'styles': styles,
+            'categories': categs,
+            'attributes': attributes,
+            'compute_currency': compute_currency,
+            'keep': keep,
+            'style_in_product': lambda style, product: style.id in [s.id for s in product.website_style_ids],
+            'attrib_encode': lambda attribs: werkzeug.url_encode([('attrib',i) for i in attribs]),
+        }
+
+        html = self.pool["ir.ui.view"].render(qwebcontext.cr, SUPERUSER_ID, template, values, engine='ir.qweb').decode('utf8')
+
+        return HTMLSafe(html)
+
+class WebsiteProducts(orm.AbstractModel):
+    _name = 'ir.qweb.widget.website_products_discount'
+    _inherit = ['ir.qweb.widget']
+
     def _format(self, inner, options, qwebcontext):
         if options is None:
             options = {}
