@@ -8,7 +8,7 @@
         """
 FairMarket tunning module
 =================
-Modifications of Odoo for FairMarket 
+Modifications of Odoo for FairMarket
         """,
     'data': [
         'data/new_shop_form.xml',
@@ -21,6 +21,6 @@ Modifications of Odoo for FairMarket
         'security/ir.model.access.csv',
     ],
     'depends' : ['web','website_sale','website_product_brand'],
-    'qweb': ['static/src/xml/*.xml'],
+    #'qweb': ['static/src/xml/*.xml'],
     'application': True,
 }

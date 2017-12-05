@@ -1,3 +1,4 @@
+/*
 openerp.fairmarket_tunes = function(instance, local) {
     var _t = instance.web._t,
         _lt = instance.web._lt;
@@ -18,3 +19,4 @@ openerp.fairmarket_tunes = function(instance, local) {
 
     instance.web.client_actions.add('fairmarket_tunes.TwoDecimals', 'instance.fairmarket_tunes.TwoDecimals');
 }
+*/

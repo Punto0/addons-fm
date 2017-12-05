@@ -1,3 +1,4 @@
+/*
 (function() {
     function demo_alert(view) {
         window.setTimeout(function() {
@@ -21,3 +22,4 @@
         },
     });
 })();
+*/

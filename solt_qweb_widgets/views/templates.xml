@@ -4,8 +4,16 @@
 <template id="products_item" name="Product item">
   <form action="/shop/cart/update" method="post">
   <div itemscope="itemscope" itemtype="http://schema.org/Product">
-  <div t-if="product.discount" class="ribbon2-wrapper">
-    <div class="ribbon2 btn btn-danger">Discount Campaign</div>
+  <div t-if="product.discount" class="ribbon2-wrapper" 
+                               style="right: 15px;
+                                      width: 65px;
+                                      top: 45px;
+                                      opacity: 0.80;">
+<!--    <div class="ribbon2 btn btn-danger">Discount Campaign</div> -->
+    <img itemprop="image"
+         t-attf-src="/fairmarket_tunes/static/src/img/1-1campaign_badge.png"
+         width="100%"
+         alt="Discount campaign badge"/>
   </div>
   <div class="oe_product_image">
       <a itemprop="url" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
@@ -20,23 +28,13 @@
                 <t t-set="price" t-value="product.lst_price"/>
             </t>
             <t t-if="product.discount">
-                <del class="text-danger" style="white-space: nowrap;" t-field="product.lst_price" t-field-options='{
-                  "widget": "monetary",
-                  "from_currency": "product.company_id.currency_id",
-                  "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
-                }'/>&amp;nbsp;
+              <del itemprop="price" class="text-danger" style="display: block-inline;" t-field="product.lst_price" t-att-data-precision="0.001"/>
                 <t t-set="price" t-value="product.lst_price * 0.8"/>
             </t>
-            <span t-esc="price" style="white-space: nowrap;"  t-field-options='{
-                   "widget": "monetary",
-                   "from_currency": "product.company_id.currency_id",
-                   "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
-               }' > 
-              </span>
-              <span itemprop="price" style="display:none;" t-esc="product.price"/>
-              <span itemprop="priceCurrency" style="display:none;" t-esc="user_id.partner_id.property_product_pricelist.currency_id.name"/>
+            <span t-esc="price" class="decimal_precision" t-att-data-precision="0.01" style="white-space: nowrap;"/>
+              <span itemprop="priceCurrency" style="display: block-inline">FAIR</span>
           </b>
-      </div>
+    </div>
   </section>
   </div>
   </form>

@@ -107,7 +107,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
 
     _references_per_page = 20
 
-    # Products Page 
+    # Products Page
     @http.route(['/shop',
                  '/shop/page/<int:page>',
                  '/shop/category/<model("product.public.category"):category>',

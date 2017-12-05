@@ -8,7 +8,7 @@
              </xpath>
              <!-- Add an element after the top menu  -->
              <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
-                 <div class="container mt-32" style="display:block; 
+<!--                 <div class="container mt-32" style="display:block; 
                                                position: relative; 
                                                text-align: centre; 
                                                overflow: hidden;
@@ -26,15 +26,21 @@
                             ">
                         <p><strong>1:1 campaign discount!</strong></p>
                         <p>A lot of products in sale due to the parity between FairCoin and Euros.</p>
-                    </div>
-                    <div class="oe_image" style="text-align: center">
+                    </div> 
+-->          
+                    <div class="oe_image container" style="padding-bottom: 20px;">
                         <img itemprop="image" class="img"
+                             padding-bottom="20px"
                              width="100%"
                              height="50%" 
-                             src="/fairmarket_tunes/static/src/img/rebajas.jpeg" 
+                             src="/fairmarket_tunes/static/src/img/1-1campaign_banner.png" 
                              alt="1:1 campaign discount"/>
                     </div>
-                 </center></div>
+<!--
+                 </center>
+               </div>
+-->
+             <div class="oe_clear"/>
              </xpath>
         </template>
     </data>

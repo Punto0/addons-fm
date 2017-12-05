@@ -8,8 +8,16 @@
 </template>
 <template id="products_item_custom" inherit_id="website_sale.products_item" name="Shop">
   <xpath expr="//div[@class='ribbon-wrapper']" position="replace">
-     <div t-if="product.discount" class="ribbon2-wrapper">
-         <div class="ribbon2-w btn btn-danger">1:1 Campaign Discount</div>
+     <div t-if="product.discount" class="ribbon2-wrapper"
+            style="right: 45px;
+                   width: 65px;
+                   top: 14px;
+                   opacity: 0.80;">
+<!--   <div class="ribbon2-w btn btn-danger">1:1 Campaign Discount</div> -->
+       <img itemprop="image" 
+            t-attf-src="/fairmarket_tunes/static/src/img/1-1campaign_badge.png"
+            width="100%"
+            alt="Discount campaign badge"/>
      </div>
   </xpath>
 </template>
@@ -17,7 +25,10 @@
     <xpath expr="//div/a[@id='add_to_cart']" position="inside">
         <div t-if="product.discount" class="ribbon2-wrapper">
             <div class="container">
-                <div class="ribbon2-w btn btn-danger">1:1 Campaign Discount</div>
+<!--          <div class="ribbon2-w btn btn-danger">1:1 Campaign Discount</div> -->
+              <img itemprop="image" 
+                   t-attf-src="/fairmarket_tunes/static/src/img/1-1campaign_badge.png"
+                   alt="Discount campaign badge"/>
             </div> 
         </div>
     </xpath>

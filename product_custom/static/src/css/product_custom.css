@@ -11,7 +11,7 @@
   overflow: hidden;
   position: absolute;
   top: 0;
-  right: 0;
+  right: -75px;
   align-self: center;
   text-align: center;
 }
