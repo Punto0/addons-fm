@@ -16,10 +16,10 @@
                                            Consumable: Apply delivery method but not stock control.
                    </attribute>
                </xpath>
--->
-               <xpath expr="//group/field[@name='ean13']" position="attributes">
+               <xpath expr="//field[@name='ean13']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>
+-->
                <xpath expr="//group/field[@name='active']" position="attributes">
                     <attribute name="groups">base.group_erp_manager</attribute>
                     <attribute name="invisible">0</attribute>
@@ -35,9 +35,11 @@
                <xpath expr="//page[@string='Inventory']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>
+<!--
                <xpath expr="//tree/field[@name='attribute_id']" position="attributes"> 
                    <attribute name="domain">[('create_uid','=',uid)]</attribute>
                </xpath>
+-->
             </field> 
         </record>
     </data>

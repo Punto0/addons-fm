@@ -31,7 +31,7 @@
 Allows to use product brands and countries as filtering for products in website.\n
 This Module depends on product_brand module -https://github.com/OCA/product-attribute/tree/8.0/product_brand
         """,
-    'depends': ['product_brand_custom','website_sale','web'],
+    'depends': ['product_brand_custom','website_sale','web','product_custom'],
     'data': [
         "data/demands.xml",
         "security/ir.model.access.csv",

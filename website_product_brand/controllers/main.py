@@ -9,7 +9,7 @@ from openerp.addons.website.models.website import slug
 
 demand_cat = 206
 
-PPG = 20
+PPG = 36
 PPR = 4
 BPP = 23
 BPR = 5
@@ -123,7 +123,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
                  '/shop/country/<model("res.country"):country>/category/<model("product.public.category"):category>/page/<int:page>/<country_defined>',
                  ], type='http', auth='public', website=True)
 
-    def shop(self, page=0, category=None, country=None, search='', brand=None, country_defined='', **post):
+    def shop(self, page=0, category=None, country=None, search='', brand=None, country_defined='', discount=None, **post):
         cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
         #utilities
         values = {}
@@ -158,6 +158,9 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         if category:
             domain += [('public_categ_ids', 'child_of', int(category))]
 
+        if discount:
+            domain += [('discount', '=', True)]
+
         domain += [('public_categ_ids', '!=', int(demand_cat))] # Quita la categoria demanda
  
         if not country:
@@ -181,7 +184,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
             if country_dict['country_id'] == False:
                 continue
             for b in product_obj.browse(cr, SUPERUSER_ID, product_ids2, context):
-                if b.website_published == True:
+                if b.website_published and b.sale_ok:
                     if (b.company_id.country_id.id == country_dict['country_id'][0]):
                         total_products+=1
 
@@ -199,6 +202,9 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
 
         # format pager
         url_args = {}
+        if discount:
+            url_args['discount'] = True
+            post['discount'] = True
         if search:
             url_args['search'] = search
             post['search'] = search
@@ -215,7 +221,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         else:
             url = '/shop'
 
-        domain2 = list(domain_list)
+        #domain2 = list(domain_list)
         attrib_list = request.httprequest.args.getlist('attrib')
         attrib_values = [ map(int, v.split('-')) for v in attrib_list if v ]
         attrib_set = set([ v[1] for v in attrib_values ])
@@ -600,7 +606,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         else:
             url = '/demands'
 
-        domain2 = list(domain_list)
+        #domain2 = list(domain_list)
         attrib_list = request.httprequest.args.getlist('attrib')
         attrib_values = [ map(int, v.split('-')) for v in attrib_list if v ]
         attrib_set = set([ v[1] for v in attrib_values ])
