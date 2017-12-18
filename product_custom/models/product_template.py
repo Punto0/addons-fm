@@ -52,11 +52,15 @@ class ProductTemplateCustom(models.Model):
             new_vals = vals
             new_vals['categ_id'] = self.env.ref('product_custom.product_category_normal').id # Default cat
         ''' save the product brand automatically '''
+        brand_id = False
         if not vals.get('product_brand_id'):
             brand_id = self.env['product.brand'].search([('company_id', '=', vals['company_id'])])
             if brand_id:
                 vals['product_brand_id'] = brand_id.id
+        else:
+            brand_id = self.env['product.brand'].browse(vals.get('product_brand_id'))
         p = super(ProductTemplateCustom, self).create(new_vals)
+        ''' check for discount on  the brand'''
         brand_id.check_discount()
         return p
 
@@ -77,5 +81,5 @@ class ProductTemplateCustom(models.Model):
         else:
             brand_obj = self.product_brand_id
         res = brand_obj.check_discount()
-        logging.info("res\n%s" %res)
+        # logging.info("res\n%s" %res)
         return True

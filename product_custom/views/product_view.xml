@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <record id="product_template_only_form_view" model="ir.ui.view">
+            <field name="name">product.template.only.form.inherit.custom</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+               <xpath expr="//field[@name='ean13']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+               </xpath>
+               <xpath expr="//tree/field[@name='attribute_id']" position="attributes"> 
+                   <attribute name="domain">[('create_uid','=',uid)]</attribute>
+               </xpath>
+            </field>
+        </record>
         <record id="product_template_form_view" model="ir.ui.view">
             <field name="name">product.template.form.inherit.custom</field>
             <field name="model">product.template</field>
@@ -9,17 +22,6 @@
                <xpath expr="//group/field[@name='list_price']" position="after">
                     <field name="discount" on_change="1"/>  
                </xpath>
-<!--
-	            <xpath expr="//group/field[@name='type']" position="attributes">
-                    <attribute name="domain">[('consu','Consumible'),('service','Service')]</attribute>
-                    <attribute name="help">Service: Does not apply delivery methods nor stock control.
-                                           Consumable: Apply delivery method but not stock control.
-                   </attribute>
-               </xpath>
-               <xpath expr="//field[@name='ean13']" position="attributes">
-                    <attribute name="invisible">1</attribute>
-               </xpath>
--->
                <xpath expr="//group/field[@name='active']" position="attributes">
                     <attribute name="groups">base.group_erp_manager</attribute>
                     <attribute name="invisible">0</attribute>
@@ -30,16 +32,17 @@
                     <attribute name="groups">base.group_sale_salesman</attribute>
                </xpath>
                <xpath expr="//group/field[@name='company_id']" position="after">
-                    <field name="product_brand_id" domain="[('user_id', '=', uid)]" options="{'no_create': True, 'no_open': True }" />
+                    <field name="company_id" groups="base.group_erp_manager" />
+                    <field name="product_brand_id" 
+                           domain="[('user_id', '=', uid)]" 
+                           options="{'no_create': True, 'no_open': True }" 
+                           groups="base.group_sale_salesman" />
+                    <field name="product_brand_id" 
+                           groups="base.group_erp_manager" />
                </xpath>
                <xpath expr="//page[@string='Inventory']" position="attributes">
                     <attribute name="invisible">1</attribute>
                </xpath>
-<!--
-               <xpath expr="//tree/field[@name='attribute_id']" position="attributes"> 
-                   <attribute name="domain">[('create_uid','=',uid)]</attribute>
-               </xpath>
--->
             </field> 
         </record>
     </data>

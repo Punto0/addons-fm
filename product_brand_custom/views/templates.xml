@@ -25,8 +25,12 @@
  <!--               <field name="description" position="after" >        -->
                 <xpath expr="//group[@string='Description']" position="replace">
                     <div class="inline" groups="base.group_multi_company">
+                      <group> 
+                        <label for="user_id">
                         <field name="user_id" string="User" help="The user authorized for this brand" required="True" groups="base.group_multi_company"/>
+                        <label for="company_id">
                         <field name="company_id" string="Project" help="The project for this brand" required="True" groups="base.group_multi_company"/>
+                      </group>
                     </div>
                     <group>
                         <group>
