@@ -1,0 +1,15 @@
+<openerp>
+<data>
+<!--  Group to hide menues, nobody belongs to it -->
+<record id="dummy" model="res.groups">
+        <field name="name">Dummy</field>
+</record>
+<record model="ir.ui.menu" id="base.menu_base_partner">
+  <field name="name">Your Shop</field>
+  <field name="sequence">0</field>
+</record>
+<record model="ir.ui.menu" id="crm.menu_crm_case_phone">
+        <field name="groups_id" eval="[(6, 0, [ref('fairmarket_tunes.dummy')])]"/>
+</record>
+</data>
+</openerp>
