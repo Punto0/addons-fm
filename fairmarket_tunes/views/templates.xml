@@ -5,5 +5,13 @@
         <link rel="shortcut icon" href="/fairmarket_tunes/static/src/img/favicon.ico" type="image/x-icon"/>
     </xpath>
 </template>
+<template id="backend_tunes_layout" inherit_id="web.layout" name="Backend FairMarket layout" priority="17">
+    <xpath expr="//head//link" position="after">
+        <link rel="shortcut icon" href="/fairmarket_tunes/static/src/img/favicon.ico" type="image/x-icon"/>
+    </xpath>
+    <xpath expr="//title" position="replace">
+        <title>FairMarket</title>
+    </xpath>
+</template>
 </data>
 </openerp>
