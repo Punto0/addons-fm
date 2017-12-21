@@ -1,0 +1,9 @@
+<openerp>
+<data>
+<template id="fairmarket_tunes_layout" inherit_id="website.layout" name="FairMarket layout" priority="17">
+    <xpath expr="//head//link" position="after">
+        <link rel="shortcut icon" href="/fairmarket_tunes/static/src/img/favicon.ico" type="image/x-icon"/>
+    </xpath>
+</template>
+</data>
+</openerp>

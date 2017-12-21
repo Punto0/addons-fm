@@ -17,6 +17,7 @@ Modifications of Odoo for FairMarket
         'views/dev_site_banner.xml',
         'views/brand_custom_web.xml',
         'views/products_page.xml',
+        'views/templates.xml', 
         'security/record_rules.xml',
         'security/ir.model.access.csv',
     ],
