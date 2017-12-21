@@ -27,8 +27,6 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
             if len(companies) > 2:
                 logging.debug("Más de dos compañias detectadas, muestra el aviso") 
                 valid = False
-        else:
-            valid = False
         return valid
 
     # Set Valid/invalid flag to show/hide warning
