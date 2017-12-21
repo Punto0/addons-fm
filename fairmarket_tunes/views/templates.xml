@@ -13,5 +13,10 @@
         <title>FairMarket</title>
     </xpath>
 </template>
+<template id="assets_backend" name="web_dialog_size assets" inherit_id="web.assets_backend">
+    <xpath expr="." position="inside">
+        <script type="text/javascript" src="/fairmarket_tunes/static/src/js/fairmarket_tunes.js"></script>
+    </xpath>
+</template>
 </data>
 </openerp>
