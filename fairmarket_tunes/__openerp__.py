@@ -12,6 +12,7 @@ Modifications of Odoo for FairMarket
         """,
     'data': [
         'data/new_shop_form.xml',
+        'data/menues.xml',
         'views/product_custom_web.xml',
         'views/dev_site_banner.xml',
         'views/brand_custom_web.xml',

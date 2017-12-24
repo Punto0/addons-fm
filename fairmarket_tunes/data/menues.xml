@@ -1,0 +1,39 @@
+<openerp>
+<data>
+<!--  Group to hide menues, nobody belongs to it -->
+<record id="dummy" model="res.groups">
+        <field name="name">Dummy</field>
+</record>
+<record model="ir.ui.menu" id="base.menu_base_partner">
+  <field name="name">Your Shop</field>
+  <field name="sequence">0</field>
+</record>
+<menuitem id="menu_shops_management"
+          groups="base.group_sale_manager"
+          parent="base.menu_base_partner"
+          name="Shops Management"
+/>
+<menuitem action="base.action_res_users" 
+          id="menu_shops_management_users" 
+          parent="menu_shops_management" 
+          sequence="1" 
+/>
+<menuitem action="base.action_res_company_form" 
+          id="menu_shops_management_companies" 
+          parent="menu_shops_management" 
+          sequence="2" 
+/>
+<menuitem action="product_brand.action_product_brand" 
+          id="menu_shops_management_brands" 
+          parent="menu_shops_management" 
+          sequence="3" 
+/>
+<!--
+<record model="ir.ui.menu" id="menu_shops_managers_users">
+        <field name="Name">Users</field>
+        <field name="parent_id">menu_shops_managers</field>
+ 	<field name="action">base.action_res_users</field>
+</record>
+-->
+</data>
+</openerp>
