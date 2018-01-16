@@ -4,10 +4,7 @@
 <record id="dummy" model="res.groups">
         <field name="name">Dummy</field>
 </record>
-<record model="ir.ui.menu" id="base.menu_base_partner">
-  <field name="name">Your Shop</field>
-  <field name="sequence">0</field>
-</record>
+<!-- Backend menues -->
 <menuitem id="menu_shops_management"
           groups="base.group_sale_manager"
           parent="base.menu_base_partner"
@@ -28,12 +25,23 @@
           parent="menu_shops_management" 
           sequence="3" 
 />
-<!--
-<record model="ir.ui.menu" id="menu_shops_managers_users">
-        <field name="Name">Users</field>
-        <field name="parent_id">menu_shops_managers</field>
- 	<field name="action">base.action_res_users</field>
+<!-- We menues -->
+<record id="menu_web_about" model="website.menu">
+    <field name="name">About Us</field>
+    <field name="parent_id" ref="website.main_menu"/>
+    <field name="sequence" type="int">100</field>
 </record>
--->
+<record id="menu_web_aboutfairmarket" model="website.menu">
+    <field name="name">About FairMarket</field>
+    <field name="url">/what-is-fairmarket</field>
+    <field name="parent_id" ref="menu_web_about"/>
+    <field name="sequence" type="int">10</field>
+</record>
+<record id="menu_web_howitworks" model="website.menu">
+    <field name="name">How it works</field>
+    <field name="url">/how-it-works</field>
+    <field name="parent_id" ref="menu_web_about"/>
+    <field name="sequence" type="int">20</field>
+</record>
 </data>
 </openerp>

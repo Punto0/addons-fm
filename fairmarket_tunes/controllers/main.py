@@ -7,6 +7,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 class StatsController(http.Controller):
+
     @http.route(['/stats'], type='json', auth='public', website=True)
     def stats(self, **post):
         cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
@@ -24,3 +25,15 @@ class StatsController(http.Controller):
             }
         }
         return json.dumps(data)
+
+    @http.route(['/how-it-works'], type='http', auth='public', website=True)
+    def howitworks(self):
+        return http.request.render('fairmarket_tunes.howitworks', {})
+
+    @http.route(['/aboutus'], type='http', auth='public', website=True)
+    def whatisfairmarket(self):
+        return http.request.render('fairmarket_tunes.aboutus', {})
+
+    @http.route(['/whatis'], type='http', auth='public', website=True)
+    def whatisfairmarket(self):
+        return http.request.render('fairmarket_tunes.whatisfairmarket', {})
