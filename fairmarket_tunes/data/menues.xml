@@ -33,7 +33,7 @@
 </record>
 <record id="menu_web_aboutfairmarket" model="website.menu">
     <field name="name">About FairMarket</field>
-    <field name="url">/what-is-fairmarket</field>
+    <field name="url">/whatis</field>
     <field name="parent_id" ref="menu_web_about"/>
     <field name="sequence" type="int">10</field>
 </record>

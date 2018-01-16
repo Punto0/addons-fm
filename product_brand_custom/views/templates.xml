@@ -22,9 +22,9 @@
                   </div>
                 </field>              
                 <xpath expr="//group[@string='Description']" position="replace">
-                    <group groups="base.group_sale_manager">
-                        <field name="user_id" string="User" help="The user authorized for this brand" required="True" groups="base.group_multi_company"/>
-                        <field name="company_id" string="Project" help="The project for this brand" required="True" groups="base.group_multi_company"/>
+                    <group groups="base.group_sales_manager">
+                        <field name="user_id" string="User" help="The user authorized for this brand" required="True" groups="base.group_sale_manager"/>
+                        <field name="company_id" string="Project" help="The project for this brand" required="True" groups="base.group_sale_manager"/>
                     </group>
                     <group>
                         <group>
