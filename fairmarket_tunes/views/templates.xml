@@ -19,6 +19,14 @@
         <script type="text/javascript" src="/fairmarket_tunes/static/src/js/fairmarket_tunes.js"></script>
     </xpath>
 </template>
+<!-- Replace powered by Odoo footer in backend -->
+<template id="menu_secondary_replace" inherit_id="web.menu_secondary" name="Submenu">
+            <xpath expr="//div[@class='oe_footer']" position="replace">
+                <div class="oe_footer">
+                    Powered by <a href="http://fair.coop" target="_blank"><span>FairCoop</span></a>
+                </div>
+            </xpath>
+        </template>
 <!-- Web pages -->
 <template name="About us" id="aboutus">
   <t t-call="website.layout">

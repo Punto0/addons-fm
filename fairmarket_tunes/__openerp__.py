@@ -8,7 +8,12 @@
         """
 FairMarket tunning module
 =================
-Modifications of Odoo for FairMarket. It includes the wepages.
+Modifications of Odoo for FairMarket.
+- webpages
+- some debrand
+- new shop request form
+- banner acrros the site
+- Security
         """,
     'data': [
         'data/new_shop_form.xml',
@@ -23,4 +28,5 @@ Modifications of Odoo for FairMarket. It includes the wepages.
     ],
     'depends' : ['base', 'web','website_sale','website_product_brand'],
     'application': True,
+    #'qweb': ['static/src/xml/*.xml'],
 }
