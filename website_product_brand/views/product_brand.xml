@@ -85,10 +85,10 @@
                                  <a t-att-href="keep('/shop/brands',brand = o.id)">
                                    <div class="row oe_product">
                                      <div t-if="o.discount" class="ribbon2-wrapper">
-<!--                                       <div class="ribbon2 btn btn-danger">1:1 Campaign Discount</div> -->
                                        <img itemprop="image" 
-                                            t-attf-src="/fairmarket_tunes/static/src/img/1-1campaign_badge.png"
-                                            alt="Discount campaign badge"/>
+                                            t-attf-src="/fairmarket_tunes/static/src/img/discount_badge.jpg"
+                                            width="100px" height="100px"     
+                                            alt="Discount badge"/>
                                      </div>
                                      <img itemprop="image" width="250px" height="250px" 
                                           t-attf-src="/website/image/product.brand/#{o.id}/logo#{'?max_width=300&amp;max_height=300'}"

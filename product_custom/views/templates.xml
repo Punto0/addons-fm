@@ -15,9 +15,9 @@
                    opacity: 0.80;">
 <!--   <div class="ribbon2-w btn btn-danger">1:1 Campaign Discount</div> -->
        <img itemprop="image" 
-            t-attf-src="/fairmarket_tunes/static/src/img/1-1campaign_badge.png"
+            t-attf-src="/fairmarket_tunes/static/src/img/discount_badge.jpg"
             width="100%"
-            alt="Discount campaign badge"/>
+            alt="Discount badge"/>
      </div>
   </xpath>
 </template>
@@ -27,8 +27,9 @@
             <div class="container">
 <!--          <div class="ribbon2-w btn btn-danger">1:1 Campaign Discount</div> -->
               <img itemprop="image" 
-                   t-attf-src="/fairmarket_tunes/static/src/img/1-1campaign_badge.png"
-                   alt="Discount campaign badge"/>
+                   t-attf-src="/fairmarket_tunes/static/src/img/discount_badge.jpg"
+                   height="65px" width="65px"
+                   alt="Discount badge"/>
             </div> 
         </div>
     </xpath>

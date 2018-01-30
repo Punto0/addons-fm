@@ -11,9 +11,9 @@
                                       opacity: 0.80;">
 <!--    <div class="ribbon2 btn btn-danger">Discount Campaign</div> -->
     <img itemprop="image"
-         t-attf-src="/fairmarket_tunes/static/src/img/1-1campaign_badge.png"
+         t-attf-src="/fairmarket_tunes/static/src/img/discount_badge.jpg"
          width="100%"
-         alt="Discount campaign badge"/>
+         alt="Discount badge"/>
   </div>
   <div class="oe_product_image">
       <a itemprop="url" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']>1 else None))">

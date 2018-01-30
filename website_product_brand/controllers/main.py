@@ -7,9 +7,9 @@ from openerp.tools.translate import _
 import openerp.addons.website_sale.controllers.main
 from openerp.addons.website.models.website import slug
 
-demand_cat = 206
+demand_cat = 216
 
-PPG = 36
+PPG = 40
 PPR = 4
 BPP = 23
 BPR = 5
