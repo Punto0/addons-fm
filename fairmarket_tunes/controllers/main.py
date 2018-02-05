@@ -31,7 +31,7 @@ class StatsController(http.Controller):
         return http.request.render('fairmarket_tunes.howitworks', {})
 
     @http.route(['/aboutus'], type='http', auth='public', website=True)
-    def whatisfairmarket(self):
+    def aboutus(self):
         return http.request.render('fairmarket_tunes.aboutus', {})
 
     @http.route(['/whatis'], type='http', auth='public', website=True)
