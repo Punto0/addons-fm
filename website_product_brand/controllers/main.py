@@ -7,8 +7,6 @@ from openerp.tools.translate import _
 import openerp.addons.website_sale.controllers.main
 from openerp.addons.website.models.website import slug
 
-demand_cat = 216
-
 PPG = 40
 PPR = 4
 BPP = 23
@@ -161,7 +159,9 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         if discount:
             domain += [('discount', '=', True)]
 
-        domain += [('public_categ_ids', '!=', int(demand_cat))] # Quita la categoria demanda
+        # Quita la categoria demanda
+        demand_cat = pool.get('product.public.category').search(cr, uid, [('name', '=', 'Demands')])[0]
+        domain += [('public_categ_ids', '!=', demand_cat)] 
  
         if not country:
             country_code = request.session['geoip'].get('country_code')
@@ -515,7 +515,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         '/demands/country/<model("res.country"):country>/page/<int:page>',
         '/demands/country/<model("res.country"):country>/page/<int:page>/<country_defined>'
         ], type='http', auth='public', website=True)
-    def demands(self, country_defined = None, country = None, page = 0, category = int(demand_cat), search = '', **post): # Demand cat harcoded
+    def demands(self, country_defined = None, country = None, page = 0, category = None, search = '', **post):
         cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
         #utilities
         values = {}
@@ -523,6 +523,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         country_obj = pool['res.country']
         partner_obj = pool['res.partner']
         product_obj = pool.get('product.template')
+        category_obj = pool['product.public.category']
         domain_list = []
         empty_domain = []
         check = ""
@@ -531,6 +532,8 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         total_products = 0
         all_products = 0
         countries2 = []
+        demand_cat = category_obj.search(cr, uid, [('name', '=', 'Demands')])[0]
+        domain += [('public_categ_ids', 'child_of', demand_cat)]
 
         # Problema: Si le pasamos solo el country entra un modelo. si le pasamos la cat y el country entra un unicode
         # Hay que detectar los unicodes y convertirlos en modelos a partir de aqui
@@ -545,9 +548,6 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
                        ('description', 'ilike', search),
                        ('description_sale', 'ilike', search),
                        ('product_variant_ids.default_code', 'ilike', search)]
-
-        if category:
-            domain += [('public_categ_ids', 'child_of', int(category))]
 
         if not country:
             country_code = request.session['geoip'].get('country_code')
@@ -565,7 +565,8 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
                     groupby="country_id", orderby="country_id", context=context)
 
         # get numbers for the regional widget 
-        product_ids2 = product_obj.search(cr, SUPERUSER_ID, [('public_categ_ids', 'child_of', int(category))], context=context)
+        product_ids2 = product_obj.search(cr, SUPERUSER_ID, [('public_categ_ids', 'child_of', demand_cat)], context=context)
+
         # flag active country and select only countries with products
         for country_dict in countries:
             country_dict['active'] = country and country_dict['country_id'] and country_dict['country_id'][0] == country.id
@@ -643,8 +644,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         style_ids = style_obj.search(cr, uid, [], context=context)
         styles = style_obj.browse(cr, uid, style_ids, context=context)
 
-        category_obj = pool['product.public.category']
-        category_ids = category_obj.search(cr, uid, [('parent_id', '=', int(category)) , ('id', '=', int(category))], context=context)
+        category_ids = category_obj.search(cr, uid, [('parent_id', '=', demand_cat) , ('id', '=', demand_cat)], context=context)
         categories = category_obj.browse(cr, uid, category_ids, context=context)
         categs = filter(lambda x: not x.parent_id, categories)
         # Category's product search

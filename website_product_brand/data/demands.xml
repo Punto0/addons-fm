@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data noupdate="0">
-<!--	<record id="demands_public_cat" model="product.public.category">
+	<record id="demands_public_cat" model="product.public.category">
             <field name="name">Demands</field>
-            <field name="sequence" type="int">5</field>
+            <field name="sequence" type="int">1000</field>
         </record>   
--->
         <record id="menu_demands" model="website.menu">
             <field name="name">Demands</field>
             <field name="url">https://market.fair.coop/demands</field>
