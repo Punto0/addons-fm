@@ -8,7 +8,8 @@
              </xpath>
              <!-- Add an element after the top menu  -->
              <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
-                      <a href="/blog/our-news-1/post/join-our-20-discount-offer-9">
+<!--
+                  <a href="/blog/our-news-1/post/join-our-20-discount-offer-9">
                     <div class="oe_image container" style="padding-bottom: 20px;">
                         <img itemprop="image" class="img"
                              padding-bottom="20px"
@@ -16,8 +17,14 @@
                              height="50%" 
                              src="/fairmarket_tunes/static/src/img/1-1campaign_banner.png" 
                              alt="1:1 campaign discount"/>
-                    </div>
-                      </a>
+                     </div>     
+                    </a>
+-->
+               <div class="container alert alert-info mt16" role="alert">    
+               <center><h2>We are upgrading!</h2>
+                    <p>We are updating FairMarket, we have disabled the payments until we finish the work. Please do not edit or create any item in the web, may get lost in the upgrade.</p>  
+               </center>
+               </div>
              </xpath>
         </template>
     </data>
