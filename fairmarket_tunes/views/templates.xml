@@ -1,5 +1,6 @@
 <openerp>
 <data>
+<!-- All cross site mods -->
 <template id="fairmarket_tunes_layout" inherit_id="website.layout" name="FairMarket layout" priority="17">
     <xpath expr="//head//link" position="after">
         <link rel="shortcut icon" href="/fairmarket_tunes/static/src/img/favicon.ico" type="image/x-icon"/>
@@ -17,6 +18,170 @@
     <xpath expr="." position="inside">
         <script type="text/javascript" src="/fairmarket_tunes/static/src/js/fairmarket_tunes.js"></script>
     </xpath>
+</template>
+<!-- Replace powered by Odoo footer in backend -->
+<template id="menu_secondary_replace" inherit_id="web.menu_secondary" name="Submenu">
+            <xpath expr="//div[@class='oe_footer']" position="replace">
+                <div class="oe_footer">
+                    Powered by <a href="http://fair.coop" target="_blank"><span>FairCoop</span></a>
+                </div>
+            </xpath>
+        </template>
+<!-- Web pages -->
+<template name="About us" id="aboutus">
+  <t t-call="website.layout">
+    <div id="wrap">
+      <div class="oe_structure">
+        <section data-snippet-id="title">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="text-center">About us</h1>
+                <h3 class="text-muted text-center">Fairmarket: the key project in the new global economic ecosystem we want to build</h3>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section data-snippet-id="text-image">
+          <div class="container">
+            <div class="row">
+              <div class="mt32 col-md-6">
+                <p style="text-align: justify;">
+                  <span class="author-g-lo1cqytz122zau131qu2"/>
+                  <span class="author-g-lo1cqytz122zau131qu2">FairCoop is an open global cooperative, self-organized via the Internet and remaining outside nation-state control.</span>
+                </p>
+                <div class="ace-line" id="magicdomid84" style="text-align: justify;"/>
+                <div class="ace-line" id="magicdomid85" style="text-align: justify;"><span class="author-g-lo1cqytz122zau131qu2">Its aim is to make the transition to a new world by reducing the economic and social inequalities among human beings as much as possible, and at the same time gradually contribute to a new global wealth, accessible to all humankind as commons.</span><br/></div>
+                <div class="ace-line" id="magicdomid86" style="text-align: justify;"/>
+                <div class="ace-line" id="magicdomid95" style="text-align: justify;">
+                  <span class="author-g-lo1cqytz122zau131qu2">FairCoop understands that the transformation to a fairer monetary system is a key element. Therefore, Faircoin was proposed as the cryptocurrency upon which to base its resource-redistribution actions and building of a new global economic system.</span>
+                </div>
+                <div class="ace-line" id="magicdomid97" style="text-align: justify;"/>
+                <div class="ace-line" id="magicdomid154" style="text-align: justify;">
+                  <span class="author-g-lo1cqytz122zau131qu2">To read more about FairCoop: </span>
+                  <span class="author-g-lo1cqytz122zau131qu2 url"><a href="https://fair.coop/">https://fair.coop/</a><br/><br/><br/></span>
+                </div>
+                <div id="magicdomid8"/>
+                <div id="magicdomid9"/>
+                <div id="magicdomid10"/>
+              </div>
+              <div class="col-md-4 col-md-offset-2 mt16 mb16">
+                <img alt="Our Team" class="img img-responsive shadow" src="/website/image/ir.attachment/756_3f4b9a5/datas" style=" animation-play-state: paused; transition: none 0s ease 0s;-webkit-transform: translateX(-22.2%)  translateY(14.2%)  scaleX(1.38)  scaleY(1.36);-moz-transform: translateX(-22.2%)  translateY(14.2%)  scaleX(1.38)  scaleY(1.36);-ms-transform: translateX(-22.2%)  translateY(14.2%)  scaleX(1.38)  scaleY(1.36);-o-transform: translateX(-22.2%)  translateY(14.2%)  scaleX(1.38)  scaleY(1.36);transform: translateX(-22.2%)  translateY(14.2%)  scaleX(1.38)  scaleY(1.36)"/>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="oe_structure"/>
+    </div>
+  </t>
+</template>
+<template name="how-it-works" id="howitworks" >
+  <t t-call="website.layout">
+    <div id="wrap" class="oe_structure oe_empty">
+      <section class="para_large">
+        <div class="container">
+          <div class="row">
+            <div class="mt16 col-md-offset-2 col-md-8 mb0">
+              <h2>
+                <strong>How it works</strong>
+              </h2>
+              <p>FairCoop's virtual market is designed as a space where you can create a shop either individually or as a group. It is an open market for all, giving everyone access to shopping.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="para_large">
+        <div class="container">
+          <div class="row">
+            <div class="mb16 col-md-offset-2 col-md-8 mt0">
+              <h3>
+                <strong>As a user</strong>
+                <br/>
+                <strong/>
+              </h3>
+              <p>Although you are welcome to use the site as a consumer without signing up, for a better user experience we strongly suggest that you register, so that you can give feedback and participate in discussions. To start with, you should follow the <a href="/web/signup">registration process</a>.</p>
+              <p>After you register, you'll be able to fix your billing and shipping data and participate in the <a href="/forum">forum</a>.</p>
+              <h3>
+                <strong>As a seller</strong>
+              </h3>
+              <div class="o_image_floating pull-right o_margin_l o_hide_link">
+                <div class="o_container">
+                  <img alt="Odoo Members" class="img img-rounded img-responsive" src="/website/image/ir.attachment/1322_e10aca0/datas" style="animation-play-state: paused; transition: none 0s ease 0s"/>
+                  <mark class="text-center">
+                    <a href="#">
+                      <strong>Click Her</strong>
+                    </a>
+                  </mark>
+                </div>
+              </div>
+              <p>To start with, you should follow the registration process <a href="https://market.fair.coop/web/signup" target="_blank">here</a>.</p>
+              <p>After registering, please <a href="https://market.fair.coop/page/website.contactus">go to this form</a> and fill in your information so that we can give you access and you can start setting up your e-shop.</p>
+              <p>After submitting, you will need to wait 24 hours at most, until your user is ready to set up a store. Once this is done, you can start setting up and personalising your store. Please note that you will only be able to sell products and services that are in tune with the principles of FairCoop.</p>
+              <p>The multi-store space should not be understood only as a place to sell but also as a forum for communication between projects, sellers and consumers in order to share knowledge and feedback, so we strongly suggest you get involved using <a href="/forum">our forums</a>.</p>
+              <p>Setting up a store is totally free. We are currently discussing the issue of fees and we'll be happy to include <a href="https://market.fair.coop/forum/proposals-and-the-future-of-fairmarket-2/question/fees-and-future-of-fairmarket-60">your opinion</a>.</p>
+              <p>If you have questions about this process, <a href="/forum">share them here</a> or <a href="mailto:market@fair.coop">contact us</a>.</p>
+              <p style="text-align: justify;"/>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </t>
+</template>
+<template name="what-is-fairmarket" id="whatisfairmarket">
+  <t t-call="website.layout">
+    <div id="wrap" class="oe_structure oe_empty">
+      <section class="para_large">
+        <div class="container">
+          <div class="row">
+            <div class="mb16 mt16 col-md-8 col-md-offset-2">
+              <div class="o_image_floating pull-right o_hide_link">
+                <div class="o_container">
+                  <img alt="Odoo Members" class="img img-responsive" src="/website/image/ir.attachment/1290_dde283a/datas" style=" animation-play-state: paused; transition: none 0s ease 0s;-webkit-transform: translateX(0.3%)  translateY(49.6%);-moz-transform: translateX(0.3%)  translateY(49.6%);-ms-transform: translateX(0.3%)  translateY(49.6%);-o-transform: translateX(0.3%)  translateY(49.6%);transform: translateX(0.3%)  translateY(49.6%)"/>
+                  <mark class="text-center">
+                    <a href="#">
+                      <strong/>
+                    </a>
+                  </mark>
+                </div>
+              </div>
+              <h2>
+                <strong>What is FairMarket?</strong>
+              </h2>
+              <p>Fairmarket is <a href="https://fair.coop/">FairCoop</a>'s online market, where you can find all the products and services that are offered by its members.</p>
+              <p>It works under the concept of an "open cooperative": that is to say, everyone can easily become a member of FairCoop. As a seller, simply by using this tool, building your e-shop and providing your goods and services, you can take part in the process and therefore participate as a member of it.</p>
+              <p>Fairmarket is a key project in the new global economic ecosystem we want to build.</p>
+              <ul>
+                <li>
+                  <p>On one hand, it aims to become a market tool to increase visibility and distribute goods and services produced by FairCoop members, while also helping to create networks with other projects and individuals in tune with alternative markets, ethical finances, social currencies, collective actions, social inclusion, and fair trade.</p>
+                </li>
+                <li>
+                  <p>On the other hand, it is committed to the use of Faircoin as a cryptocurrency for the direct purchases of goods and services that will help to increase freedom in economic networking and will help in the construction of alternatives for a more equitable economy.</p>
+                </li>
+              </ul>
+              <p>In this way, FairMarket can't be a business-as-usual trade platform. Its main difference is it promotes an economy based on demand, not supply. This is possible through the self-organization of user demand that we will be facilitating with the values and tools that will be brought to market.</p>
+              <p>In the not too distant future, FairMarket will also introduce FairCredit alongside Faircoin allowing mutual credit between members, which will help to generate sustainable relationships amongst all the FairCoop participants.</p>
+              <p>FairMarket will be launched in three phases. During the alpha, the platform was set up and tested for bugs. It did not include checkout but allowed people to start uploading products, making contacts and get started with the platform. <strong>Now, we are entering Beta</strong>. The market opens for trading and you can buy and sell things with Faircoin. Distribution (shipping) must be agreed between parties, and many other features are still lacking, but we now have a functioning platform.</p>
+              <p>The third phase will be the fully productive one, when FairCoop will present the post-capitalist world with a fully-featured marketplace to build the networked economy that we all deserve.</p>
+              <p>To get started, we need to build a strong community and you can get involved by <a href="https://market.fair.coop/web/signup">joining us</a> or participating in <a href="https://market.fair.coop/forum">our forum</a> to help build it together!</p>
+              <p/>
+              <h3>
+                <strong/>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="para_large">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 mb16 mt16"/>
+          </div>
+        </div>
+      </section>
+    </div>
+  </t>
 </template>
 </data>
 </openerp>

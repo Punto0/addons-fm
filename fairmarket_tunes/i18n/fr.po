@@ -1,0 +1,3980 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website
+# 
+# Translators:
+# serge vieillescaze <serge.vi@gmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-03 12:31+0000\n"
+"PO-Revision-Date: 2017-10-03 17:45+0200\n"
+"Last-Translator: serge vieillescaze <serge.vi@gmail.com>, 2017\n"
+"Language-Team: French (https://www.transifex.com/faircoop/teams/82544/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.7\n"
+
+#. module: website
+#: view:website:website.snippets
+msgid "\"OpenERP\""
+msgstr "\"OpenERP\""
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.snippets.xml:34
+#: code:addons/website/static/src/xml/website.snippets.xml:35
+#: code:addons/website/static/src/xml/website.snippets.xml:36
+#: view:website:website.aboutus
+#, python-format
+msgid "&nbsp;"
+msgstr "&nbsp;"
+
+#. module: website
+#: view:website:website.info view:website:website.themes
+msgid "&times;"
+msgstr "&times;"
+
+#. module: website
+#: view:website:website.500
+msgid "' in the box below if you want to confirm."
+msgstr "' dans le panneau en dessous si vous voulez confirmer."
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid ""
+"'s online market, where you can find all the products and services that are "
+"offered by its members."
+msgstr ""
+"'marché en ligne, ou vous pouvez trouver tous les produits et services "
+"offerts par les membres."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:366
+#, python-format
+msgid "(Youtube, Vimeo, Dailymotion)"
+msgstr "(Youtube, Vimeo, Dailymotion)"
+
+#. module: website
+#: view:website:website.info
+msgid ""
+",\n"
+"                                updated:"
+msgstr ""
+",\n"
+"                               mis à jour :"
+
+#. module: website
+#: view:website:website.layout
+msgid ""
+",\n"
+"                the #1"
+msgstr ""
+",\n"
+"                 Le #1"
+
+#. module: website
+#: view:website:website.info
+msgid ", author:"
+msgstr ", auteur :"
+
+#. module: website
+#: view:website:website.info
+msgid ", updated:"
+msgstr ", mis à jour :"
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid ""
+". The market opens for trading and you can buy and sell things with "
+"Faircoin. Distribution (shipping) must be agreed between parties, and many "
+"other features are still lacking, but we now have a functioning platform."
+msgstr ""
+". Le magasin est ouvert et vous pouvez acheter et vendre avec des FairCoins."
+" Les envois doivent faire l'objet d'un accord entre les parties. Beaucoup "
+"d'autres fonctions manquent encore mais nous avons une plateforme en ordre "
+"de marche."
+
+#. module: website
+#: view:website:website.sitemap_index_xml
+msgid ".xml"
+msgstr ".xml"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:22
+#, python-format
+msgid "1. Define Keywords"
+msgstr "1. Définit les mots clés"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:40
+#, python-format
+msgid "2. Reference Your Page"
+msgstr "2. Référencer votre page"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:57
+#, python-format
+msgid "3. Preview"
+msgstr "3. Aperçu"
+
+#. module: website
+#: view:website:website.403
+msgid "403: Forbidden"
+msgstr "403: Interdit"
+
+#. module: website
+#: view:website:website.404
+msgid "404: Page not found!"
+msgstr "404 : Page non trouvée!"
+
+#. module: website
+#: view:website:website.snippets
+msgid "50,000+ companies run Odoo to grow their businesses."
+msgstr "50 000+ sociétés utilisent Odoo pour leurs affaires."
+
+#. module: website
+#: model:ir.actions.act_window,help:website.action_module_website
+msgid ""
+"<p><b>No website module found!</b></p>\n"
+"              <p>You should try others search criteria.</p>\n"
+"            "
+msgstr ""
+"<p><b> Aucun module Site web trouvé</b></p>\n"
+"<p> Veuillez essayer d'autres critères de recherche</p>"
+
+#. module: website
+#: view:website:website.snippets
+msgid "A Great Headline"
+msgstr "Une superbe entête"
+
+#. module: website
+#: view:website:website.snippets
+msgid "A Punchy Headline"
+msgstr "Une entête qui flashe"
+
+#. module: website
+#: view:website:website.snippets
+msgid "A Section Subtitle"
+msgstr "Une section de sous-titre"
+
+#. module: website
+#: view:website:website.snippets
+msgid "A Small Subtitle"
+msgstr "Un petit sous-titre"
+
+#. module: website
+#: view:website:website.themes
+msgid "A calm blue sky"
+msgstr "Un ciel bleu appaisant"
+
+#. module: website
+#: help:ir.actions.server,website_published:0
+msgid ""
+"A code server action can be executed from the website, using a "
+"dedicatedcontroller. The address is <base>/website/action/<website_path>.Set"
+" this field as True to allow users to run this action. If itset to is False "
+"the action cannot be run through the website."
+msgstr ""
+"Une action serveur peut être effectuée depuis le site web en utilisant un "
+"contrôleur spécial. L'adresse est <base>/website/action/<website_path>. "
+"Passez le champs à True pour permettre les utilisateurs d'effectuer cette "
+"action. Si il est à False, l'action ne peut pas être lancée depuis le site "
+"web."
+
+#. module: website
+#: view:website:website.themes
+msgid "A friendly foundation"
+msgstr "Une fondation sympathique"
+
+#. module: website
+#: view:website:website.snippets
+msgid "A good subtitle"
+msgstr "Un bon sous-titre"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"A great way to catch your reader's attention is to tell a story.\n"
+"                            Everything you consider writing can be told as a story."
+msgstr ""
+"Une bonne manière d'attirer l'attention est d'écrire une histoire.\n"
+"             Tout ce que vous pensez écrire peut avoir la forme d'une histoire."
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"A great way to catch your reader's attention is to tell a story. Everything "
+"you consider writing can be told as a story."
+msgstr ""
+"Une bonne manière d'attirer l'attention est d'écrire une histoire.\n"
+" Tout ce que vous pensez écrire peut avoir la forme d'une histoire."
+
+#. module: website
+#: view:website:website.snippets
+msgid "A small explanation of this great"
+msgstr "une petite explication de ce superbe"
+
+#. module: website
+#: view:website:website.aboutus view:website:website.layout
+msgid "About us"
+msgstr "A propos de nous"
+
+#. module: website
+#: view:website:website.contact
+msgid "About your account, product, sale or purchase,"
+msgstr "A propos de votre compte, produit, vente ou achat,"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Adapt these three columns to fit you design need.\n"
+"                            To duplicate, delete or move columns, select the\n"
+"                            column and use the top icons to perform your action."
+msgstr ""
+"Adaptez ces trois colonnes afin de correspondre a votre design.\n"
+"                        Pour dupliquer, effacer ou déplacer les colonnes, selectionnez les\n"
+"                       et utilisez les icônes du dessus pour effectuer votre opération."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:225
+#: code:addons/website/static/src/xml/website.seo.xml:30
+#, python-format
+msgid "Add"
+msgstr "Ajouter"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:68
+#, python-format
+msgid "Add Another Block"
+msgstr "Ajouter un autre bloc"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.contentMenu.xml:39
+#: code:addons/website/static/src/xml/website.contentMenu.xml:47
+#, python-format
+msgid "Add Menu Entry"
+msgstr "Ajouter une entrée de menu"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Add Slide"
+msgstr "Ajouter un slide"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Add a great slogan"
+msgstr "Ajouter un super slogan"
+
+#. module: website
+#: view:website:website.layout
+msgid "Add a language..."
+msgstr "Ajouter un language..."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:222
+#, python-format
+msgid "Add an image URL"
+msgstr "Ajouter une URL d'image"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:25
+#, python-format
+msgid "Add keyword:"
+msgstr "Ajouter un mot clé:"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:112
+#, python-format
+msgid "Add new pages and menus"
+msgstr "Ajouter de nouvelles pages et menus"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.contentMenu.js:50
+#, python-format
+msgid "Add page in menu"
+msgstr "Ajouter une page dans le menu"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "After registering, please"
+msgstr "Après registration, S.V.P"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid ""
+"After submitting, you will need to wait 24 hours at most, until your user is"
+" ready to set up a store. Once this is done, you can start setting up and "
+"personalising your store. Please note that you will only be able to sell "
+"products and services that are in tune with the principles of FairCoop."
+msgstr ""
+"Après validation, vous devrez attendre 24 heures maximum, jusqu'à ce que "
+"votre utilisateur est prêt à créer un magasin. Lorsque cela est fait, vous "
+"pourrez commencer à le personnaliser. Notez que vous ne pourrez que vendre "
+"des produits en concordance avec les principes et valeurs de FairCoop."
+
+#. module: website
+#: view:website:website.how-it-works
+msgid ""
+"After you register, you'll be able to fix your billing and shipping data and"
+" participate in the"
+msgstr ""
+"Après vous être enregistré, vous pourrez ajuster vos données de facturation "
+"et pourrez participer à"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"All these icons are licensed under creative commons so that you can use "
+"them."
+msgstr ""
+"Tous ces icônes sont sous license creative commons, vous pouvez les "
+"utiliser."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:212
+#, python-format
+msgid "Alternate Upload"
+msgstr "Autre Téleversement "
+
+#. module: website
+#: view:website:website.how-it-works
+msgid ""
+"Although you are welcome to use the site as a consumer without signing up, "
+"for a better user experience we strongly suggest that you register, so that "
+"you can give feedback and participate in discussions. To start with, you "
+"should follow the"
+msgstr ""
+"Bien que vous puissiez utiliser le site sans être enregistré, nous vous "
+"suggérons de créer un compte afin d'avoir plus de retours et de pouvoir "
+"participer aux discussions. Pour démarrer , veuillez suivre le "
+
+#. module: website
+#: view:website:website.themes
+msgid "Amelia"
+msgstr "Amelia"
+
+#. module: website
+#: view:website:website.500
+msgid "An error occured while rendering the template"
+msgstr "Une erreur s'est produite lors de l'enregistrement du template"
+
+#. module: website
+#: view:website:website.themes
+msgid "An ode to Metro"
+msgstr "Une ode à Metro"
+
+#. module: website
+#: view:website:website.snippets
+msgid "And a great subtitle too"
+msgstr "Et un super sous-titre aussi"
+
+#. module: website
+#: view:website:website.themes view:website:website.view_website_form
+#: view:website.config.settings:website.view_website_config_settings
+msgid "Apply"
+msgstr "Appliquer"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Aqua"
+msgstr "Aqua"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "As a seller"
+msgstr "Comme vendeur"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "As a user"
+msgstr "Comme utilisateur"
+
+#. module: website
+#: field:ir.attachment,website_url:0
+msgid "Attachment URL"
+msgstr "URL d'attachement"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Author of this quote"
+msgstr "Auteur de cette déclaration"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.snippets.xml:44
+#, python-format
+msgid "Auto Resize"
+msgstr "Redimensionnement automatique"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:404
+#, python-format
+msgid "Autoplay"
+msgstr "Lecture automatique"
+
+#. module: website
+#: field:ir.actions.server,website_published:0
+msgid "Available on the Website"
+msgstr "Disponible sur le site web"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Baby Blue"
+msgstr "Baby blue"
+
+#. module: website
+#: view:website:website.500
+msgid "Back"
+msgstr "Retour"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Background"
+msgstr "Fond"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Banner"
+msgstr "Bannière "
+
+#. module: website
+#: view:website:website.contact view:website:website.snippets
+msgid "Banner Odoo Image"
+msgstr "Image Bannière Odoo"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:92
+#, python-format
+msgid "Basic"
+msgstr "Basique"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Battery: 12 hours"
+msgstr "Batterie : 12 heures"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Battery: 20 hours"
+msgstr "Batterie : 20 heures"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Battery: 8 hours"
+msgstr "Batterie : 8 heures"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Beginner"
+msgstr "Débutant"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Big Message"
+msgstr "Grand message"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Big Picture"
+msgstr "Grande image"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Bigger Text"
+msgstr "Texte plus gros"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Black"
+msgstr "Noir"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.snippets.xml:13
+#, python-format
+msgid "Block style"
+msgstr "Style du bloc"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Box"
+msgstr "Boite"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:9
+#, python-format
+msgid "Build a page"
+msgstr "Construire une page"
+
+#. module: website
+#: view:website:website.homepage
+msgid "Building the networked economy we all deserve."
+msgstr "Construire l'économie circulaire que nous méritons tous."
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Business Guy"
+msgstr "Homme d'affaires"
+
+#. module: website
+#: view:website:website.snippets
+msgid "But"
+msgstr "But"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Button"
+msgstr "Boutton"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Can I use it to manage projects based on agile methodologies?"
+msgstr ""
+"Puis-je l'utiliser pour gérer des projets basés sur une méthodologie agile?"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:310
+#: code:addons/website/static/src/xml/website.translator.xml:46
+#: code:addons/website/static/src/xml/website.xml:74 view:website:website.500
+#: view:website:website.view_website_form
+#: view:website.config.settings:website.view_website_config_settings
+#, python-format
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: website
+#: view:website:website.themes
+msgid "Cerulean"
+msgstr "Bleu ciel"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:318
+#, python-format
+msgid "Change"
+msgstr "Changer"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Change Background"
+msgstr "Changer le fond"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Change Icons"
+msgstr "Changer les icônes"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:325
+#, python-format
+msgid "Change Media"
+msgstr "Changer le média"
+
+#. module: website
+#: view:website:website.layout
+msgid "Change Theme"
+msgstr "Changer le thème"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Change..."
+msgstr "Changer..."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:104
+#, python-format
+msgid "Check Mobile Preview"
+msgstr "Tester la vue mobile"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Check now and discover more today!"
+msgstr "Tester maintenant et découvrez plus demain!"
+
+#. module: website
+#: field:website.menu,child_id:0
+msgid "Child Menus"
+msgstr "Menus enfants"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Choose a vibrant image and write an inspiring paragraph\n"
+"                            about it. It does not have to be long, but it should\n"
+"                            reinforce your image."
+msgstr ""
+"Choisissez une image marquante et écrivez un paragraphe inspiré à son propos. \n"
+"Pas besoin d'être long, mais cela devrait renforcer l'image."
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Choose an image..."
+msgstr "Choisissez une image..."
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Circle"
+msgstr "Cercle"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "Click Her"
+msgstr "Cliquez ici"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Click Here"
+msgstr "Cliquez ici"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:29
+#, python-format
+msgid "Click here to insert blocks of content in the page."
+msgstr "Cliquez ici pour insérer des blocs de contenu dans la page."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:44
+#, python-format
+msgid "Click in the text and start editing it."
+msgstr "Cliquez dans le texte et commencez à écrire."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Click on the icon to adapt it to your feature"
+msgstr "Cliquez sur l'icône afin de l'adapter"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:50
+#: view:website:website.snippets
+#, python-format
+msgid "Click to customize this text"
+msgstr "Cliquez pour personnaliser le texte"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.ace.xml:11
+#: code:addons/website/static/src/xml/website.seo.xml:13
+#: code:addons/website/static/src/xml/website.translator.xml:11
+#: code:addons/website/static/src/xml/website.xml:10
+#: code:addons/website/static/src/xml/website.xml:26
+#: code:addons/website/static/src/xml/website.xml:43
+#, python-format
+msgid "Close"
+msgstr "Fermer"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:114
+#, python-format
+msgid "Close Tutorial"
+msgstr "Fermer le cours"
+
+#. module: website
+#: view:website:website.homepage
+msgid "Collectively built: join, create a shop and get involved!"
+msgstr "Construisez, créez, et prenez vous au jeu, collectivement!"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Color Splash"
+msgstr "Couleur splash"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:86
+#, python-format
+msgid "Color Style"
+msgstr "Style de couleur"
+
+#. module: website
+#: model:ir.model,name:website.model_res_company
+msgid "Companies"
+msgstr "Sociétés"
+
+#. module: website
+#: field:website,company_id:0
+msgid "Company"
+msgstr "Société"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Comparisons"
+msgstr "Comparaisons"
+
+#. module: website
+#: view:website.config.settings:website.view_website_config_settings
+msgid "Configure Website"
+msgstr "Configurer le site web"
+
+#. module: website
+#: view:website.config.settings:website.view_website_config_settings
+msgid "Configure website menus"
+msgstr "Configurer les menus"
+
+#. module: website
+#: view:website:website.layout
+msgid "Connect with us"
+msgstr "Connectez vous avec nous"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Consider telling\n"
+"                            a great story that provides personality. Writing a story\n"
+"                            with personality for potential clients will asist with\n"
+"                            making a relationship connection. This shows up in small\n"
+"                            quirks like word choices or phrases. Write from your point\n"
+"                            of view, not from someone else's experience."
+msgstr ""
+"Imaginez raconter\n"
+"     une belle histoire qui donne de la personnalité. Écrire une histoire\n"
+"  avec de la personnalité pour les clients potentiels va vous aider à créer une relation.\n"
+"Cela fonctionne avec des petites phrases et des mots simples.\n"
+"Écrivez selon votre point de vue, pas celui d'une autre personne."
+
+#. module: website
+#: view:website:website.403 view:website:website.404
+msgid "Contact Us"
+msgstr "Contactez nous"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Contact Us Now"
+msgstr "Contactez nous maintenant"
+
+#. module: website
+#: view:website:website.contact view:website:website.contactus
+#: view:website:website.layout view:website:website.snippets
+#: model:website.menu,name:website.menu_contactus
+msgid "Contact us"
+msgstr "Contactez nous"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Contact us »"
+msgstr "Contactez nous »"
+
+#. module: website
+#: view:website:website.layout view:website:website.snippets
+msgid "Content"
+msgstr "Contenu"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.translator.xml:22
+#, python-format
+msgid "Content to translate"
+msgstr "Contenu à traduire"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:62
+#: code:addons/website/static/src/js/website.tour.banner.js:91
+#: code:addons/website/static/src/js/website.tour.banner.js:106
+#: code:addons/website/static/src/xml/website.xml:73
+#, python-format
+msgid "Continue"
+msgstr "Continuez"
+
+#. module: website
+#: view:website:website.layout
+msgid "CoopFunding"
+msgstr "CoopFunding"
+
+#. module: website
+#: view:website:website.layout
+msgid "Copyleft FairCoop"
+msgstr "Copyleft FairCoop"
+
+#. module: website
+#: view:website:website.themes
+msgid "Cosmo"
+msgstr "Cosmo"
+
+#. module: website
+#: view:website:website.page_404
+msgid "Create Page"
+msgstr "Créer une page"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.editor.js:996
+#, python-format
+msgid "Create page '%s'"
+msgstr "Créer une page '%s'"
+
+#. module: website
+#: field:website,create_uid:0 field:website.config.settings,create_uid:0
+#: field:website.converter.test.sub,create_uid:0
+#: field:website.menu,create_uid:0 field:website.seo.metadata,create_uid:0
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: website
+#: field:website,create_date:0 field:website.config.settings,create_date:0
+#: field:website.converter.test.sub,create_date:0
+#: field:website.menu,create_date:0 field:website.seo.metadata,create_date:0
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: website
+#: view:website:website.themes
+msgid "Crisp like a new sheet of paper."
+msgstr "Crisse comme une nouvelle feuille de papier."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:323
+#: code:addons/website/static/src/xml/website.snippets.xml:31
+#: view:website:website.layout
+#, python-format
+msgid "Customize"
+msgstr "Personnaliser"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:61
+#, python-format
+msgid ""
+"Customize any block through this menu. Try to change the background of the "
+"banner."
+msgstr ""
+"Personnalisez un bloc avec ce menu. Essayez de changer le fond de la "
+"bannière."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:43
+#, python-format
+msgid "Customize banner's text"
+msgstr "Personnalisez le texte de la bannière"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:60
+#, python-format
+msgid "Customize the banner"
+msgstr "Personnaliser la bannière"
+
+#. module: website
+#: view:website:website.themes
+msgid "Cyborg"
+msgstr "Cyborg"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:107
+#, python-format
+msgid "Danger"
+msgstr "Danger"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Dark Blue"
+msgstr "Bleu foncé"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Darken"
+msgstr "Assombrir"
+
+#. module: website
+#: field:ir.attachment,datas_checksum:0
+msgid "Datas checksum"
+msgstr "Test de somme des données"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:123
+#: view:website:website.themes
+#, python-format
+msgid "Default"
+msgstr "Défaut"
+
+#. module: website
+#: view:website:website.themes
+msgid "Default Theme"
+msgstr "Thème par défaut"
+
+#. module: website
+#: field:website,default_lang_id:0
+#: field:website.config.settings,default_lang_id:0
+msgid "Default language"
+msgstr "Language par défaut"
+
+#. module: website
+#: field:website,default_lang_code:0
+#: field:website.config.settings,default_lang_code:0
+msgid "Default language code"
+msgstr "Language de code par défaut"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Delete Blocks"
+msgstr "Effacer des blocs"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Delete the above image or replace it with a picture\n"
+"                            that illustrates your message. Click on the picture to\n"
+"                            change it's"
+msgstr ""
+"Effacer cette image ou la remplacer avec une autre\n"
+"            qui illustre le message. Cliquez sur l'image pour changer son "
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Deploy new stores with just an internet connection: no\n"
+"                    installation, no specific hardware required. It works with any\n"
+"                    iPad, Tablet PC, laptop or industrial POS machine."
+msgstr ""
+"Déploie un nouveau magasin avec seulement une connection internet : \n"
+"               pas d'installation, pas de matériel spécial . Cela fonctionne avec IPad,\n"
+" Tablette PC, portable ou machine de point de vente."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:49
+#, python-format
+msgid "Description"
+msgstr "Description"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:120
+#, python-format
+msgid "Description..."
+msgstr "Description..."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:11
+#: code:addons/website/static/src/xml/website.editor.xml:30
+#: code:addons/website/static/src/xml/website.editor.xml:191
+#: code:addons/website/static/src/xml/website.editor.xml:249
+#: code:addons/website/static/src/xml/website.editor.xml:308
+#: code:addons/website/static/src/xml/website.seo.xml:71
+#, python-format
+msgid "Discard"
+msgstr "Annule"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:298
+#, python-format
+msgid "Discard edition"
+msgstr "Annule l'édition"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Discover more about Odoo"
+msgstr "Découvrir Odoo"
+
+#. module: website
+#: field:base.language.install,display_name:0 field:ir.ui.view,display_name:0
+#: field:website.config.settings,display_name:0
+#: field:website.converter.test.sub,display_name:0
+#: field:website.menu,display_name:0 field:website.qweb,display_name:0
+#: field:website.qweb.field,display_name:0
+#: field:website.qweb.field.contact,display_name:0
+#: field:website.qweb.field.date,display_name:0
+#: field:website.qweb.field.datetime,display_name:0
+#: field:website.qweb.field.duration,display_name:0
+#: field:website.qweb.field.float,display_name:0
+#: field:website.qweb.field.html,display_name:0
+#: field:website.qweb.field.image,display_name:0
+#: field:website.qweb.field.integer,display_name:0
+#: field:website.qweb.field.many2one,display_name:0
+#: field:website.qweb.field.monetary,display_name:0
+#: field:website.qweb.field.qweb,display_name:0
+#: field:website.qweb.field.relative,display_name:0
+#: field:website.qweb.field.selection,display_name:0
+#: field:website.qweb.field.text,display_name:0
+#: field:website.seo.metadata,display_name:0
+msgid "Display Name"
+msgstr "Nom d'affichage"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.translator.xml:41
+#, python-format
+msgid "Do not show this dialog later."
+msgstr "Ne plus afficher ce dialogue"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Does it works offline?"
+msgstr "Cela fonctionne-t-il hors ligne ?"
+
+#. module: website
+#: view:website:website.view_website_form field:website,name:0
+#: view:website.config.settings:website.view_website_config_settings
+msgid "Domain"
+msgstr "Domaine"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:75
+#, python-format
+msgid "Drag & Drop This Block"
+msgstr "Drag & Drop ce bloc"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:35
+#, python-format
+msgid "Drag & Drop a Banner"
+msgstr "Drag & Drop cette bannière"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.contentMenu.xml:34
+#, python-format
+msgid "Drag a menu to the right to create a sub-menu"
+msgstr "Drag le menu à droite pour créer un  sous-menu"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:76
+#, python-format
+msgid "Drag the <em>'Features'</em> block and drop it below the banner."
+msgstr "Drag le <em>Fonctions</em> block et Drop le sous la bannière."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:36
+#, python-format
+msgid "Drag the Banner block and drop it in your page."
+msgstr "Glissez le bloc de la bannière et déposez le dans votre page."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.snippets.xml:34
+#, python-format
+msgid "Drag to Move"
+msgstr "Glissez pour déplacer"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Duplicate"
+msgstr "Dupliquer"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.snippets.xml:35
+#, python-format
+msgid "Duplicate Container"
+msgstr "Dupliquer le conteneur"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Duplicate blocks to add more features."
+msgstr "Dupliquer les blocs pour ajouter plus de possibilités."
+
+#. module: website
+#: view:website:website.layout view:website:website.publish_management
+msgid "Edit"
+msgstr "Editer"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.contentMenu.xml:27
+#: view:website:website.layout
+#, python-format
+msgid "Edit Menu"
+msgstr "Editer le menu"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.contentMenu.xml:48
+#, python-format
+msgid "Edit Menu Entry"
+msgstr "Editer le texte du menu"
+
+#. module: website
+#: view:website:website.layout
+msgid "Edit Top Menu"
+msgstr "Editer le top menu"
+
+#. module: website
+#: view:website:website.publish_management
+msgid "Edit in backend"
+msgstr "Editer dans le backend"
+
+#. module: website
+#: view:website:website.page_404
+msgid ""
+"Edit the content below this line to adapt the default \"page not found\" "
+"page."
+msgstr "Editez le contenu ci dessous pour adapter la page \"page not found\"."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:21
+#, python-format
+msgid "Edit this page"
+msgstr "Editer cette page"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Effects"
+msgstr "Effets"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:378
+#, python-format
+msgid "Embed Video (HTML)"
+msgstr "Video incluse (HMTL)"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Enterprise package"
+msgstr "Paquet entreprise"
+
+#. module: website
+#: view:website:website.http_error_debug
+msgid "Error"
+msgstr "Erreur"
+
+#. module: website
+#: view:website:website.http_error_debug
+msgid "Error message:"
+msgstr "message d'erreur :"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:22
+#, python-format
+msgid ""
+"Every page of your website can be modified through the <i>Edit</i> button."
+msgstr ""
+"Chaque page de votre site web peut être modifiée avec le bouton <i>Edit</i>."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Expert"
+msgstr "Expert"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Explain the benefits you offer. Don't write about products or\n"
+"            services here, write about solutions."
+msgstr ""
+"Expliquez les points forts de votre offre. Ne parlez pas de produits ou "
+"services ici, juste votre solution globale."
+
+#. module: website
+#: field:ir.actions.server,xml_id:0
+msgid "External ID"
+msgstr "ID externe"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:117
+#, python-format
+msgid "Extra Small"
+msgstr "Extra petit"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Extra-Large"
+msgstr "Extra large"
+
+#. module: website
+#: view:website:website.snippets
+msgid "FAQ"
+msgstr "FAQ"
+
+#. module: website
+#: field:website,social_facebook:0
+#: field:website.config.settings,social_facebook:0
+msgid "Facebook Account"
+msgstr "Compte Facebook"
+
+#. module: website
+#: view:website:website.layout view:website:website.what-is-fairmarket
+msgid "FairCoop"
+msgstr "FairCoop"
+
+#. module: website
+#: view:website:website.layout
+msgid "FairCoop Network"
+msgstr "réseaux FairCoop"
+
+#. module: website
+#: view:website:website.aboutus
+msgid ""
+"FairCoop is an open global cooperative, self-organized via the Internet and "
+"remaining outside nation-state control."
+msgstr ""
+"FairCoop est une coopérative mondiale auto organisée par internet et "
+"indépendante de tout contrôle."
+
+#. module: website
+#: view:website:website.aboutus
+msgid ""
+"FairCoop understands that the transformation to a fairer monetary system is "
+"a key element. Therefore, Faircoin was proposed as the&nbsp; cryptocurrency "
+"upon which to base its resource-redistribution actions&nbsp; and building of"
+" a new global economic system."
+msgstr ""
+"FairCoop a compris qu'une transformation vers une économie équitable était un élément clé.\n"
+"FairCoin a donc été développé comme la crypto-monnaie de référence sur laquelle une nouvelle économie sera construite."
+
+#. module: website
+#: model:ir.ui.view,website_meta_description:website.homepage
+msgid "FairCoop's marketplace for a fair economy, using FairCoin!"
+msgstr ""
+"LA place de marché FairCoop pour une économie équitable, utilisant FairCoin!"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid ""
+"FairCoop's virtual market is designed as a space where you can create a shop"
+" either individually or as a group. It is an open market for all, giving "
+"everyone access to shopping."
+msgstr ""
+"Le marché virtuel FairCoop est vu comme une place ou vous pouvez créer un "
+"magasin , individuellement ou en groupe. C'est un marché ouvert à tous, "
+"proposant un accès aux achats à tout le monde."
+
+#. module: website
+#: model:ir.ui.view,website_meta_title:website.homepage
+msgid "FairMarket"
+msgstr "FairMarket"
+
+#. module: website
+#: view:website:website.homepage
+msgid "FairMarket & FairCoop"
+msgstr "FairMarket & FairCoop"
+
+#. module: website
+#: view:website:website.homepage
+msgid "FairMarket Beta - Upgraded!"
+msgstr "FairMarket Beta - Mis a jour!"
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid ""
+"FairMarket will be launched in three phases. During the alpha, the platform "
+"was set up and tested for bugs. It did not include checkout but allowed "
+"people to start uploading products, making contacts and get started with the"
+" platform."
+msgstr ""
+"FairMarket sera lancé en trois phases. Pendant l'alpha, la plateforme était "
+"just mise ne place et testée. On ne pouvait pas faire de commandes mais on "
+"pouvait voir les produits, ajouter des contacts et démarrer avec le système."
+
+#. module: website
+#: view:website:website.homepage view:website:website.layout
+msgid "Faircoin"
+msgstr "FairCoin"
+
+#. module: website
+#: view:website:website.homepage
+msgid "Fairmarket beta - Launched!"
+msgstr "FairMarket beta - démarré !"
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid "Fairmarket is"
+msgstr "FairMarket est"
+
+#. module: website
+#: view:website:website.homepage
+msgid ""
+"Fairmarket is FairCoop's online market, where you can find all the products "
+"and services that are offered by the members of this cooperative."
+msgstr ""
+"FairMarket est un magasin en ligne avec lequel vous pouvez trouver tous les "
+"produits et services proposés par les membres de la coopérative."
+
+#. module: website
+#: view:website:website.layout view:website:website.what-is-fairmarket
+msgid ""
+"Fairmarket is a key project in the new global economic ecosystem we want to "
+"build."
+msgstr ""
+"FairMarket est un produit clé pour l'économie circulaire globale que nous "
+"voulons créér."
+
+#. module: website
+#: view:website:website.aboutus
+msgid ""
+"Farimarket: the key project in the new global economic ecosystem we want to "
+"build"
+msgstr ""
+"FairMarket : Le produit clé de l'économie circulaire globale que nous "
+"voulons créér"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Fast"
+msgstr "Rapide"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Feature Grid"
+msgstr "Grille de caractéristiques"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Feature One"
+msgstr "Point un"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Feature Three"
+msgstr "Point trois"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Feature Title"
+msgstr "Titre de la caractéristique"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Feature Two"
+msgstr "Point deux"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Features"
+msgstr "Caractéristiques"
+
+#. module: website
+#: view:website:website.contactus
+msgid "Finally we will give you access to start setting up your shop"
+msgstr "Enfin nous vous donnons accès pour démarrer votre magasin"
+
+#. module: website
+#: view:website:website.snippets
+msgid "First Feature"
+msgstr "Premier point"
+
+#. module: website
+#: view:website:website.contactus
+msgid "First, you'll need an account,"
+msgstr "Premièrement, vous avez besoin d'un compte,"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Fixed"
+msgstr "Fixé"
+
+#. module: website
+#: view:website:website.themes
+msgid "Flat and modern"
+msgstr "Plat et moderne"
+
+#. module: website
+#: view:website:website.themes
+msgid "Flatly"
+msgstr "Genre plat"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Float"
+msgstr "Float"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Flowers Field"
+msgstr "Champs de fleurs"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.ace.xml:10
+#, python-format
+msgid "Format"
+msgstr "Format"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Free shipping, satisfied or reimbursed."
+msgstr "Envoi gratuit, satisfait ou remboursé."
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"From the main container, you can change the background to highlight "
+"features."
+msgstr ""
+"Dans le cadre principal, vous pouvez changer le fond pour le mettre en "
+"valeur."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:53
+#, python-format
+msgid "Get banner properties"
+msgstr "Accédez aux propriétés de la bannière"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:15
+#, python-format
+msgid ""
+"Get this page efficiently referenced in Google to attract more visitors."
+msgstr "Rendez cette page référencée efficacement avec Google."
+
+#. module: website
+#: view:website:website.layout
+msgid "GetFaircoin"
+msgstr "GetFairCoin"
+
+#. module: website
+#: field:website,social_github:0 field:website.config.settings,social_github:0
+msgid "GitHub Account"
+msgstr "Compte GitHub"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:89
+#, python-format
+msgid "Good Job!"
+msgstr "Bon travail !"
+
+#. module: website
+#: field:website,google_analytics_key:0
+#: field:website.config.settings,google_analytics_key:0
+msgid "Google Analytics Key"
+msgstr "Clé Analytics Google"
+
+#. module: website
+#: field:website,social_googleplus:0
+#: field:website.config.settings,social_googleplus:0
+msgid "Google+ Account"
+msgstr "Compte Google+"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Great Value"
+msgstr "Bonne Valeur"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Great stories are for everyone even when only written for\n"
+"                            just one person."
+msgstr ""
+"Les belles histoires sont pour tout le monde, même si elles sont écrites "
+"pour une seule personne."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Great stories have personality."
+msgstr "Les belles histoires ont une personnalité."
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Green"
+msgstr "Vert"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Greenfields"
+msgstr "Champs verdoyants"
+
+#. module: website
+#: view:website:website.layout
+msgid "HELP & TUTORIALS"
+msgstr "AIDE & TUTORIELS"
+
+#. module: website
+#: view:website:website.layout
+msgid "HTML Editor"
+msgstr "Editeur HTML"
+
+#. module: website
+#: model:ir.model,name:website.model_ir_http
+msgid "HTTP routing"
+msgstr "Routing HTTP"
+
+#. module: website
+#: view:website:website.themes
+msgid "Have a look at"
+msgstr "Regardez vers"
+
+#. module: website
+#: view:website:website.layout
+msgid "Help"
+msgstr "Aide"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.translator.xml:19
+#, python-format
+msgid "Here are the visuals used to help you translate efficiently:"
+msgstr ""
+"Ici se trouvent les visuels afin de vous aider à traduire efficacement :"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Hide link"
+msgstr "Cacher le lien"
+
+#. module: website
+#: view:website:website.500 model:website.menu,name:website.menu_homepage
+msgid "Home"
+msgstr "Accueil"
+
+#. module: website
+#: view:website:website.403 view:website:website.404
+#: view:website:website.layout
+msgid "Homepage"
+msgstr "Page d'accueil"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:331
+#, python-format
+msgid "Horizontal flip"
+msgstr "Flip horizontal"
+
+#. module: website
+#: view:website:website.homepage view:website:website.how-it-works
+msgid "How it works"
+msgstr "Comment ça marche"
+
+#. module: website
+#: view:website:website.contactus
+msgid "How to set up a company:"
+msgstr "Comment mettre en place une société :"
+
+#. module: website
+#: field:website,id:0 field:website.config.settings,id:0
+#: field:website.converter.test.sub,id:0 field:website.menu,id:0
+#: field:website.qweb,id:0 field:website.qweb.field,id:0
+#: field:website.qweb.field.contact,id:0 field:website.qweb.field.date,id:0
+#: field:website.qweb.field.datetime,id:0
+#: field:website.qweb.field.duration,id:0 field:website.qweb.field.float,id:0
+#: field:website.qweb.field.html,id:0 field:website.qweb.field.image,id:0
+#: field:website.qweb.field.integer,id:0
+#: field:website.qweb.field.many2one,id:0
+#: field:website.qweb.field.monetary,id:0 field:website.qweb.field.qweb,id:0
+#: field:website.qweb.field.relative,id:0
+#: field:website.qweb.field.selection,id:0 field:website.qweb.field.text,id:0
+#: field:website.seo.metadata,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: website
+#: help:ir.actions.server,xml_id:0
+msgid "ID of the action if defined in a XML file"
+msgstr "ID de l'action si définit en XML"
+
+#. module: website
+#: view:website:website.500
+msgid ""
+"If this error is caused by a change of yours in the templates, you have the "
+"possibility to reset one or more templates to their"
+msgstr ""
+"Si cette erreur est causée par un changement dans un de vos templates, vous "
+"pouvez le réinitialiser à ses "
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:301
+#, python-format
+msgid "If you discard the current edition,"
+msgstr "SI vous annulez l'édition courante, "
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "If you have questions about this process,"
+msgstr "Si vous avez des questions à propos de ce processus, "
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"If you try to write with a wide general\n"
+"                            audience in mind, your story will ring false and be bland.\n"
+"                            No one will be interested. Write for one person. If it’s genuine for the one, it’s genuine for the rest."
+msgstr ""
+"Si vous tentez d'écrire pour tout le monde,\n"
+"          votre histoire sonnera fausse et n'intéressera personne.\n"
+"          Ecrivez pour une personne. Si c'est intéressant pour un, c'est intéressant pour tous."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:156
+#, python-format
+msgid "Image"
+msgstr "Image"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Image Floating"
+msgstr "Image flottante"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Image Gallery"
+msgstr "Galerie des images"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Image-Floating"
+msgstr "Image-flottante"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Image-Text"
+msgstr "Image-texte"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"In case you still feel a bit puzzled about all\n"
+"                            of our yesterday's announcements, here is a little\n"
+"                            summary for you."
+msgstr ""
+"Dans le cas ou vous seriez un peu perdu à propos de nos annonces d'hier,\n"
+"     voici un petit résumé pour vous."
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid ""
+"In the not too distant future, FairMarket will also introduce FairCredit "
+"alongside Faircoin allowing mutual credit between members, which will help "
+"to generate sustainable relationships amongst all the FairCoop participants."
+msgstr ""
+"Dans un futur proche, FairMarket va introduire FairCredit avec FairCoin "
+"permettant de faire du crédit entre les membres. Cela va permettre de "
+"générer des relations durables entre les membres de FairCoop."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.translator.xml:30
+#, python-format
+msgid ""
+"In this mode, you can only translate texts.  To\n"
+"                            change the structure of the page, you must edit the\n"
+"                            master page. Each modification on the master page\n"
+"                            is automatically applied to all translated\n"
+"                            versions."
+msgstr ""
+"Dans ce mode, vous pouvez seulement traduire des textes.\n"
+"Pour changer la structure de la page, cous devez éditer la Master page. Chaque modification dans la Master page est automatiquement appliquée aux versions traduites."
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid ""
+"In this way, FairMarket can't be a business-as-usual trade platform. Its "
+"main difference is it promotes an economy based on demand, not supply. This "
+"is possible through the self-organization of user demand that we will be "
+"facilitating with the values and tools that will be brought to market."
+msgstr ""
+"De cette manière, FairMarket ne peux pas être une plateforme de vente "
+"habituelle. Sa grande différence est qu'elle promeut une économie basée sur "
+"la demande et non sur le stock. Cela est rendu possible grâce a l'auto "
+"organisation de la demande des utilisateurs par le biais de la plateforme."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:101
+#, python-format
+msgid "Info"
+msgstr "info"
+
+#. module: website
+#: view:website:website.info
+msgid "Information about the"
+msgstr "Information à propos de"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.snippets.xml:7
+#, python-format
+msgid "Insert Blocks"
+msgstr "Insérer des blocs"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:28
+#, python-format
+msgid "Insert building blocks"
+msgstr "Insérer des blocs de construction"
+
+#. module: website
+#: view:website:website.layout
+msgid "Install Apps"
+msgstr "Installer des Apps"
+
+#. module: website
+#: model:ir.model,name:website.model_base_language_install
+msgid "Install Language"
+msgstr "Installer un language"
+
+#. module: website
+#: view:website:website.info
+msgid "Installed Applications"
+msgstr "Applications installées"
+
+#. module: website
+#: view:website:website.info
+msgid "Installed Modules"
+msgstr "Modules installés"
+
+#. module: website
+#: view:website:website.500
+msgid "Internal Server Error"
+msgstr "Erreur interne serveur"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.xml:35
+#, python-format
+msgid ""
+"It might be possible to edit the relevant items\n"
+"                                or fix the issue in"
+msgstr ""
+"Il est possible d'éditer les éléments\n"
+"               ou réparer les erreurs dans"
+
+#. module: website
+#: view:website:website.homepage
+msgid "It works under the"
+msgstr "Cela fonctionne sous le "
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid ""
+"It works under the concept of an \"open cooperative\": that is to say, "
+"everyone can easily become a member of FairCoop. As a seller, simply by "
+"using this tool, building your e-shop and providing your goods and services,"
+" you can take part in the process and therefore participate as a member of "
+"it."
+msgstr ""
+"Tout cela fonctionne sous le concept de coopérative ouverte : Cela veut dire"
+" que tout le monde peut devenir un membre de FairCoop. Comme vendeur, en "
+"utilisant simplement ces outils, construisant un magasin en ligne, vous "
+"prenez part à ce processus et participez comme membre."
+
+#. module: website
+#: view:website:website.aboutus
+msgid ""
+"Its aim is to make the transition to a new world by reducing the&nbsp; "
+"economic and social inequalities among human beings as much as "
+"possible,&nbsp; and at the same time gradually contribute to a new global "
+"wealth,&nbsp; accessible to all humankind as commons."
+msgstr ""
+"Son but est de faire une transition vers un nouveau monde en réduisant les "
+"inégalités économiques le plus possible et en même temps contribuer "
+"graduellement à de nouvelles richesses accessibles au commun."
+
+#. module: website
+#: view:website:website.themes
+msgid "Jet black and electric blue"
+msgstr "Noir Jet et Bleu électrique"
+
+#. module: website
+#: view:website:website.snippets
+msgid "John Doe, CEO"
+msgstr "John Doe, Gérant"
+
+#. module: website
+#: view:website:website.homepage
+msgid "Join Fairmarket!"
+msgstr "Rejoignez FairMarket !"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Join us and make your company a better place."
+msgstr "Rejoignez nous et faites de votre entreprise une meilleure place."
+
+#. module: website
+#: view:website:website.themes
+msgid "Journal"
+msgstr "Journal"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Landscape"
+msgstr "Paysage"
+
+#. module: website
+#: view:website.config.settings:website.view_website_config_settings
+msgid "Language"
+msgstr "Language"
+
+#. module: website
+#: field:website,language_ids:0 field:website.config.settings,language_ids:0
+msgid "Languages"
+msgstr "Languages"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:126
+#: view:website:website.snippet_options
+#, python-format
+msgid "Large"
+msgstr "Large"
+
+#. module: website
+#: field:base.language.install,__last_update:0
+#: field:ir.ui.view,__last_update:0
+#: field:website.config.settings,__last_update:0
+#: field:website.converter.test.sub,__last_update:0
+#: field:website.menu,__last_update:0 field:website.qweb,__last_update:0
+#: field:website.qweb.field,__last_update:0
+#: field:website.qweb.field.contact,__last_update:0
+#: field:website.qweb.field.date,__last_update:0
+#: field:website.qweb.field.datetime,__last_update:0
+#: field:website.qweb.field.duration,__last_update:0
+#: field:website.qweb.field.float,__last_update:0
+#: field:website.qweb.field.html,__last_update:0
+#: field:website.qweb.field.image,__last_update:0
+#: field:website.qweb.field.integer,__last_update:0
+#: field:website.qweb.field.many2one,__last_update:0
+#: field:website.qweb.field.monetary,__last_update:0
+#: field:website.qweb.field.qweb,__last_update:0
+#: field:website.qweb.field.relative,__last_update:0
+#: field:website.qweb.field.selection,__last_update:0
+#: field:website.qweb.field.text,__last_update:0
+#: field:website.seo.metadata,__last_update:0
+msgid "Last Modified on"
+msgstr "Dernièrement modifié le"
+
+#. module: website
+#: field:website,write_uid:0 field:website.config.settings,write_uid:0
+#: field:website.converter.test.sub,write_uid:0 field:website.menu,write_uid:0
+#: field:website.seo.metadata,write_uid:0
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: website
+#: field:website,write_date:0 field:website.config.settings,write_date:0
+#: field:website.converter.test.sub,write_date:0
+#: field:website.menu,write_date:0 field:website.seo.metadata,write_date:0
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: website
+#: view:website:website.homepage
+msgid "Latest products in the FairMarket:"
+msgstr "Derniers produits ajoutés dans FairMarket :"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Left"
+msgstr "Gauche"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:69
+#, python-format
+msgid "Let's add another building block to your page."
+msgstr "Ajoutons un autre bloc de construction sur votre page. "
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:98
+#, python-format
+msgid "Let's check how your homepage looks like on mobile devices."
+msgstr "Voyons à quoi ressemble votre page sur un mobile."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Limited support"
+msgstr "Support limité"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:89
+#, python-format
+msgid "Link"
+msgstr "Lien"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:71
+#, python-format
+msgid "Link text"
+msgstr "Lien texte"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:41
+#, python-format
+msgid "Link to"
+msgstr "Lien vers"
+
+#. module: website
+#: field:website,social_linkedin:0
+#: field:website.config.settings,social_linkedin:0
+msgid "LinkedIn Account"
+msgstr "Compte lié"
+
+#. module: website
+#: view:website:website.snippets
+msgid "List of Features"
+msgstr "Liste des caractéristiques"
+
+#. module: website
+#: view:website:website.layout
+msgid "Logout"
+msgstr "Déconnecter"
+
+#. module: website
+#: field:website,menu_id:0
+msgid "Main Menu"
+msgstr "Menu principal"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Mango"
+msgstr "Mangue"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Margin"
+msgstr "Marge"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.snippets.xml:60
+#, python-format
+msgid "Margin resize"
+msgstr "Retailler la marge"
+
+#. module: website
+#: view:website:website.403 view:website:website.404
+msgid "Maybe you were looking for one of these popular pages ?"
+msgstr "Vous recherchiez peut être une de ces pages populaires ?"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Medium"
+msgstr "Moyen"
+
+#. module: website
+#: view:website.config.settings:website.view_website_config_settings
+#: field:website.menu,name:0
+msgid "Menu"
+msgstr "Menu"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.contentMenu.xml:55
+#, python-format
+msgid "Menu Label"
+msgstr "Étiquette de menu"
+
+#. module: website
+#: field:ir.attachment,mimetype:0
+msgid "Mime Type"
+msgstr "Mime"
+
+#. module: website
+#: view:website:website.themes
+msgid "Mini and minimalist."
+msgstr "Mini et minimalist."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.xml:11
+#: view:website:website.layout
+#, python-format
+msgid "Mobile preview"
+msgstr "Prévisualisation mobile"
+
+#. module: website
+#: view:website:website.snippets
+msgid "More than 500 happy customers."
+msgstr "Plus de 500 clients heureux."
+
+#. module: website
+#: view:website:website.snippets
+msgid "More than 500 successful projects"
+msgstr "Plus de 500 projets gagnants"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:36
+#, python-format
+msgid "Most searched topics related to your keywords, ordered by importance:"
+msgstr ""
+"Les recherches sur votre mot clé les plus courantes, rangées par importance "
+": "
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Mountains"
+msgstr "Montagnes"
+
+#. module: website
+#: view:website:website.layout
+msgid "My Account"
+msgstr "Mon compte"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Narrow"
+msgstr "étroit"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.contentMenu.js:38
+#: view:website:website.layout
+#, python-format
+msgid "New Page"
+msgstr "Nouvelle page"
+
+#. module: website
+#: field:website.menu,new_window:0
+msgid "New Window"
+msgstr "Nouvelle fenêtre"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.editor.js:981
+#, python-format
+msgid "New or existing page"
+msgstr "Nouvelle ou page existante"
+
+#. module: website
+#: view:website:website.kanban_contain view:website:website.pager
+msgid "Next"
+msgstr "Suivant"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:162
+#, python-format
+msgid "Next →"
+msgstr "Suivant →"
+
+#. module: website
+#: view:website:website.contactus
+msgid ""
+"Next, fill in the form with your registration name, email, and the name of "
+"the company you want to set up."
+msgstr ""
+"Maintenant, remplissez le formulaire avec vos nom, email et le nom de "
+"l'entreprise que vous voulez créer."
+
+#. module: website
+#: view:website:website.snippets
+msgid "No support"
+msgstr "Pas de support"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "None"
+msgstr "Rien"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.backend.xml:10
+#: view:website:website.publish_management view:website:website.publish_short
+#, python-format
+msgid "Not Published"
+msgstr "Pas publié"
+
+#. module: website
+#: view:website:website.info
+msgid "Note: To hide this page, uncheck it from the top Customize menu."
+msgstr ""
+"Note : Pour cacher cette page, décochez la depuis le menu Personnaliser du "
+"haut."
+
+#. module: website
+#: view:website:website.homepage
+msgid "Now with Collective Purchases"
+msgstr "Maintenant avec Achats collectifs"
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid "Now, we are entering Beta"
+msgstr "Maintenant, nous entrons en phase Beta"
+
+#. module: website
+#: view:website:website.layout view:website:website.snippets
+msgid "Odoo"
+msgstr "Odoo"
+
+#. module: website
+#: view:website:website.homepage view:website:website.snippets
+msgid "Odoo - Sample 1 for three columns"
+msgstr "Odoo - Exemple 1 pour trois colonnes"
+
+#. module: website
+#: view:website:website.homepage view:website:website.snippets
+msgid "Odoo - Sample 2 for three columns"
+msgstr "Odoo - Exemple 2 pour trois colonnes"
+
+#. module: website
+#: view:website:website.homepage view:website:website.snippets
+msgid "Odoo - Sample 3 for three columns"
+msgstr "Odoo - Exemple 3 pour trois colonnes"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Odoo CMS - Gallery sample"
+msgstr "Odoo CMS - Exemple de gallerie "
+
+#. module: website
+#: view:website:website.snippets
+msgid "Odoo CMS - a big picture"
+msgstr "Odoo CMS - Une vue globale"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Odoo CMS- Sample image floating"
+msgstr "Odoo CMS - Exemple d'image flottante"
+
+#. module: website
+#: view:website:website.how-it-works view:website:website.snippets
+#: view:website:website.what-is-fairmarket
+msgid "Odoo Members"
+msgstr "Membres Odoo"
+
+#. module: website
+#: view:website:website.info
+msgid "Odoo Version"
+msgstr "Version d'Odoo"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Odoo image and text block"
+msgstr "Odoo image et bloc de texte"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Odoo provides essential platform for our project management.\n"
+"                                                    Things are better organized and more visible with it."
+msgstr ""
+"Odoo fournit la plateforme essentielle pour notre gestion de projet.\n"
+"                         Tout est mieux organisé et plus visible."
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Odoo provides essential platform for our project management.\n"
+"                                            Things are better organized and more visible with it."
+msgstr ""
+"Odoo fournit la plateforme essentielle pour notre gestion de projet.\n"
+" Tout est mieux organisé et plus visible."
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Odoo provides essential platform for our project management.\n"
+"                                Things are better organized and more visible with it."
+msgstr ""
+"Odoo fournit la plateforme essentielle pour notre gestion de projet.\n"
+" Tout est mieux organisé et plus visible."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Odoo text and image block"
+msgstr "Odoo bloc d'image et de texte"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Odoo's POS is a web application that can run on any device that\n"
+"                    can display websites with little to no setup required."
+msgstr ""
+"Odoo POS est une application web qui peut fonctionne sur tout appareil \n"
+"                pouvant afficher un site web, avec peu ou pas de réglage."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.translator.xml:44
+#, python-format
+msgid "Ok"
+msgstr "Ok"
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid ""
+"On one hand, it aims to become a market tool to increase visibility and "
+"distribute goods and services produced by FairCoop members, while also "
+"helping to create networks with other projects and individuals in tune with "
+"alternative markets, ethical finances, social currencies, collective "
+"actions, social inclusion, and fair trade."
+msgstr ""
+"D'un coté, le but est de devenir une place de marché afin d'augmenter la "
+"visibilité et distribuer des biens produits par les membres de FairCoop. "
+"Dans le même temps, aider à créer un réseau entre les projets et les "
+"participants qui ont les mêmes valeurs éthiques."
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid ""
+"On the other hand, it is committed to the use of Faircoin as a "
+"cryptocurrency for the direct purchases of goods and services that will help"
+" to increase freedom in economic networking and will help in the "
+"construction of alternatives for a more equitable economy."
+msgstr ""
+"D'un autre coté, il est joint à l'utilisation de la crypto-monnaie FairCoin "
+"pour les achats directs de biens et services ce qui va aider à augmenter la "
+"liberté économique et la construction d'alternatives pour une économie plus "
+"équitable."
+
+#. module: website
+#: view:website:website.homepage
+msgid "Online market"
+msgstr "Marché en ligne"
+
+#. module: website
+#: view:website:website.info
+msgid "Open Source ERP"
+msgstr "ERP open source"
+
+#. module: website
+#: view:website:website.layout
+msgid "Open Source eCommerce"
+msgstr "eCommerce open source"
+
+#. module: website
+#: view:website:website.homepage
+msgid "Open cooperative"
+msgstr "Coopérative juste"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:56
+#, python-format
+msgid "Open in new window"
+msgstr "Ouvrir dans une nouvelle fenêtre"
+
+#. module: website
+#: view:website:website.snippets
+msgid "OpenERP logo"
+msgstr "Logo OpenERP"
+
+#. module: website
+#: view:website:website.themes
+msgid "Optimized for legibility"
+msgstr "Optimisé pour légitimité "
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Orange"
+msgstr "Orange"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Orange Red"
+msgstr "Orange rouge"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Order now"
+msgstr "Commander maintenant"
+
+#. module: website
+#: view:website:website.view_website_form
+msgid "Other Info"
+msgstr "Autre info"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Our Customer References"
+msgstr "Nos références clients"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Our Offers"
+msgstr "Nos offres"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Our References"
+msgstr "Nos références"
+
+#. module: website
+#: view:website:website.aboutus
+msgid "Our Team"
+msgstr "Notre équipe"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:46
+#, python-format
+msgid "Page"
+msgstr "Page"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.contentMenu.js:39
+#, python-format
+msgid "Page Title"
+msgstr "Titre de la page"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Panel"
+msgstr "Panneau"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Panels are a great tool to compare offers or to emphasize on\n"
+"                key features. To compare products, use the inside columns."
+msgstr ""
+"Les panneaux sont des outils précieux pour comparer des offres ou se concentrer \n"
+"    sur des caractéristiques. Pour comparer des produits, utilisez les colonnes intérieures."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Parallax"
+msgstr "Parallax"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Parallax Slider"
+msgstr "Slider Parallax"
+
+#. module: website
+#: field:website.menu,parent_left:0
+msgid "Parent Left"
+msgstr "Parent gauche"
+
+#. module: website
+#: field:website.menu,parent_id:0
+msgid "Parent Menu"
+msgstr "Menu parent"
+
+#. module: website
+#: field:website.menu,parent_right:0
+msgid "Parent Right"
+msgstr "Parent droit"
+
+#. module: website
+#: model:ir.model,name:website.model_res_partner
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "People"
+msgstr "Personne"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:157
+#, python-format
+msgid "Pictogram"
+msgstr "Pictogramme"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Point of Sale Questions"
+msgstr "Questions sur le point de vente"
+
+#. module: website
+#: view:website:website.layout
+msgid "Powered by"
+msgstr "Amené par"
+
+#. module: website
+#: view:website:website.kanban_contain view:website:website.pager
+msgid "Prev"
+msgstr "Prec"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:135
+#: code:addons/website/static/src/xml/website.editor.xml:375
+#: code:addons/website/static/src/xml/website.editor.xml:386
+#, python-format
+msgid "Preview"
+msgstr "Prévisualisation"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:98
+#, python-format
+msgid "Primary"
+msgstr "Primaire"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Professional"
+msgstr "Professionel "
+
+#. module: website
+#: view:website:website.snippets
+msgid "Project Management Questions"
+msgstr "Questions de gestion de projets"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:5
+#: view:website:website.layout
+#, python-format
+msgid "Promote"
+msgstr "Promouvoir"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:14
+#, python-format
+msgid "Promote This Page"
+msgstr "Promouvoir cette page"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:5
+#: view:website:website.layout
+#, python-format
+msgid "Promote page on the web"
+msgstr "Promouvoir cette page sur le web"
+
+#. module: website
+#: field:website,partner_id:0
+msgid "Public Partner"
+msgstr "Partenaire public"
+
+#. module: website
+#: field:website,user_id:0
+msgid "Public User"
+msgstr "Utilisateur public"
+
+#. module: website
+#: view:website:website.publish_management
+msgid "Publish"
+msgstr "Publier"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:84
+#, python-format
+msgid "Publish your page by clicking on the <em>'Save'</em> button."
+msgstr "Publier votre page en cliquant sur le boutton <em>'Sauvegarder'</em>"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.backend.xml:11
+#: view:website:website.publish_management view:website:website.publish_short
+#, python-format
+msgid "Published"
+msgstr "Publié"
+
+#. module: website
+#: view:website:website.themes
+msgid "Pure Bootstrap"
+msgstr "Bootstrap pur"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Purple"
+msgstr "Violet"
+
+#. module: website
+#: view:website:website.http_error_debug
+msgid "QWeb"
+msgstr "QWeb"
+
+#. module: website
+#: view:website:website.snippet_options view:website:website.snippets
+msgid "Quote"
+msgstr "Devis"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Quotes Slider"
+msgstr "Slider de devis"
+
+#. module: website
+#: view:website:website.themes
+msgid "Readable"
+msgstr "Lisible"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Red"
+msgstr "Rouge"
+
+#. module: website
+#: view:website:website.snippets
+msgid "References"
+msgstr "Références"
+
+#. module: website
+#: view:website:website.contactus
+msgid "Register your account here"
+msgstr "Enregistrer votre compte ici"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.snippets.xml:36
+#, python-format
+msgid "Remove Block"
+msgstr "Enlever un bloc"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:37
+#, python-format
+msgid "Remove Link"
+msgstr "Enlever un lien"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Remove Slide"
+msgstr "Enlever un slide"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Reset Transformation"
+msgstr "Mise à zéro transformation"
+
+#. module: website
+#: view:website:website.500
+msgid "Reset selected templates"
+msgstr "Mise à zéro templates sélectionnés"
+
+#. module: website
+#: view:website:website.500
+msgid "Reset templates"
+msgstr "Mise à zéro templates"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.snippets.xml:45
+#, python-format
+msgid "Resize"
+msgstr "Retailler"
+
+#. module: website
+#: field:ir.attachment,datas_big:0
+msgid "Resized file content"
+msgstr "Retailler le contenu du fichier"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Right"
+msgstr "Droite"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:328
+#, python-format
+msgid "Rotation"
+msgstr "Rotation"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Rounded corners"
+msgstr "Bords arrondis"
+
+#. module: website
+#: model:ir.model,name:website.model_website_seo_metadata
+msgid "SEO metadata"
+msgstr "meta données SEO"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Sample images"
+msgstr "Images exemples"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.ace.xml:9
+#: code:addons/website/static/src/xml/website.editor.xml:9
+#: code:addons/website/static/src/xml/website.editor.xml:27
+#: code:addons/website/static/src/xml/website.editor.xml:188
+#: code:addons/website/static/src/xml/website.seo.xml:69
+#, python-format
+msgid "Save"
+msgstr "Sauvegarder"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:83
+#, python-format
+msgid "Save your modifications"
+msgstr "Sauvegarder vos modifications"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Screen: 2.5 inch"
+msgstr "Écran : 2.5 pouces"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Screen: 2.8 inch"
+msgstr "Écran : 2.8 pouces"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Scroll Speed"
+msgstr "Vitesse défilement"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:105
+#, python-format
+msgid "Scroll to check rendering and then close the mobile preview."
+msgstr "Scroll pour tester le rendu et fermer la prévisu mobile"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Second Feature"
+msgstr "Caractéristique secondaire"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Second List"
+msgstr "Seconde liste"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.snippets.xml:29
+#, python-format
+msgid "Select Container Block"
+msgstr "Sélectionner le bloc contenant"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:152
+#, python-format
+msgid "Select a Media"
+msgstr "Sélectionner un média"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:242
+#, python-format
+msgid "Select a Picture"
+msgstr "Sélectionner une image"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Select and delete blocks to remove some features."
+msgstr "Sélectionner et effacer des blocs pour enlever des caractéristiques."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:54
+#, python-format
+msgid "Select the parent container to get the global options of the banner."
+msgstr ""
+"Sélectionner le container parent pour obtenir les options globales de la "
+"bannière."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Sell Online. Easily."
+msgstr "Vendez en ligne. Facilement."
+
+#. module: website
+#: view:website:website.contactus
+msgid "Send us an email"
+msgstr "Envoyez nous un email"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Separator"
+msgstr "Séparateur"
+
+#. module: website
+#: field:website.menu,sequence:0
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:367
+#, python-format
+msgid "Set a video URL"
+msgstr "Préparer une URL vidéo"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid ""
+"Setting up a store is totally free. We are currently discussing the issue of"
+" fees and we'll be happy to include"
+msgstr ""
+"Préparer un magasin est totalement gratuit. Nous discutons en ce moment des "
+"frais et nous seront heureux d'inclure"
+
+#. module: website
+#: view:website:website.themes
+msgid "Shades of gunmetal gray"
+msgstr "Dégradé gris métal"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Shadow"
+msgstr "Hombre"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Share"
+msgstr "Partager"
+
+#. module: website
+#: field:ir.ui.view,customize_show:0
+msgid "Show As Optional Inherit"
+msgstr "Affiche comme héritage optionnel"
+
+#. module: website
+#: view:website:website.layout
+msgid "Sign in"
+msgstr "S'enregistrer"
+
+#. module: website
+#: view:website:website.themes
+msgid "Silvery and sleek."
+msgstr "argenté et élégant."
+
+#. module: website
+#: view:website:website.themes
+msgid "Simplex"
+msgstr "Simplex"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:114
+#, python-format
+msgid "Size"
+msgstr "Taille"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:15
+#, python-format
+msgid "Skip It"
+msgstr "Passez le"
+
+#. module: website
+#: view:website:website.themes
+msgid "Slate"
+msgstr "Ardoise"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Slow"
+msgstr "Lent"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:120
+#: view:website:website.snippet_options
+#, python-format
+msgid "Small"
+msgstr "Petit"
+
+#. module: website
+#: view:website:website.view_website_form
+#: view:website.config.settings:website.view_website_config_settings
+msgid "Social Media"
+msgstr "Social média"
+
+#. module: website
+#: view:website:website.themes
+msgid "Spacelab"
+msgstr "Laboratoire de l'espace"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:330
+#: view:website:website.snippet_options
+#, python-format
+msgid "Spin"
+msgstr "Tourner"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:15
+#, python-format
+msgid "Start Tutorial"
+msgstr "Démarrer le tutoriel"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Start with the customer – find out what they want\n"
+"                            and give it to them."
+msgstr ""
+"Démarrer avec le client - Trouvez ce qu'il veut\n"
+"     et donnez le lui."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Starter package"
+msgstr "Paquet de démarrage"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Static"
+msgstr "Statique"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Structure"
+msgstr "Structure"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:81
+#: code:addons/website/static/src/xml/website.editor.xml:326
+#: view:website:website.snippet_options
+#, python-format
+msgid "Style"
+msgstr "Style"
+
+#. module: website
+#: view:website:website.layout
+msgid "Subtitle"
+msgstr "Sous titre"
+
+#. module: website
+#: view:website:website.layout
+msgid "Subtitle 2"
+msgstr "Sous titre 2"
+
+#. module: website
+#: view:website:website.layout
+msgid "Subtitle 3"
+msgstr "Sous titre 3"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:95
+#, python-format
+msgid "Success"
+msgstr "Succès"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Sunflower"
+msgstr "Tournesol"
+
+#. module: website
+#: view:website:website.themes
+msgid "Sweet and cheery"
+msgstr "Doux et sucré"
+
+#. module: website
+#: view:website:website.info
+msgid "Technical name:"
+msgstr "Nom technique :"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Tell features the visitor would like to know, not what you'd like to say."
+msgstr ""
+"Donnez les caractéristiques voulues par le visiteur, pas celles que vous "
+"voulez, vous."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Tell what's the value for the"
+msgstr "Dites ce qu'est la valeur de"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.ace.js:234
+#, python-format
+msgid "Template ID: %s"
+msgstr "Template ID: %s"
+
+#. module: website
+#: view:website:website.500
+msgid "Template fallback"
+msgstr "Modele de repli"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:97
+#, python-format
+msgid "Test Your Mobile Version"
+msgstr "Tester votre version mobile"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Text Block"
+msgstr "Bloc de texte"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Text-Image"
+msgstr "Texte-image"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:113
+#, python-format
+msgid "The 'Content' menu allows you to add pages or add the top menu."
+msgstr ""
+"Le menu 'Contenu' vous permet d'ajouter des pages ou d'ajouter le menu haut."
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"The Point of Sale works perfectly on any kind of touch enabled\n"
+"                    device, whether it's multi-touch tablets like an iPad or\n"
+"                    keyboardless resistive touchscreen terminals."
+msgstr ""
+"LE point de vente fonctionne parfaitement sur tous les appareils sensibles au toucher,\n"
+"           que ce soit des tablettes ou écran tactiles terminaux."
+
+#. module: website
+#: view:website:website.http_error_debug
+msgid "The error occured while rendering the template"
+msgstr "L'erreur est apparue pendant l'enregistrement du modèle"
+
+#. module: website
+#: view:website:website.http_error_debug
+msgid "The following error was raised in the website controller"
+msgstr "L'erreur suivante à été levée dans le contrôleur de site web"
+
+#. module: website
+#: help:ir.actions.server,website_url:0
+msgid "The full URL to access the server action through the website."
+msgstr "L'URL complète pour accéder aux actions serveur depuis le site web."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:268
+#, python-format
+msgid ""
+"The image could not be deleted because it is used in the\n"
+"               following pages or views:"
+msgstr ""
+"L'image n'a pas pu être effacée car elle est utilisée dans\n"
+"           les pages suivantes :"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid ""
+"The multi-store space should not be understood only as a place to sell but "
+"also as a forum for communication between projects, sellers and consumers in"
+" order to share knowledge and feedback, so we strongly suggest you get "
+"involved using"
+msgstr ""
+"L'espace multi-store ne doit pas être vu seulement comme une place pour "
+"vendre mais plutot comme un forum de communication entre les projets, "
+"vendeurs, clients afin de partager une connaissance et des feedbacks. On "
+"vous recommande grandement de vous impliquer en utilisant"
+
+#. module: website
+#: view:website:website.403
+msgid "The page you were looking for could not be authorized."
+msgstr "La page que vous cherchez n'a pas pu être autorisée."
+
+#. module: website
+#: view:website:website.404
+msgid ""
+"The page you were looking for could not be found; it is possible you have\n"
+"                        typed the address incorrectly, but it has most probably been removed due\n"
+"                        to the recent website reorganisation."
+msgstr ""
+"La page recherchée n'a pas pu être trouvée. Il est possible que l'adresse soit erronée \n"
+"      mais il est aussi probable qu'elle aie disparue du a une réorganisation du site."
+
+#. module: website
+#: view:website:website.500
+msgid "The selected templates will be reset to their factory settings."
+msgstr "Le modèle sélectionné va être remis à sa valeur par défaut."
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid ""
+"The third phase will be the fully productive one, when FairCoop will present"
+" the post-capitalist world with a fully-featured marketplace to build the "
+"networked economy that we all deserve."
+msgstr ""
+"La troisième phase sera la phase production totale, lorsque FairCoop pourra "
+"présenter son univers post-capitaliste avec des places de marché prêts à "
+"construire l'économie équitable dont nous rêvons tous. "
+
+#. module: website
+#: view:website:website.snippets
+msgid "The top of the top"
+msgstr "La crème de la crème"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.xml:34
+#, python-format
+msgid "The web site has encountered an error."
+msgstr "Le site web a rencontré une erreur."
+
+#. module: website
+#: view:website:website.themes
+msgid "Theme Changed!"
+msgstr "Thème changé !"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Third Feature"
+msgstr "Troisième caractéristique"
+
+#. module: website
+#: view:website:website.page_404
+msgid ""
+"This page does not exists, but you can create it as you are administrator of"
+" this site."
+msgstr ""
+"Cette page n'existe pas, mais vous pouvez la créer si vous êtes "
+"administrateur de ce site."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:14
+#, python-format
+msgid ""
+"This tutorial will guide you to build your home page. We will start by "
+"adding a banner."
+msgstr ""
+"Ce tutoriel va vous guider dans la création de votre page. Nous allons "
+"commencer par ajouter une bannière."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Three Columns"
+msgstr "Trois colonnes"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:43
+#: view:website:website.snippets
+#, python-format
+msgid "Title"
+msgstr "Titre"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"To add a fourth column, reduce the size of these\n"
+"                            three columns using the right icon of each block.\n"
+"                            Then, duplicate one of the column to create a new\n"
+"                            one as a copy."
+msgstr ""
+"Pour ajouter une quatrième colonne, réduisez les tailles de ces trois\n"
+"              colonnes en utilisant l'icône de droite de chaque bloc.\n"
+"              Dupliquez alors une des colonnes pour en créer une nouvelle."
+
+#. module: website
+#: view:website:website.contact
+msgid "To contact the Fairmarket Team"
+msgstr "Pour contacter le team FairMarket"
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid ""
+"To get started, we need to build a strong community and you can get involved"
+" by"
+msgstr ""
+"Pour démarrer, nous avons besoin d'une communauté forte et vous pouvez vous "
+"impliquer par"
+
+#. module: website
+#: view:website:website.aboutus
+msgid "To read more about FairCoop:"
+msgstr "Pour lire plus à propos de FairCoop :"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "To start with, you should follow the registration process"
+msgstr "Pour commencer, vous devez suivre le processus d'enregistrement"
+
+#. module: website
+#: view:website:website.layout
+msgid "Toggle navigation"
+msgstr "Basculer la navigation"
+
+#. module: website
+#: model:website.menu,name:website.main_menu
+msgid "Top Menu"
+msgstr "Menu haut"
+
+#. module: website
+#: view:website:website.http_error_debug
+msgid "Traceback"
+msgstr "Suivit"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Transform"
+msgstr "Transformation"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.translator.xml:12
+#, python-format
+msgid "Translate this page"
+msgstr "Traduire cette page"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.translator.xml:25
+#, python-format
+msgid "Translated content"
+msgstr "Contenu traduit"
+
+#. module: website
+#: view:website:website.themes
+msgid "Try a New Theme"
+msgstr "Essayer un nouveau thème"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Turquoise"
+msgstr "Turquoise"
+
+#. module: website
+#: field:website,social_twitter:0
+#: field:website.config.settings,social_twitter:0
+msgid "Twitter Account"
+msgstr "Compte Twitter"
+
+#. module: website
+#: view:website:website.500
+msgid "Type '"
+msgstr "Tapez '"
+
+#. module: website
+#: view:website:website.view_website_form
+#: view:website.config.settings:website.view_website_config_settings
+msgid "UA-XXXXXXXX-Y"
+msgstr "UA-XXXXXXXX-Y"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:61
+#, python-format
+msgid "URL or Email Address"
+msgstr "URL ou adresse Email"
+
+#. module: website
+#: view:website:website.themes
+msgid "Ubuntu orange and unique font"
+msgstr "Police Ubuntu orange et unique"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Uniform Color"
+msgstr "Couleur uniforme"
+
+#. module: website
+#: view:website:website.themes
+msgid "United"
+msgstr "Unis"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Unlimited support"
+msgstr "Support illimité"
+
+#. module: website
+#: view:website:website.publish_management
+msgid "Unpublish"
+msgstr "Non publié"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:209
+#, python-format
+msgid "Upload an image from your computer"
+msgstr "Televerser une image depuis votre ordinateur"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:215
+#, python-format
+msgid "Upload image without optimization"
+msgstr "Téléverser une image sans optimisation"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:218
+#, python-format
+msgid "Uploading..."
+msgstr "Téléversement..."
+
+#. module: website
+#: field:website.menu,url:0
+msgid "Url"
+msgstr "URL"
+
+#. module: website
+#: view:website:website.layout
+msgid "Use Faircoin"
+msgstr "Utiliser FairCoin"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Various"
+msgstr "Varié"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Velour"
+msgstr "Velour"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:332
+#, python-format
+msgid "Vertical flip"
+msgstr "Retournement vertical"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Very Fast"
+msgstr "Très rapide"
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Very Slow"
+msgstr "Très lent"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:158
+#, python-format
+msgid "Video"
+msgstr "Vidéo"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.backend.xml:18
+#, python-format
+msgid "View in frontend"
+msgstr "Visualiser devant"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:104
+#, python-format
+msgid "Warning"
+msgstr "Attention"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"We have decided to change the\n"
+"                            name because"
+msgstr "Nous avons décidé de changer le nom car"
+
+#. module: website
+#: view:website:website.homepage
+msgid ""
+"We propose Faircoin as the cryptocurrency upon which to base our actions for"
+" resource-redistribution and to build a"
+msgstr ""
+"Nous proposons FairCoin comme la crypto-monnaie sur laquelle nous reposons "
+"nos actions pour la redistribution de ressources et pour construire un"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.backend.xml:18
+#: model:ir.actions.act_url,name:website.action_website
+#: view:ir.actions.server:website.view_server_action_search_website
+#: model:ir.model,name:website.model_website
+#: model:ir.ui.menu,name:website.menu_website view:website:website.layout
+#: field:website.menu,website_id:0
+#, python-format
+msgid "Website"
+msgstr "Site web"
+
+#. module: website
+#: model:ir.actions.act_window,name:website.action_module_website
+msgid "Website Apps"
+msgstr "Application web"
+
+#. module: website
+#: model:ir.actions.act_url,name:website.action_website_homepage
+msgid "Website Homepage"
+msgstr "Page web"
+
+#. module: website
+#: model:ir.actions.act_window,name:website.action_website_menu
+#: model:ir.model,name:website.model_website_menu
+msgid "Website Menu"
+msgstr "Menu de site web"
+
+#. module: website
+#: field:website.config.settings,website_name:0
+msgid "Website Name"
+msgstr "Nom du site web"
+
+#. module: website
+#: field:ir.actions.server,website_path:0
+msgid "Website Path"
+msgstr "Chemin du site web"
+
+#. module: website
+#: model:crm.case.section,name:website.salesteam_website_sales
+msgid "Website Sales"
+msgstr "Ventes du site web"
+
+#. module: website
+#: model:ir.actions.act_window,name:website.action_website_configuration
+#: model:ir.ui.menu,name:website.menu_website_configuration
+#: view:website:website.view_website_form
+msgid "Website Settings"
+msgstr "Réglages site web"
+
+#. module: website
+#: field:ir.actions.server,website_url:0
+msgid "Website URL"
+msgstr "URL site web"
+
+#. module: website
+#: model:ir.actions.act_url,name:website.action_website_tutorial
+msgid "Website With Tutorial"
+msgstr "Site web avec tutoriel"
+
+#. module: website
+#: view:website.menu:website.menu_tree
+msgid "Website menu"
+msgstr "Menu site web"
+
+#. module: website
+#: field:ir.ui.view,website_meta_description:0
+#: field:website.seo.metadata,website_meta_description:0
+msgid "Website meta description"
+msgstr "Méta description du site web"
+
+#. module: website
+#: field:ir.ui.view,website_meta_keywords:0
+#: field:website.seo.metadata,website_meta_keywords:0
+msgid "Website meta keywords"
+msgstr "Méta mots clés du site web"
+
+#. module: website
+#: field:ir.ui.view,website_meta_title:0
+#: field:website.seo.metadata,website_meta_title:0
+msgid "Website meta title"
+msgstr "Méta titre du site web"
+
+#. module: website
+#: view:website:website.view_website_tree
+msgid "Websites"
+msgstr "Sites web"
+
+#. module: website
+#: field:base.language.install,website_ids:0
+msgid "Websites to translate"
+msgstr "Site web à traduire"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Weight: 1.1 ounces"
+msgstr "Poids : 1,1 ounces"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Weight: 1.2 ounces"
+msgstr "Poids : 1,2 onces"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:13
+#, python-format
+msgid "Welcome to your website!"
+msgstr "Bienvenue sur notre site web !"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Well"
+msgstr "Bien"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:90
+#, python-format
+msgid "Well done, you created your homepage."
+msgstr "Bravo, you avez créé votre page d'accueil."
+
+#. module: website
+#: view:website:website.snippets
+msgid "What a day it was yesterday - such a big day for us!"
+msgstr "Quelle journée nous avons eu hier - quel grand jour pour nous !"
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid "What is FairMarket?"
+msgstr "Qu'est ce que FairMarket ?"
+
+#. module: website
+#: view:website:website.homepage
+msgid "What is Fairmarket"
+msgstr "Qu'est ce que FairMarket "
+
+#. module: website
+#: field:ir.ui.view,page:0
+msgid "Whether this view is a web page template (complete)"
+msgstr "Cette vue doit être un modèle de page (complète )"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Which hardware does Odoo POS support?"
+msgstr "Quel matériel supporte Odoo POS ?"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"While an internet connection is required to start the Point of\n"
+"                    Sale, it will stay operational even after a complete disconnection."
+msgstr ""
+"Bien qu'une connection internet soit requise pour démarrer un point de\n"
+"      Vente, Il va rester opérationnel même après une déconnection."
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"With Odoo's fully integrated software, you can easily manage your\n"
+"                            meetings, schedule business calls, create recurring meetings,\n"
+"                            synchronize your agenda and easily keep in touch with your colleagues,\n"
+"                            partners and other people involved in projects or business discussions."
+msgstr ""
+"Avec la système intégré Odoo, vous pouvez facilement gérer vos réunions,\n"
+"                 planifier vos appels, créer des réunions récurrentes,  synchroniser vos agendas,\n"
+"                  rester en contact avec vos collègues, vos clients et toute personne liée à votre business."
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Wood"
+msgstr "Bois"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Write a quote here from one of your customers. Quotes are a\n"
+"                                                    great way to build confidence in your products or services."
+msgstr ""
+"Écrivez ici un avis d'un de vos clients. Les avis sont un bon moyen de créer \n"
+"    de la confiance dans vos produits et services."
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Write a quote here from one of your customers. Quotes are a\n"
+"                                            great way to build confidence in your products or services."
+msgstr ""
+"Écrivez ici un avis d'un de vos clients. Les avis sont un bon moyen de créer \n"
+" de la confiance dans vos produits et services."
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Write a quote here from one of your customers. Quotes are a\n"
+"                                great way to build confidence in your products or services."
+msgstr ""
+"Écrivez ici un avis d'un de vos clients. Les avis sont un bon moyen de créer \n"
+" de la confiance dans vos produits et services."
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Write a quote here from one of your customers. Quotes are a\n"
+"                great way to build confidence in your products or services."
+msgstr ""
+"Écrivez ici un avis d'un de vos clients. Les avis sont un bon moyen de créer \n"
+" de la confiance dans vos produits et services."
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Write one or two paragraphs describing your product or\n"
+"                            services. To be successful your content needs to be\n"
+"                            useful to your readers."
+msgstr ""
+"Écrivez un ou deux paragraphes décrivants vos produits et services.\n"
+"                   Pour avoir du succès, votre contenu à besoin d'être utile à vos visiteurs."
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"Write one or two paragraphs describing your product,\n"
+"                            services or a specific feature. To be successful\n"
+"                            your content needs to be useful to your readers."
+msgstr ""
+"Écrivez un ou deux paragraphes décrivants vos produits et services.\n"
+" Pour avoir du succès, votre contenu à besoin d'être utile à vos visiteurs."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Write one sentence to convince visitor about your message."
+msgstr "Écrivez une phrase pour convaincre le visiteur."
+
+#. module: website
+#: view:website:website.snippets
+msgid "Write what the customer would like to know,"
+msgstr "Écrivez ce que le visiteur a besoin de savoir."
+
+#. module: website
+#: view:website:website.snippet_options
+msgid "Yellow Green"
+msgstr "Jaune vert"
+
+#. module: website
+#: view:website:website.snippets
+msgid "Yes."
+msgstr "Oui"
+
+#. module: website
+#: view:website:website.themes
+msgid "Yeti"
+msgstr "Yeti"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.translator.xml:16
+#, python-format
+msgid "You are about to enter the translation mode."
+msgstr "Vous êtes sur le point d'entrer en mode traduction."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:305
+#, python-format
+msgid "You can cancel to return to the edition mode."
+msgstr "Vous pouvez annuler le retour au mode édition."
+
+#. module: website
+#: view:website:website.themes
+msgid "You'll be able to change the theme at anytime"
+msgstr "Vous pourrez changer le thème à tout instant"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/website.tour.banner.js:49
+#: view:website:website.snippets
+#, python-format
+msgid "Your Banner Title"
+msgstr "Votre titre de bannière "
+
+#. module: website
+#: view:website:website.snippets
+msgid "Your Website Title"
+msgstr "Votre titre de site web"
+
+#. module: website
+#: field:website,social_youtube:0
+#: field:website.config.settings,social_youtube:0
+msgid "Youtube Account"
+msgstr "Compte Youtube"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:302
+#, python-format
+msgid "all"
+msgstr "tout"
+
+#. module: website
+#: view:website:website.http_error_debug
+msgid "and evaluating the following expression:"
+msgstr "et évaluer les expressions suivantes :"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid ""
+"and fill in your information so that we can give you access and you can "
+"start setting up your e-shop."
+msgstr ""
+"et remplir vos informations pour qu'on puisse vous donner un accès et que "
+"vous puissiez commencer à éditer votre magasin en ligne."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:335
+#, python-format
+msgid "border"
+msgstr "bord"
+
+#. module: website
+#: view:website:website.homepage
+msgid "building your e-shop with"
+msgstr "construire votre magasin en ligne avec "
+
+#. module: website
+#: view:website:website.homepage
+msgid "concept: everyone can be easily a member of FairCoop:"
+msgstr "concept : tout le monde be devenir membre de FairCoop facilement :"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "contact us"
+msgstr "contactez nous"
+
+#. module: website
+#: view:website:website.snippets
+msgid "customer for this feature."
+msgstr "client pour cette caractéristique."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:22
+#, python-format
+msgid "describing your page content"
+msgstr "décrire le contenu de votre page"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"didn't reflect the offering\n"
+"                            of the company anymore. With our newest apps, such\n"
+"                            as Website Builder, PoS or eCommerce, we have\n"
+"                            moved beyond the ERP territory."
+msgstr ""
+"n'a pas correspondu à l'offre\n"
+"     de la société. Avec nos nouvelles apps, \n"
+"comme le créateur de site web, POS ou e-commerce, nous sommes allés \n"
+"au dela du domaine de l'ERP."
+
+#. module: website
+#: view:website:website.snippets
+msgid "don't worry"
+msgstr "Ne vous inquiétez pas"
+
+#. module: website
+#: view:website:website.500
+msgid "factory settings"
+msgstr "réglages usine"
+
+#. module: website
+#: model:ir.ui.view,website_meta_keywords:website.homepage
+msgid "fairmarket"
+msgstr "fairmarket"
+
+#. module: website
+#: view:website:website.snippets
+msgid "feature, in clear words."
+msgstr "caractéristique, avec des mots clairs."
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "forum"
+msgstr "forum"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "go to this form"
+msgstr "aller à ce formulaire"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "here"
+msgstr "ici"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:57
+#, python-format
+msgid "how your page will be listed on Google"
+msgstr "comment votre page va être listée sur Google"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:224
+#, python-format
+msgid "http://openerp.com/logo.png"
+msgstr "http://openerp.com/logo.png"
+
+#. module: website
+#: view:website:website.view_website_form
+msgid "http://www.linkedin.com/company/odoo"
+msgstr "http://www.linkedin.com/company/odoo"
+
+#. module: website
+#: view:website.config.settings:website.view_website_config_settings
+msgid "http://www.linkedin.com/company/openerp"
+msgstr "http://www.linkedin.com/company/openerp"
+
+#. module: website
+#: view:website.config.settings:website.view_website_config_settings
+msgid "http://www.youtube.com/channel/HCU842OHPPNrQ"
+msgstr "http://www.youtube.com/channel/HCU842OHPPNrQ"
+
+#. module: website
+#: view:website:website.view_website_form
+msgid "https://facebook.com/odoo"
+msgstr "https://facebook.com/odoo"
+
+#. module: website
+#: view:website.config.settings:website.view_website_config_settings
+msgid "https://facebook.com/openerp"
+msgstr "https://facebook.com/openerp"
+
+#. module: website
+#: view:website:website.aboutus
+msgid "https://fair.coop/"
+msgstr "https://fair.coop/"
+
+#. module: website
+#: view:website:website.view_website_form
+msgid "https://plus.google.com/+Odooapps"
+msgstr "https://plus.google.com/+Odooapps"
+
+#. module: website
+#: view:website.config.settings:website.view_website_config_settings
+msgid "https://plus.google.com/+openerp"
+msgstr "https://plus.google.com/+openerp"
+
+#. module: website
+#: view:website:website.view_website_form
+msgid "https://twitter.com/odooapps"
+msgstr "https://twitter.com/odooapps"
+
+#. module: website
+#: view:website.config.settings:website.view_website_config_settings
+msgid "https://twitter.com/openerp"
+msgstr "https://twitter.com/openerp"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:66
+#, python-format
+msgid "https://www.odoo.com"
+msgstr "https://www.odoo.com"
+
+#. module: website
+#: view:website:website.view_website_form
+msgid "https://www.youtube.com/channel/UCkQPikELWZFLgQNHd73jkdg"
+msgstr "https://www.youtube.com/channel/UCkQPikELWZFLgQNHd73jkdg"
+
+#. module: website
+#: view:website:website.view_website_form
+#: view:website.config.settings:website.view_website_config_settings
+msgid "https://youraccount.github.io"
+msgstr "https://youraccount.github.io"
+
+#. module: website
+#: view:website:website.homepage
+msgid "imply by"
+msgstr "induit par"
+
+#. module: website
+#: view:website:website.homepage
+msgid "in"
+msgstr "dans"
+
+#. module: website
+#: view:website:website.info
+msgid "instance of Odoo, the"
+msgstr "instance d'Odoo, le"
+
+#. module: website
+#: view:website:website.snippets
+msgid ""
+"is and always will be\n"
+"                            fully open source. You can read more about the new name here.\n"
+"                            We have also prepared a short FAQ to explain all these changes\n"
+"                            to all of you."
+msgstr ""
+"est, et sera toujours\n"
+"          totalement open source. Vous pouvez en savoir plus à propos du nouveau nom ici.\n"
+"         Nous avons aussi préparé une courte FAQ afin d'expliquer tous ces changements a vous tous."
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid "joining us"
+msgstr "nous rejoindre"
+
+#. module: website
+#: view:website:website.homepage
+msgid "new global economic system."
+msgstr "nouveau système économique global."
+
+#. module: website
+#: view:website:website.snippets
+msgid "not what you want to show."
+msgstr "pas ce que vous voulez montrer."
+
+#. module: website
+#: view:website:website.homepage
+msgid "open cooperative"
+msgstr "coopérative ouverte"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:9
+#: code:addons/website/static/src/xml/website.editor.xml:28
+#: code:addons/website/static/src/xml/website.editor.xml:189
+#: code:addons/website/static/src/xml/website.editor.xml:308
+#: code:addons/website/static/src/xml/website.seo.xml:69
+#: code:addons/website/static/src/xml/website.translator.xml:44
+#: view:website:website.how-it-works view:website:website.view_website_form
+#: view:website.config.settings:website.view_website_config_settings
+#, python-format
+msgid "or"
+msgstr "ou"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.translator.xml:4
+#, python-format
+msgid "or Edit Master"
+msgstr "ou édition Master"
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid "or participating in"
+msgstr "ou participer à"
+
+#. module: website
+#: view:website:website.themes
+msgid "or try another theme below."
+msgstr "ou essayer un autre thème ci dessous."
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid "our forum"
+msgstr "notre forum"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "our forums"
+msgstr "nos forums"
+
+#. module: website
+#: view:website:website.snippets
+msgid "per month"
+msgstr "par mois"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "registration process"
+msgstr "processus d'enregistrement"
+
+#. module: website
+#: view:website:website.snippets
+msgid "rounded corner"
+msgstr "coin arrondit"
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "share them here"
+msgstr "partagez les ici"
+
+#. module: website
+#: view:website:website.sitemap_index_xml
+msgid "sitemap-"
+msgstr "carte du site"
+
+#. module: website
+#: view:website:website.robots
+msgid "sitemap.xml"
+msgstr "sitemap.xml"
+
+#. module: website
+#: view:website:website.snippets
+msgid "style."
+msgstr "style."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.xml:37
+#, python-format
+msgid "the classic Odoo interface"
+msgstr "l'interface classique d'Odoo"
+
+#. module: website
+#: view:website:website.homepage
+msgid "the process and therefore you participate"
+msgstr "le processus et par conséquent votre participation"
+
+#. module: website
+#: view:website:website.what-is-fairmarket
+msgid "to help build it together!"
+msgstr "pour aider à le construire ensemble !"
+
+#. module: website
+#: field:website.converter.test.sub,name:0
+msgid "unknown"
+msgstr "Inconnu"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:302
+#, python-format
+msgid "unsaved changes will be lost."
+msgstr "les changements non sauvegardés seront perdus."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.seo.xml:40
+#, python-format
+msgid "using above suggested keywords"
+msgstr "utiliser les mots clés suggérés ci-dessus"
+
+#. module: website
+#: field:website.config.settings,website_id:0
+msgid "website"
+msgstr "site web"
+
+#. module: website
+#: view:website:website.500
+msgid "yes"
+msgstr "oui"
+
+#. module: website
+#: view:website:website.homepage
+msgid "you take part"
+msgstr "vous prenez part"
+
+#. module: website
+#: view:website:website.homepage
+msgid "your goods and services"
+msgstr "vos biens et services"
+
+#. module: website
+#: view:website:website.themes
+msgid "your homepage"
+msgstr "votre page d'accueil "
+
+#. module: website
+#: view:website:website.how-it-works
+msgid "your opinion"
+msgstr "votre opinion"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:221
+#: code:addons/website/static/src/xml/website.editor.xml:378
+#, python-format
+msgid "— or —"
+msgstr "— ou —"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:161
+#, python-format
+msgid "← Previous"
+msgstr "← Précédent"

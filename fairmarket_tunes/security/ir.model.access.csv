@@ -1,3 +1,2 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 "access_email_template_portal:leads","Email template portal for create leads","email_template.model_email_template","base.group_portal",1,0,0,0
-
