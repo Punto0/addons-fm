@@ -4,7 +4,6 @@
 <record id="dummy" model="res.groups">
         <field name="name">Dummy</field>
 </record>
-
 <!-- Shop Managers Backend menues -->
 <menuitem id="base.menu_base_partner" 
           sequence="1"
@@ -20,15 +19,31 @@
           name="Control Panel"
           parent="base.menu_base_partner"
           groups="base.group_sale_salesman"/>
-<!-- este no hace caso, why? -->
-<menuitem id="crm.menu_crm_case_phone"
-          parent="base.menu_base_partner"
-          name="phone calls"
-          parent="base.menu_base_partner"
-          sequence="100"
-          groups="base.group_sale_manager"/>
-<!-- fairmarket_tunes.dummy"/> -->
-
+<delete model="ir.ui.menu" id="crm.menu_crm_case_phone"/>
+<delete model="ir.ui.menu" id="crm.menu_crm_case_phone_inbound"/>
+<delete model="ir.ui.menu" id="product.menu_products_category"/>
+<delete model="ir.ui.menu" id="product_brand.menu_product_brand"/>
+<!-- <delete model="ir.ui.menu" search="[('parent_id', '=', ref('base.menu_reporting'))]"/> 
+<delete model="product.product" search="[('parent_id','child_of',ref('base.menu_reporting'))]"/> -->
+<menuitem id="base.menu_reporting"
+          groups="fairmarket_tunes.dummy" />
+<!-- restrict the view of product variants in backend -->
+<record id="product.product_normal_action_sell" model="ir.actions.act_window">
+        <field name="domain">[('create_uid', '=', uid)]</field>
+</record>
+<!-- RWCD permissions on products for shops managers -->
+<record id="sale.access_product_template_sale_user" model="ir.model.access">
+        <field name="perm_read">True</field>
+        <field name="perm_write">True</field>
+        <field name="perm_create">True</field>
+        <field name="perm_delete">True</field>
+</record>
+<record id="sale.access_product_product_sale_user" model="ir.model.access">
+        <field name="perm_read">True</field>
+        <field name="perm_write">True</field>
+        <field name="perm_create">True</field>
+        <field name="perm_delete">True</field>
+</record>
 <!-- Backend Admins menues -->
 <menuitem id="menu_shops_management"
           groups="base.group_sale_manager"
@@ -70,5 +85,6 @@
     <field name="parent_id" ref="menu_web_about"/>
     <field name="sequence" type="int">20</field>
 </record>
+<delete model="website.menu" id="website_sale.menu_shop"/>
 </data>
 </openerp>
