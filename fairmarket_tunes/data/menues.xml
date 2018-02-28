@@ -4,11 +4,37 @@
 <record id="dummy" model="res.groups">
         <field name="name">Dummy</field>
 </record>
-<!-- Backend menues -->
+
+<!-- Shop Managers Backend menues -->
+<menuitem id="base.menu_base_partner" 
+          sequence="1"
+          name="Your Shop" 
+          groups="base.group_sale_salesman"/>
+<menuitem id="crm.menu_crm_opportunities" 
+          sequence="1"
+          name="Shop Requests" 
+          parent="menu_shops_management"
+          groups="base.group_sale_manager"/>
+<menuitem id="base.menu_sales"
+          sequence="1"
+          name="Control Panel"
+          parent="base.menu_base_partner"
+          groups="base.group_sale_salesman"/>
+<!-- este no hace caso, why? -->
+<menuitem id="crm.menu_crm_case_phone"
+          parent="base.menu_base_partner"
+          name="phone calls"
+          parent="base.menu_base_partner"
+          sequence="100"
+          groups="base.group_sale_manager"/>
+<!-- fairmarket_tunes.dummy"/> -->
+
+<!-- Backend Admins menues -->
 <menuitem id="menu_shops_management"
           groups="base.group_sale_manager"
           parent="base.menu_base_partner"
           name="Shops Management"
+          sequence="2"/>
 />
 <menuitem action="base.action_res_users" 
           id="menu_shops_management_users" 
@@ -25,7 +51,8 @@
           parent="menu_shops_management" 
           sequence="3" 
 />
-<!-- We menues -->
+
+<!-- Web menues -->
 <record id="menu_web_about" model="website.menu">
     <field name="name">About Us</field>
     <field name="parent_id" ref="website.main_menu"/>

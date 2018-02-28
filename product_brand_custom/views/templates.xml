@@ -75,6 +75,11 @@
             <field name="model_id" ref="model_product_brand" />
             <field name="code">action = self.search_brand(cr, uid,[], context=context)</field>
         </record>  
-        <menuitem id="product_my_brand" name="Configure your shop" parent="base.menu_sales" action="action_open_my_brand"/>
+        <menuitem id="product_my_brand" 
+                  groups="base.group_sale_salesman"
+                  name="Configure your shop" 
+                  parent="base.menu_sales"
+                  sequence="2"
+                  action="action_open_my_brand"/>
     </data>
 </openerp> 
