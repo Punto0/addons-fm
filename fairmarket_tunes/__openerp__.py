@@ -7,13 +7,22 @@
     'description':
         """
 FairMarket tunning module
+
 =================
+
 Modifications of Odoo for FairMarket.
-- webpages
-- some debrand
-- new shop request form
-- banner acrros the site
-- Security
+
+* webpages
+
+* debrand
+
+* translations
+
+* GUI simplify
+
+* Multishop permission
+
+
         """,
     'data': [
         'data/new_shop_form.xml',
@@ -26,7 +35,7 @@ Modifications of Odoo for FairMarket.
         'security/record_rules.xml',
         'security/ir.model.access.csv',
     ],
-    'depends' : ['base', 'web','website_sale','website_product_brand'],
+    'depends' : ['base', 'web','website_sale','website_product_brand','stock','product'],
     'application': True,
     #'qweb': ['static/src/xml/*.xml'],
 }

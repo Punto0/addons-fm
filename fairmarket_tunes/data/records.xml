@@ -4,12 +4,34 @@
 <record id="dummy" model="res.groups">
         <field name="name">Dummy</field>
 </record>
+<!--
+<record model="ir.ui.menu" id="base.menu_reporting">
+    <field name="groups_id" eval="[(6,0,[ref('dummy')])]"/>
+</record>
+<record model="ir.ui.menu" id="crm.menu_crm_case_phone">
+    <field name="groups_id" eval="[(6,0,[ref('dummy')])]"/>
+</record>
+<record model="ir.ui.menu" id="crm.menu_crm_case_phone_inbound">
+    <field name="groups_id" eval="[(6,0,[ref('dummy')])]"/>
+</record>
+<record model="ir.ui.menu" id="product.menu_products_category">
+    <field name="groups_id" eval="[(6,0,[ref('dummy')])]"/>
+</record>
+<record model="ir.ui.menu" id="product_brand.menu_product_brand">
+    <field name="groups_id" eval="[(6,0,[ref('dummy')])]"/>
+</record>
+-->
+<record model="ir.ui.menu" id="product.menu_products">
+    <field name="groups_id" eval="[(6,0,[ref('dummy')])]"/>
+</record>
+<!-- <delete model="ir.ui.menu" id="product_brand.menu_product_brand"/> -->
+
 <!-- Shop Managers Backend menues -->
 <menuitem id="base.menu_base_partner" 
           sequence="1"
           name="Your Shop" 
           groups="base.group_sale_salesman"/>
-<menuitem id="crm.menu_crm_opportunities" 
+<menuitem id="crm.menu_crm_leads" 
           sequence="1"
           name="Shop Requests" 
           parent="menu_shops_management"
@@ -19,19 +41,12 @@
           name="Control Panel"
           parent="base.menu_base_partner"
           groups="base.group_sale_salesman"/>
-<delete model="ir.ui.menu" id="crm.menu_crm_case_phone"/>
-<delete model="ir.ui.menu" id="crm.menu_crm_case_phone_inbound"/>
-<delete model="ir.ui.menu" id="product.menu_products_category"/>
-<delete model="ir.ui.menu" id="product_brand.menu_product_brand"/>
-<!-- <delete model="ir.ui.menu" search="[('parent_id', '=', ref('base.menu_reporting'))]"/> 
-<delete model="product.product" search="[('parent_id','child_of',ref('base.menu_reporting'))]"/> -->
-<menuitem id="base.menu_reporting"
-          groups="fairmarket_tunes.dummy" />
 <!-- restrict the view of product variants in backend -->
 <record id="product.product_normal_action_sell" model="ir.actions.act_window">
         <field name="domain">[('create_uid', '=', uid)]</field>
 </record>
 <!-- RWCD permissions on products for shops managers -->
+<!--
 <record id="sale.access_product_template_sale_user" model="ir.model.access">
         <field name="perm_read">True</field>
         <field name="perm_write">True</field>
@@ -44,7 +59,8 @@
         <field name="perm_create">True</field>
         <field name="perm_delete">True</field>
 </record>
-<!-- Backend Admins menues -->
+-->
+<!-- Backend Admins menues --> 
 <menuitem id="menu_shops_management"
           groups="base.group_sale_manager"
           parent="base.menu_base_partner"
@@ -64,9 +80,144 @@
 <menuitem action="product_brand.action_product_brand" 
           id="menu_shops_management_brands" 
           parent="menu_shops_management" 
-          sequence="3" 
+          sequence="3"
 />
-
+<record model="ir.ui.menu" id="crm.menu_crm_opportunities">
+    <field name="groups_id" eval="[(6,0,[ref('dummy')])]"/>
+</record>
+<!-- Admins permissions -->
+<record id="base.action_res_company_form" model="ir.actions.act_window">
+        <field name="domain">[(1,'=',1)]</field>
+</record>
+<record id="base.access_res_company_group_erp_manager" model="ir.model.access">
+        <field name="group_id" eval="ref('base.group_sale_salesman')"/> 
+</record>
+<!-- Company permissions -->
+<record id="base.res_company_rule" model="ir.rule">
+        <field name="name">Write my Companies and Childs</field>
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="global" eval="False"/>
+        <field name="groups" eval="[(6,0,[ref('base.group_sale_salesman') ] ) ] "/>
+        <field name="domain_force">['|','|',('id','child_of',[user.company_id.id]),('user_ids','in',user.id),('id','=',False)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_create" eval="False"/>
+</record>
+<record id="all_read_company_rule" model="ir.rule">
+        <field name="name">All read Companies</field>        
+        <field name="model_id" ref="base.model_res_company"/>
+        <field name="global" eval="False"/>
+        <field name="groups" eval="[(6,0,[ref('base.group_public'),ref('base.group_portal') ] ) ] "/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="perm_create" eval="False"/>
+</record>
+<!-- Product permissions -->
+<record id="product.access_product_price_history_salemanager" model="ir.model.access">
+        <field name="group_id" eval="ref('base.group_sale_salesman')"/> 
+</record> 
+<record id="product.access_product_attribute_value_sale_manager" model="ir.model.access">
+        <field name="group_id" eval="ref('base.group_sale_salesman')"/> 
+</record>
+<record id="product.access_product_attribute_sale_manager" model="ir.model.access">
+        <field name="group_id" eval="ref('base.group_sale_salesman')"/> 
+</record>
+<record id="product.access_product_attribute_line_sale_manager" model="ir.model.access">
+        <field name="group_id" eval="ref('base.group_sale_salesman')"/> 
+</record>
+<record id="product.access_product_product_sale_manager" model="ir.model.access">
+        <field name="group_id" eval="ref('base.group_sale_salesman')"/> 
+</record>
+<record id="product.access_product_template_sale_manager" model="ir.model.access">
+        <field name="group_id" eval="ref('base.group_sale_salesman')"/> 
+</record>
+<record id="stock.access_stock_location_sale_manager" model="ir.model.access">
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_create" eval="True"/>
+</record>
+<record model="ir.rule" id="product_template_manager_own_rule">
+        <field name="name">Access all my Products FM</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="global" eval="False"/>
+        <field name="domain_force">['|','|',('company_id','child_of',[user.company_id.id]),('company_id.user_ids','in',[user.id]),('company_id','=',False)]</field>
+        <field name="groups" eval="[(4,[ref('base.group_sale_salesman')])]"/>            
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_create" eval="True"/>
+</record>
+<record model="ir.rule" id="product_attribute_value_manager_write_rule">
+        <field name="name">Attribute Value Manager write FM</field>
+        <field name="model_id" ref="product.model_product_attribute_value"/>
+        <field name="global" eval="False"/>
+        <field name="domain_force">['|',('create_uid','=',False),('create_uid','=',user.id)]</field>
+        <field name="groups" eval="[(4,[ref('base.group_sale_salesman')])]"/>            
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_create" eval="True"/>
+</record>
+<record model="ir.rule" id="product_attribute_value_manager_read_rule">
+        <field name="name">Attribute Value Manager read FM</field>
+        <field name="model_id" ref="product.model_product_attribute_value"/>
+        <field name="global" eval="False"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4,[ref('base.group_sale_salesman')])]"/>            
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="perm_create" eval="False"/>
+</record>
+<record model="ir.rule" id="product_attribute_line_all_rule">
+        <field name="name">Attribute Line manager read access FM</field>
+        <field name="model_id" ref="product.model_product_attribute_line"/>
+        <field name="global" eval="False"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4,[ref('base.group_sale_salesman')])]"/>            
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="perm_create" eval="False"/>
+</record>
+<record model="ir.rule" id="product_product_manager_own_rule">
+        <field name="name">Access all my Products FM</field>
+        <field name="model_id" ref="product.model_product_product"/>
+        <field name="global" eval="False"/>
+        <field name="domain_force">['|',('company_id','child_of',[user.company_id.id]),('company_id','=',False)]</field>
+        <field name="groups" eval="[(4,[ref('base.group_sale_salesman')])]"/>            
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_create" eval="True"/>
+</record>
+<record model="ir.rule" id="product_product_all_active_rule">
+        <field name="name">Product All Read Access FM</field>
+        <field name="model_id" ref="product.model_product_product"/>
+        <field name="global" eval="False"/>
+        <field name="domain_force">[('active','=',True)]</field>
+        <field name="groups" eval="[(4,[ref('base.group_sale_salesman'),ref('base.group_public'),ref('base.group_portal')])]"/>            
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="perm_create" eval="False"/>
+</record>
+<!-- Partner permissions -->
+ <record model="ir.rule" id="res_partner_write_manager_rule">
+        <field name="domain_force">[('is_company','=',1)]</field>
+        <field name="groups" eval="[(4,[ref('base.group_sale_manager')])]" />
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="global" eval="False"/>
+        <field name="name">Partner Write Manager</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="perm_create" eval="False"/>
+</record>
 <!-- Web menues -->
 <record id="menu_web_about" model="website.menu">
     <field name="name">About Us</field>
@@ -85,6 +236,11 @@
     <field name="parent_id" ref="menu_web_about"/>
     <field name="sequence" type="int">20</field>
 </record>
-<delete model="website.menu" id="website_sale.menu_shop"/>
+<!--
+<record model="ir.ui.menu" id="website_sale.menu_shop">
+    <field name="groups_id" eval="[(6,0,[ref('dummy')])]"/>
+</record>
+-->
+<!-- <delete model="website.menu" id="website_sale.menu_shop"/> -->
 </data>
 </openerp>

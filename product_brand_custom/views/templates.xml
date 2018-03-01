@@ -20,12 +20,20 @@
                             Click to set your company logo.
                         </p>
                   </div>
-                </field>              
+              </field>
+              <field name="name" position="after">
+                  <group>
+                      <div groups="base.group_sale_manager">
+                        <label for="user_id" style="widht:25%" />
+                        <field name="user_id" style="widht:75%" help="The user authorized for this brand" required="True" groups="base.group_sale_manager"/>
+                      </div>
+                      <div groups="base.group_sale_manager">  
+                        <label for="company_id" style="widht:25%" /> 
+                        <field name="company_id" style="widht:75%" string="Project" help="The project for this brand" required="True" groups="base.group_sale_manager"/>
+                      </div>
+                  </group>  
+              </field>             
                 <xpath expr="//group[@string='Description']" position="replace">
-                    <group groups="base.group_sales_manager">
-                        <field name="user_id" string="User" help="The user authorized for this brand" required="True" groups="base.group_sale_manager"/>
-                        <field name="company_id" string="Project" help="The project for this brand" required="True" groups="base.group_sale_manager"/>
-                    </group>
                     <group>
                         <group>
                           <label for="company_street" string="Address"/>
