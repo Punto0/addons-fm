@@ -231,30 +231,10 @@
         <field name="perm_unlink" eval="False"/>
         <field name="perm_create" eval="False"/>
 </record>
-<record model="ir.rule" id="res_partner_read_all_rule">
-        <field name="domain_force">[('is_company','=',1)]</field>
-        <field name="groups" eval="[(4,[ref('base.group_public'),ref('base.group_portal')])]" />
-        <field name="model_id" ref="base.model_res_partner"/>
-        <field name="global" eval="False"/>
-        <field name="name">Partner Company All Read</field>
-        <field name="perm_read" eval="True"/>
-        <field name="perm_write" eval="False"/>
-        <field name="perm_unlink" eval="False"/>
-        <field name="perm_create" eval="False"/>
-</record>
 <!-- res users permissions -->
-<!--
-<record model="ir.rule" id="res_user_read_global_rule">
-        <field name="domain_force">[(1,'=',1)]</field>
-        <field name="model_id" ref="base.model_res_users"/>
-        <field name="global" eval="True"/>
-        <field name="name">User Read Global</field>
-        <field name="perm_read" eval="True"/>
-        <field name="perm_write" eval="False"/>
-        <field name="perm_unlink" eval="False"/>
-        <field name="perm_create" eval="False"/>
-</record>
--->
+<record id="base.access_res_users_group_erp_manager" model="ir.model.access">
+        <field name="group_id" eval="ref('base.group_sale_manager')"/> 
+</record> 
 <!-- Web menues -->
 <record id="menu_web_about" model="website.menu">
     <field name="name">About Us</field>
