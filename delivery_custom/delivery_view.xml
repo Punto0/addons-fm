@@ -36,5 +36,14 @@
             </field>
         </record>
         <menuitem id="user_delivery_methods" name="Delivery Methods" parent="base.menu_sales" action="action_open_delivery_methods_user"/>
+        <record id="delivery.access_delivery_carrier_manager" model="ir.model.access">
+            <field name="group_id" eval="ref('base.group_sale_salesman')"/> 
+        </record>
+        <record id="delivery.access_delivery_grid_manager" model="ir.model.access">
+            <field name="group_id" eval="ref('base.group_sale_salesman')"/> 
+        </record>
+        <record id="delivery.access_delivery_grid_line_manager" model="ir.model.access">
+            <field name="group_id" eval="ref('base.group_sale_salesman')"/> 
+        </record>
     </data>
 </openerp>
