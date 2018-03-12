@@ -35,7 +35,7 @@ Modifications of Odoo for FairMarket.
         'security/record_rules.xml',
         'security/ir.model.access.csv',
     ],
-    'depends' : ['base', 'web','website_sale','website_product_brand','stock','product'],
+    'depends' : ['base', 'web','website_sale','website_product_brand','stock','product','sale'],
     'application': True,
     #'qweb': ['static/src/xml/*.xml'],
 }

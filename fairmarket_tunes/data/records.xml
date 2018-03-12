@@ -4,7 +4,6 @@
 <record id="dummy" model="res.groups">
         <field name="name">Dummy</field>
 </record>
-<!--
 <record model="ir.ui.menu" id="base.menu_reporting">
     <field name="groups_id" eval="[(6,0,[ref('dummy')])]"/>
 </record>
@@ -210,7 +209,13 @@
 <record id="crm.access_res_partner" model="ir.model.access">
         <field name="active" eval="False"/> 
 </record> 
-<record model="ir.rule" id="res_partner_write_global_rule">
+<record id="sale.access_res_partner_sale_user" model="ir.model.access">
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="perm_create" eval="False"/>
+</record> 
+<record model="ir.rule" id="res_partner_read_global_rule">
         <field name="domain_force">[(1,'=',1)]</field>
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="global" eval="True"/>
@@ -220,12 +225,23 @@
         <field name="perm_unlink" eval="False"/>
         <field name="perm_create" eval="False"/>
 </record>
- <record model="ir.rule" id="res_partner_write_manager_rule">
+<record model="ir.rule" id="res_partner_write_manager_rule">
         <field name="domain_force">[(1,'=',1)]</field>
         <field name="groups" eval="[(4,[ref('base.group_sale_manager')])]" />
         <field name="model_id" ref="base.model_res_partner"/>
         <field name="global" eval="False"/>
         <field name="name">Partner Write Manager</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_create" eval="True"/>
+</record>
+<record model="ir.rule" id="res_partner_write_salesman_rule">
+        <field name="domain_force">[('company_id.user_ids','in',[user.id])]</field>
+        <field name="groups" eval="[(4,[ref('base.group_sale_salesman')])]" />
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="global" eval="False"/>
+        <field name="name">My Partner Write Salesman</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
         <field name="perm_unlink" eval="False"/>

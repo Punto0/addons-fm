@@ -130,7 +130,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         partner_obj = pool['res.partner']
         product_obj = pool.get('product.template')
         domain_list = []
-        empty_domain = []
+        empty_domain = [('sale_ok','=',True),('website_published','=',True)]
         check = ""
         country_group_domain = [('is_company', '=', True),('website_published', '=', True)]
         country_all = post.pop('country_all', False)
@@ -155,6 +155,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
 
         if category:
             domain += [('public_categ_ids', 'child_of', int(category))]
+            empty_domain += [('public_categ_ids', 'child_of', int(category))]
 
         if discount:
             domain += [('discount', '=', True)]
@@ -162,7 +163,7 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
         # Quita la categoria demanda
         demand_cat = pool.get('product.public.category').search(cr, uid, [('name', '=', 'Demands')])[0]
         domain += [('public_categ_ids', '!=', demand_cat)] 
- 
+        domain += [('sale_ok','=',True),('website_published','=',True)]
         if not country:
             country_code = request.session['geoip'].get('country_code')
             if country_code:
@@ -178,12 +179,12 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
                     cr, SUPERUSER_ID, country_group_domain, ["country_id", "company_id", "id"],
                     groupby="country_id", orderby="country_id", context=context)
 
-        product_ids2 = product_obj.search(cr, SUPERUSER_ID, empty_domain,context=context)
+        product_ids2 = product_obj.search(cr, uid, empty_domain, context=context)
         for country_dict in countries:
             country_dict['active'] = country and country_dict['country_id'] and country_dict['country_id'][0] == country.id
             if country_dict['country_id'] == False:
                 continue
-            for b in product_obj.browse(cr, SUPERUSER_ID, product_ids2, context):
+            for b in product_obj.browse(cr, uid, product_ids2, context):
                 if b.website_published and b.sale_ok:
                     if (b.company_id.country_id.id == country_dict['country_id'][0]):
                         total_products+=1
@@ -258,8 +259,8 @@ class website_sale_extension(openerp.addons.website_sale.controllers.main.websit
 
         pager = request.website.pager(url=url, total=product_count, page=page, step=PPG, scope=7, url_args=post)
 
-        product_ids = product_obj.search(cr, uid, domain, limit=PPG, offset=pager['offset'], order='website_published desc, website_sequence desc', context=context)
-        products = product_obj.browse(cr, uid, product_ids, context=context)
+        product_ids = product_obj.search(cr, SUPERUSER_ID, domain, limit=PPG, offset=pager['offset'], order='website_published desc, website_sequence desc', context=context)
+        products = product_obj.browse(cr, SUPERUSER_ID, product_ids, context=context)
 
         style_obj = pool['product.style']
         style_ids = style_obj.search(cr, uid, [], context=context)
