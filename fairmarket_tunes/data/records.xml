@@ -252,6 +252,14 @@
 <record id="base.access_res_users_group_erp_manager" model="ir.model.access">
         <field name="group_id" eval="ref('base.group_sale_manager')"/> 
 </record> 
+<!-- crm.lead permissions -->
+<record id="crm.access_crm_lead_partner_manager" model="ir.model.access">
+        <field name="group_id" eval="ref('base.group_portal')"/> 
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="perm_create" eval="True"/>
+</record> 
 <!-- Web menues -->
 <record id="menu_web_about" model="website.menu">
     <field name="name">About Us</field>

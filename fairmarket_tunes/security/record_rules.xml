@@ -1,19 +1,19 @@
 <openerp>
 <data>
-<record model="ir.rule" id="ir_crm_lead_create">
-    <field name="name">Portal create leads</field>
-    <field name="model_id" ref="crm.model_crm_lead"/>
+<record model="ir.rule" id="ir_email_template_read_crm_lead">
+    <field name="name">Portal read email</field>
+    <field name="model_id" ref="email_template.model_email_template"/>
     <field name="global" eval="False"/>
-    <field name="domain_force">['|',('create_uid','=',user.id),('create_uid','=',False)]</field>
+    <field name="domain_force">[(1,'=',1)]</field>
     <field name="groups" eval="[(4,[ref('base.group_portal')])]"/>            
     <field name="perm_read" eval="True"/>
     <field name="perm_write" eval="True"/>
     <field name="perm_unlink" eval="False"/>
     <field name="perm_create" eval="True"/>
 </record>
-<record model="ir.rule" id="ir_email_template_read_crm_lead">
-    <field name="name">Portal read email</field>
-    <field name="model_id" ref="email_template.model_email_template"/>
+<record model="ir.rule" id="ir_crm_lead_create">
+    <field name="name">Portal create leads</field>
+    <field name="model_id" ref="crm.model_crm_lead"/>
     <field name="global" eval="False"/>
     <field name="domain_force">[(1,'=',1)]</field>
     <field name="groups" eval="[(4,[ref('base.group_portal')])]"/>            
