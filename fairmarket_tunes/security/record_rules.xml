@@ -22,5 +22,8 @@
     <field name="perm_unlink" eval="False"/>
     <field name="perm_create" eval="True"/>
 </record>
+<record id="product.access_product_attribute_price_sale_manager" model="ir.model.access">
+        <field name="group_id" eval="ref('base.group_sale_salesman')"/>
+</record>
 </data>
 </openerp>
