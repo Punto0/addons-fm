@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+        <record id="website_sale.menu_shop" model="website.menu">
+            <field name="name">All Products</field>
+            <field name="url">/shop</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">10</field>
+        </record>
+        <record id="menu_demands_cat" model="website.menu">
+            <field name="name">Demands</field>
+            <field name="url">/demands</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">30</field>
+        </record>
+        <record id="menu_partners" model="website.menu">
+            <field name="name">Partners</field>
+            <field name="url">/shop</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">40</field>
+        </record>
+    	<record id="demands_public_cat" model="product.public.category">
+            <field name="name">Demands</field>
+            <field name="sequence" type="int">1000</field>
+        </record>   
+    </data>
+</openerp>

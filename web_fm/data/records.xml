@@ -1,0 +1,78 @@
+<openerp>
+<data>
+<!-- Web menues -->
+<record id="menu_web_about" model="website.menu">
+    <field name="name">About Us</field>
+    <field name="parent_id" ref="website.main_menu"/>
+    <field name="sequence" type="int">100</field>
+</record>
+<record id="menu_web_aboutfairmarket" model="website.menu">
+    <field name="name">About FairMarket</field>
+    <field name="url">/whatis</field>
+    <field name="parent_id" ref="menu_web_about"/>
+    <field name="sequence" type="int">10</field>
+</record>
+<record id="menu_web_howitworks" model="website.menu">
+    <field name="name">How it works</field>
+    <field name="url">/how-it-works</field>
+    <field name="parent_id" ref="menu_web_about"/>
+    <field name="sequence" type="int">20</field>
+</record>
+<!-- Backend Admins menues -->
+<menuitem id="menu_shops_management"
+          groups="base.group_sale_manager"
+          parent="base.menu_base_partner"
+          name="Shops Management"
+          sequence="2" />
+<menuitem id="crm.menu_crm_opportunities" 
+          sequence="1"
+          name="Shop Requests" 
+          parent="menu_shops_management"
+          groups="base.group_sale_manager" />
+<menuitem action="base.action_res_users" 
+          id="menu_shops_management_users" 
+          parent="menu_shops_management" 
+          sequence="2" />
+<menuitem action="base.action_res_company_form" 
+          id="menu_shops_management_companies" 
+          parent="menu_shops_management" 
+          sequence="3"  />
+<!--  Group to hide menues, nobody belongs to it -->
+<record id="dummy" model="res.groups">
+        <field name="name">Dummy</field>
+</record>
+<!-- Shop Managers Backend menues -->
+<menuitem id="base.menu_base_partner" 
+          sequence="1"
+          name="Your Shop" 
+          groups="base.group_sale_salesman" />
+<menuitem id="base.menu_sales"
+          sequence="1"
+          name="Control Panel"
+          parent="base.menu_base_partner"
+          groups="base.group_sale_salesman" />
+<record id="action_setup_shop" model="ir.actions.act_window">
+            <field name="res_model">res.company</field>
+            <field name="name">Project Setup</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('user_ids', 'in', uid)]</field>
+            <field name="view_type">form</field>
+</record>
+<menuitem action="action_setup_shop" 
+          id="menu_setup_company" 
+          parent="base.menu_sales" 
+          name="Configure your shop" 
+          sequence="1" />
+<!-- restrict the view of product variants in backend -->
+<record id="product.product_normal_action_sell" model="ir.actions.act_window">
+        <field name="domain">[('create_uid', '=', uid)]</field>
+</record>
+<!-- delete not used menues -->
+<delete model="ir.ui.menu" id="crm.menu_crm_case_phone"/>
+<delete model="ir.ui.menu" id="crm.menu_crm_case_phone_inbound"/>
+<delete model="ir.ui.menu" id="product.menu_products_category"/>
+<menuitem id="base.menu_reporting"
+          groups="fairmarket_tunes.dummy" />
+</data>
+</openerp>

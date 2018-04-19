@@ -7,11 +7,18 @@
     'description': """
 OpenERP E-Commerce modifications for FairMarket
 ==================
-
+* Demands category
+* Does not allow multishop orders
+* Set company on sale order before payment
+* Better confirmation page
+* Geograhical filter
+* Shops pages
+* Webs menues
     """,
-    'author': 'Punto0 - FairCoop',
-    'depends': ['website_sale','sale'],
+    'author': 'Santi - FairCoop',
+    'depends': ['website_sale','sale','website_partner'],
     'data': [
+        'data/records.xml',
         'views/templates.xml',
     ],
     'demo': [

@@ -12,21 +12,18 @@ Modifications of Odoo for FairMarket.
 - webpages
 - some debrand
 - new shop request form
-- banner acrros the site
-- Security
+- banner across the site
+- Record rules and ACL
+- js and css modifications
         """,
     'data': [
         'data/new_shop_form.xml',
-        'data/records.xml',
-        'views/product_custom_web.xml',
         #'views/dev_site_banner.xml',
-        'views/brand_custom_web.xml',
-        'views/products_page.xml',
-        'views/templates.xml',
         'security/record_rules.xml',
         'security/ir.model.access.csv',
     ],
-    'depends' : ['base', 'web','website_sale','website_product_brand'],
+    'depends' : ['base','web','sale','website_sale','crm','portal'],
     'application': True,
-    #'qweb': ['static/src/xml/*.xml'],
+    'qweb': ['static/src/xml/*.xml'],
+    'css': ['static/src/css/website.assets_backend.css']
 }

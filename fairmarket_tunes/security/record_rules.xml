@@ -22,5 +22,18 @@
     <field name="perm_unlink" eval="False"/>
     <field name="perm_create" eval="False"/>
 </record>
+<!-- RWCD permissions on products for shops managers -->
+<record id="sale.access_product_template_sale_user" model="ir.model.access">
+        <field name="perm_read">True</field>
+        <field name="perm_write">True</field>
+        <field name="perm_create">True</field>
+        <field name="perm_delete">True</field>
+</record>
+<record id="sale.access_product_product_sale_user" model="ir.model.access">
+        <field name="perm_read">True</field>
+        <field name="perm_write">True</field>
+        <field name="perm_create">True</field>
+        <field name="perm_delete">True</field>
+</record>
 </data>
 </openerp>

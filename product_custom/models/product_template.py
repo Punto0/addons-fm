@@ -2,7 +2,7 @@
 ###############################################################################
 #                                                                             #
 # product_custom for Odoo                                                     #
-# Copyright (C) 2017 Santi (<santi@þunto0.org>).                              #
+# Copyright (C) 2017 - 2018 Santi (<santi@punto0.org>).                              #
 #                                                                             #
 # This program is free software: you can redistribute it and/or modify        #
 # it under the terms of the GNU Affero General Public License as              #
@@ -38,7 +38,7 @@ class ProductTemplateCustom(models.Model):
     def write(self, vals):
         if 'discount' in vals:
             new_vals = self.set_style(vals)
-            self.set_discount_brand(vals.get('discount'),vals.get('produc_brand_id', False))
+            self.set_discount_company(vals.get('discount'),vals.get('company_id', False))
         else:
             new_vals = vals
         return super(ProductTemplateCustom, self).write(new_vals)
@@ -52,16 +52,16 @@ class ProductTemplateCustom(models.Model):
             new_vals = vals
             new_vals['categ_id'] = self.env.ref('product_custom.product_category_normal').id # Default cat
         ''' save the product brand automatically '''
-        brand_id = False
-        if not vals.get('product_brand_id'):
-            brand_id = self.env['product.brand'].search([('company_id', '=', vals['company_id'])])
-            if brand_id:
-                vals['product_brand_id'] = brand_id.id
+        company_id = False
+        if not vals.get('company_id'):
+            company_id = self.env['res.company'].search([('id', '=', vals['company_id'])])
+            if company_id:
+                vals['company_id'] = company_id.id
         else:
-            brand_id = self.env['product.brand'].browse(vals.get('product_brand_id'))
+            company_id = self.env['res.company'].browse(vals.get('company_id'))
         p = super(ProductTemplateCustom, self).create(new_vals)
-        ''' check for discount on  the brand'''
-        brand_id.check_discount()
+        ''' check for discount on  the shop'''
+        company_id.check_discount()
         return p
 
     def set_style(self, vals):
@@ -74,12 +74,12 @@ class ProductTemplateCustom(models.Model):
             vals['categ_id'] = self.env.ref('product_custom.product_category_normal').id
         return vals
 
-    def set_discount_brand(self, discount, brand_id = None):
-        logging.info("set_discount_brand\n%s\n%s" %(discount, brand_id))
-        if brand_id:
-            brand_obj = self.env['product.brand'].browse(brand_id)
+    def set_discount_company(self, discount, company_id = None):
+        logging.debug("set_discount_company : %s -- %s" %(discount, company_id))
+        if company_id:
+            company_obj = self.env['res.company'].browse(brand_id)
         else:
-            brand_obj = self.product_brand_id
-        res = brand_obj.check_discount()
+            company_obj = self.company_id
+        res = company_obj.check_discount()
         # logging.info("res\n%s" %res)
         return True
