@@ -176,9 +176,9 @@
         <t t-call="website.layout">
             <t t-if="current_country and check=='/country_defined'">
                 <div class="page-header products_pager">
-                    <h1>Fair Market <a t-att-href="keep('/%s' % (current_country.name))"><t t-esc="current_country.name"/></a>
+                    <h1>FairMarket <a t-att-href="keep('/%s' % (current_country.name))"><t t-esc="current_country.name"/></a>
                         <p>
-                            <small>FairCoop Marketplace for The Fair Economy</small>
+                            <small>FairCoop marketplace for the Fair Economy</small>
                         </p>
                     </h1>
                 </div>

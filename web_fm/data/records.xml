@@ -72,7 +72,6 @@
 <delete model="ir.ui.menu" id="crm.menu_crm_case_phone"/>
 <delete model="ir.ui.menu" id="crm.menu_crm_case_phone_inbound"/>
 <delete model="ir.ui.menu" id="product.menu_products_category"/>
-<menuitem id="base.menu_reporting"
-          groups="fairmarket_tunes.dummy" />
+<menuitem id="base.menu_reporting" groups="web_fm.dummy" />
 </data>
 </openerp>

@@ -1,17 +1,14 @@
 <openerp>
 <data>
 <!-- All cross site mods -->
-<template id="web_fm_tunes_layout" inherit_id="website.layout" name="FairMarket layout" priority="17">
+<template id="web_fm_tunes_layout" inherit_id="website.layout" name="FairMarket layout" priority="1">
     <xpath expr="//head//link" position="after">
         <link rel="shortcut icon" href="/web_fm/static/src/img/favicon.ico" type="image/x-icon"/>
     </xpath>
 </template>
-<template id="backend_tunes_layout" inherit_id="web.layout" name="Backend FairMarket layout" priority="17">
+<template id="backend_tunes_layout" inherit_id="web.layout" name="Backend FairMarket layout" priority="1">
     <xpath expr="//head//link" position="after">
         <link rel="shortcut icon" href="/web_fm/static/src/img/favicon.ico" type="image/x-icon"/>
-    </xpath>
-    <xpath expr="//title" position="replace">
-        <title>FairMarket</title>
     </xpath>
 </template>
 <template id="assets_backend" name="Backend Mods" inherit_id="web.assets_backend">
