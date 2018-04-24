@@ -77,7 +77,7 @@ class ProductTemplateCustom(models.Model):
     def set_discount_company(self, discount, company_id = None):
         logging.debug("set_discount_company : %s -- %s" %(discount, company_id))
         if company_id:
-            company_obj = self.env['res.company'].browse(brand_id)
+            company_obj = self.env['res.company'].browse(company_id)
         else:
             company_obj = self.company_id
         res = company_obj.check_discount()

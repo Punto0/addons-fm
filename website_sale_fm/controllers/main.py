@@ -85,7 +85,7 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
         partner_obj = pool['res.partner']
         product_obj = pool.get('product.template')
         domain_list = []
-        empty_domain = []
+        default_domain = [('website_published','=',True),('sale_ok','=',True)]
         check = ""
         country_group_domain = [('is_company', '=', True),('website_published', '=', True)]
         country_all = post.pop('country_all', False)
@@ -94,9 +94,9 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
         countries2 = []
 
         if isinstance(country,unicode) and country:
-            country_ids = country_obj.search([('id', '=', country)], context=context)
+            country_ids = country_obj.search(cr, uid, [('id', '=', country)], context=context)
             if country_ids:
-                country = country_obj.browse(country_ids[0], context=context)
+                country = country_obj.browse(cr, uid, country_ids[0], context=context)
         if search:
             domain += ['|', '|', '|',
                        ('name', 'ilike', search),
@@ -107,8 +107,6 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
             domain += [('public_categ_ids', 'child_of', int(category))]
         if discount:
             domain += [('discount', '=', True)]
-        demand_cat = pool['product.public.category'].search(cr, uid, [('name', '=', 'Demands')], context=context)
-        domain += [('public_categ_ids', '!=', demand_cat)]
         if not country:
             country_code = request.session['geoip'].get('country_code')
             if country_code:
@@ -118,13 +116,19 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
         if country_defined or country:
             check = "/country_defined"
             domain += [('company_id.partner_id.country_id.id', '=', country.id )]
+
+        category_obj = pool['product.public.category']
+        demand_cat = category_obj.search(cr, uid, [('name', '=', 'Demands')], context=context)
+        #domain += [('public_categ_ids', 'not in', [demand_cat] )]
+        #, ('public_categ_ids', 'not child_of', [demand_cat] )]
+
         countries = partner_obj.read_group(cr, SUPERUSER_ID, country_group_domain, ["country_id", "company_id", "id"], groupby="country_id", orderby="country_id", context=context)
-        product_ids2 = product_obj.search(cr, SUPERUSER_ID, empty_domain, context=context)
+        product_ids2 = product_obj.search(cr, uid, default_domain, context=context)
         for country_dict in countries:
             country_dict['active'] = country and country_dict['country_id'] and country_dict['country_id'][0] == country.id
             if country_dict['country_id'] == False:
                 continue
-            for b in product_obj.browse(cr, SUPERUSER_ID, product_ids2, context):
+            for b in product_obj.browse(cr, uid, product_ids2, context):
                 if b.website_published and b.sale_ok:
                     if (b.company_id.country_id.id == country_dict['country_id'][0]):
                         total_products+=1
@@ -177,8 +181,7 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
         style_ids = style_obj.search(cr, uid, [], context=context)
         styles = style_obj.browse(cr, uid, style_ids, context=context)
 
-        category_obj = pool['product.public.category']
-        category_ids = category_obj.search(cr, uid, [], context=context)
+        category_ids = category_obj.search(cr, uid, [('name', '!=', 'Demands')], context=context)
         categories = category_obj.browse(cr, uid, category_ids, context=context)
         categs = filter(lambda x: not x.parent_id, categories)
         # Category's product search
@@ -219,7 +222,7 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
                  '/shops/page/<int:page>',
 		            ], type='http', auth='public', website=True)
     def shops(self, country=None, country_defined='', page=0, **post):
-          cr, context, pool = (request.cr, request.context, request.registry)
+          cr, uid, context, pool = (request.cr, request.uid, request.context, request.registry)
           country_all = post.pop('country_all', False)
           check=""
           brand_obj = pool['res.company']
@@ -229,21 +232,22 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
           company_obj = pool['res.company']
 
           domain = []
-          domain_list = []
-          empty_domain = []
+          #domain_list = []
+          #empty_domain = []
           brand_values = []
           company_values = []
           countries2 = []
           total_brands_country = 0
           total_brands = 0 
-          brands_count = 0 
+          #brands_count = 0 
           search = post.get('search', '')
-          final_brand_ids = []
+          #final_brand_ids = []
 
           if country_defined:
             check="/country_defined"
 
           if search:
+            _logger.debug('search: %s' %search)
             domain += ['|', ('name', 'ilike', search), ('description', 'ilike', search)]
 
           if not country:
@@ -253,17 +257,16 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
               if country_ids:
                 country = country_obj.browse(request.cr, request.uid, country_ids[0], context=request.context)
           if country:
-            domain_list += [('company_id.partner_id.country_id', '=', country.id)]
-          brand_domain = list(domain_list)
+            domain += [('partner_id.country_id', '=', country.id)]
+
           domain_country = [('partner_id.is_company', '=', True), ('partner_id.website_published', '=', True)]
           country_group_domain = [('is_company', '=', True), ('website_published', '=', True)]
           country_domain = list(domain_country)
 
           # group partners by country and search brands
           countries = partner_obj.read_group(cr, SUPERUSER_ID, country_group_domain, ["country_id", "company_id", "id"],groupby="country_id", orderby="country_id", context=context)
-          brand_all = brand_obj.search_read(cr, SUPERUSER_ID, empty_domain) 
+          brand_all = brand_obj.search_read(cr, SUPERUSER_ID, [] )
 
-          # format pager
           if country:
               url = '/shops/country/' + slug(country)
           else:
@@ -273,22 +276,19 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
               url_args['search'] = search
           if country_all:
               url_args['country_all'] = True
-          
-          # Estos dos bucles son horribles, habria que buscar una solucion mejor con busquedas en la base.
-          # Si suben mucho las brands, se va a volver muy lento...
+
           # flag active country and update sum of brands in each country
           brands_count = 0 # Para paginacion
           for country_dict in countries:
               country_dict['active'] = country and country_dict['country_id'] and country_dict['country_id'][0] == country.id
               for b in brand_all:
                   if not b['country_id'] or not country_dict['country_id']:
-                      continue     
+                      continue
                   if b['country_id'][0] == country_dict['country_id'][0] and b['products_count'] > 0:
                     total_brands_country += 1
                     total_brands += 1
-                    if country_dict['active'] or bool(country is None):
-                      final_brand_ids.append(b['id'])
-                      brands_count += 1 
+                    #if country_dict['active'] or bool(country is None):
+                    #  brands_count += 1
               if (total_brands_country >> 0):
                   country_dict['country_id_count'] = total_brands_country
                   countries2.append(country_dict)
@@ -299,8 +299,9 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
               'active': bool(country is None),
           })
           #get brands and make pagination
-          brands_by_page = brand_obj.browse(cr,SUPERUSER_ID, final_brand_ids, context=context)
-          pager = request.website.pager(url=url, total=brands_count, page=page, step=self._references_per_page, scope=6, url_args=url_args)
+          brand_ids = brand_obj.search(cr, uid, domain, context=context)  
+          brands_by_page = brand_obj.browse(cr, uid, brand_ids, context=context)
+          pager = request.website.pager(url=url, total=len(brand_ids), page=page, step=self._references_per_page, scope=6, url_args=url_args)
           brands_by_page = brands_by_page[pager['offset']:pager['offset'] + self._references_per_page]
 
           for brand_rec in brands_by_page:
@@ -315,10 +316,11 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
           'check' : check,
           'current_country': country,
           'pager': pager,
+          #'search' : search,  
           #'google_map_shop_ids': google_map_partner_ids,
           }
-          if post.get('search'):
-              values.update({'search': post.get('search')})
+          #if post.get('search'):
+          #    values.update({'search': post.get('search')})
           return request.website.render('website_sale_fm.product_brands', values)
 
     # Each brand page
@@ -349,7 +351,6 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
         #    if attrib:
         #        domain += [('attribute_line_ids.value_ids', 'in', ids)]
 
-        keep = QueryURL('/shop')
         if not context.get('pricelist'):
             pricelist = self.get_pricelist()
             context['pricelist'] = int(pricelist)
@@ -357,12 +358,13 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
             pricelist = pool.get('product.pricelist').browse(cr, uid, context['pricelist'], context)
         product_obj = pool.get('product.template')
 
-       # Brand's product search
-        brand_id = False
+        # Brand's product search
+        #brand_id = False
         if post.get('brand'):
             brand_ids = company_obj.search(cr, SUPERUSER_ID, [('id', '=', int(post.get('brand')))])
             domain = [('company_id', 'in', brand_ids)]
             #brand_id = domain
+        keep = QueryURL('/shop/brands', brand_id = brand_ids )
         url = '/shop'
         product_count = product_obj.search_count(cr, uid, domain, context=context)
         #if search:
@@ -442,8 +444,9 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
             domain += ['|', '|', '|',
                        ('name', 'ilike', search),
                        ('description', 'ilike', search),
-                       ('description_sale', 'ilike', search),
-                       ('product_variant_ids.default_code', 'ilike', search)]
+                       #('description_sale', 'ilike', search),
+                       #('product_variant_ids.default_code', 'ilike', search)
+                      ]
         if category:
             domain += [('public_categ_ids', 'child_of', int(category))]
         if not country:
@@ -459,13 +462,13 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
         countries = partner_obj.read_group(cr, SUPERUSER_ID, country_group_domain, ["country_id", "company_id", "id"], groupby="country_id", orderby="country_id", context=context)
 
         # get numbers for the regional widget
-        product_ids2 = product_obj.search(cr, SUPERUSER_ID, [('public_categ_ids', 'child_of', demand_cat)], context=context)
+        product_ids2 = product_obj.search(cr, uid, [('public_categ_ids', 'child_of', demand_cat)], context=context)
         # flag active country and select only countries with products
         for country_dict in countries:
             country_dict['active'] = country and country_dict['country_id'] and country_dict['country_id'][0] == country.id
             if country_dict['country_id'] == False:
                 continue
-            for b in product_obj.browse(cr, SUPERUSER_ID, product_ids2, context):
+            for b in product_obj.browse(cr, uid, product_ids2, context):
                 if b.website_published == True:
                     if (b.company_id.country_id.id == country_dict['country_id'][0]):
                         total_products+=1
@@ -520,7 +523,7 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
         style_ids = style_obj.search(cr, uid, [], context=context)
         styles = style_obj.browse(cr, uid, style_ids, context=context)
 
-        category_ids = category_obj.search(cr, uid, [('parent_id', '=', int(category)) , ('id', '=', int(category))], context=context)
+        category_ids = category_obj.search(cr, uid, [('id', 'child_of', [int(category)])], context=context)
         categories = category_obj.browse(cr, uid, category_ids, context=context)
         categs = filter(lambda x: not x.parent_id, categories)
         # Category's product search
@@ -553,5 +556,3 @@ class website_sale(openerp.addons.website_sale.controllers.main.website_sale):
           'style_in_product': lambda style, product: style.id in [ s.id for s in product.website_style_ids ],
           })
         return request.website.render('website_sale.products', values)
-
-

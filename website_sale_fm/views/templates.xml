@@ -187,7 +187,7 @@
             <div id="wrap" t-attf-class="wrapper">
                 <div class="container products_pager">
                     <div class="row" style="width: 100%;">
-                        <form t-att-action="keep('/shop'+ (('/country/'+slug(current_country)) if current_country else '') + (('/category/'+slug(category)) if category else '') + (('/country_defined') if check else ''), search=0)" method="get" t-att-class="search_class">
+                        <form t-att-action="keep('/shops', search=0)" method="get" t-att-class="search_class">
                             <div class="input-group" style="margin-left:40%;">
                                 <div class='col-md-6'>
                                     <input type="text" name="search" class="form-control" placeholder="Search..." t-att-value='search'/>
@@ -221,7 +221,7 @@
                          </t>
                          <t t-if='brand_rec'>
                            <t t-foreach="brand_rec" t-as="o">
-                             <t t-if="check">
+<!--                             <t t-if="check">
                                <div class="col-md-3" style="display: inline-block;">
                                  <a t-attf-href="/shop#{check}#{ '/country/%s' % slug(current_country) or '' }/brands?brand=#{o.id}">
                                    <div class='row'>
@@ -234,18 +234,33 @@
                                  <p><t t-esc="o.company_id.partner_id.name"/></p>
                                </div>
                              </t>
-                             <t t-if="not check">
+-->
                                <div class="col-md-3" style="display: inline-block;">
                                  <a t-att-href="keep('/shop/brands',brand = o.id)">
                                    <div class="row oe_product">
                                      <div t-if="o.discount" class="ribbon2-wrapper">
                                        <img itemprop="image" 
-                                            t-attf-src="/website_sale_fm/static/src/img/1-1campaign_badge.png"
-                                            alt="Discount campaign badge"/>
+                                            t-attf-src="/website_sale_fm/static/src/img/discount_badge.png"
+                                            alt="Discount campaign badge"
+                                            style="right: 45px; width: 65px; top: 15px;" />
                                      </div>
-                                     <img itemprop="image" width="250px" height="250px" 
+                                     <t t-if="o.logo" > 
+                                       <img itemprop="image" width="250px" height="250px" 
                                           t-attf-src="/website/image/res.company/#{o.id}/logo#{'?max_width=300&amp;max_height=300'}"
                                           t-att-alt="o.name"/>
+                                     </t> 
+                                     <t t-if="not o.logo" >
+                                         <t t-if="o.logo2" >
+                                             <img itemprop="image" width="250px" height="250px" 
+                                                  t-attf-src="/website/image/res.company/#{o.id}/logo2#{'?max_width=300&amp;max_height=300'}"
+                                                  t-att-alt="o.name"/>
+                                         </t>
+                                         <t t-if="not o.logo2" >
+                                             <img itemprop="image" width="250px" height="250px" 
+                                                  t-attf-src="/website_sale_fm/static/description/icon.png"
+                                                  t-att-alt="o.name" />
+                                         </t>
+                                     </t>  
                                    </div>
                                    <div class="row oe-height-2">
                                      <t t-esc="o.name"/> - 
@@ -253,7 +268,6 @@
                                    </div>
                                  </a>
                                </div>  
-                             </t>
                            </t>
                         </t>
                         <t t-if='not brand_rec'>
@@ -309,8 +323,8 @@
                            <span t-field="product.company_id.logo_web" t-field-options='{"widget": "image"}' />
                          </t>  
                          <p>Please, do not hesitate to contact us if you have any question about the product.</p>
-<!--                         <p t-if = "product.company_id.sale_note"><strong>Terms and Conditions:</strong>
-                         <span t-field="product.company_id.sale_note" /></p> -->
+                         <p t-if = "product.company_id.sale_note"><strong>Terms and Conditions:</strong>
+                         <span t-field="product.company_id.sale_note" /></p>
                          <div t-field="product.company_id.partner_id" t-field-options='{
                          "widget": "contact",
                          "fields": ["address", "phone", "email"]
@@ -324,5 +338,83 @@
                  </div>
              </xpath>
         </template>
+        <template id="products_item_default_image" inherit_id="website_sale.products_item" name="Products default image">
+            <xpath expr="//div[@class='oe_product_image']" position="replace">
+                <div class="oe_product_image">
+                    <t t-if="product.image">
+                        <a itemprop="url" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
+                            <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(product, 'image', None if product_image_big else '300x300')" t-att-alt="product.name"/>
+                        </a>
+                    </t>
+                    <t t-if="not product.image">
+                        <a itemprop="url" t-att-href="keep('/shop/product/%s' % slug(product), page=(pager['page']['num'] if pager['page']['num']>1 else None))">
+                            <img itemprop="image" class="img img-responsive" t-attf-src="/website_sale_fm/static/description/icon.png" t-att-alt="product.name"/>
+                       </a>
+                    </t>
+               </div>
+            </xpath>
+        </template>
+        <template id="product_cart_default_image" inherit_id="website_sale.cart" name="Product cart default image" >
+            <xpath expr="//td[@align='center']" position="replace">
+                              <td align="center" t-if="line.product_id.product_tmpl_id">
+                                <t t-if="line.product_id.image_small">
+                                   <span>
+                                       <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(line.product_id, 'image', None if product_image_big else '200x200')" t-att-alt="line.product_id.display_name" style="max-width:33%;"/>
+                                   </span>                                
+                                </t>
+                                <t t-if="not line.product_id.image_small">
+                            <img itemprop="image" class="img img-responsive" t-attf-src="/website_sale_fm/static/description/icon.png" t-att-alt="line.product_id.name"/>
+                                </t>
+                              </td>
+            </xpath> 
+        </template>
+        <template id="cart_right_column" inherit_id="website_sale.cart" name="Cart Right column" >
+            <xpath expr="//div[@id='right_column']" position="replace">
+              <div class="col-lg-3 col-lg-offset-1 col-sm-3 col-md-3 text-muted" id="right_column">
+                  <h4>Policies</h4>
+                  <ul class="list-unstyled mb32">
+                      <li>&#9745; We can not process orders with products from different partners.</li>
+                      <li>&#9745; You need to complete different sales orders for each partner.</li>
+                  </ul>
+                  <h4>Secure Payment</h4>
+                  <ul class="list-unstyled mb32">
+                      <li>&#9745; Pay in FairCoin </li>
+                      <li>&#9745; 0% fee, only the minimal network fee</li>
+                  </ul>
+              </div>
+            </xpath>  
+        </template>
+        <template id="validation_product_default_image" inherit_id="website_sale.payment" name="Validation product default image" >
+            <xpath expr="//span[@t-field='line.product_id.image_small']" position="replace">
+                                <t t-if="line.product_id.image_small">
+                                   <span>
+                                       <img itemprop="image" class="img img-responsive" t-att-src="website.image_url(line.product_id, 'image', None if product_image_big else '200x200')" t-att-alt="line.product_id.display_name" style="max-width:33%;" />
+                                   </span>
+                                </t>
+                                <t t-if="not line.product_id.image_small">
+                                  <span> 
+                                    <img itemprop="image" class="img img-responsive" t-attf-src="/website_sale_fm/static/description/icon.png" t-att-alt="line.product_id.name"/>
+                                  </span> 
+                                </t>
+            </xpath>  
+        </template>
+        <template id="product_item_custom" inherit_id="website_sale.product" name="Product item custom" >
+            <xpath expr="//span[@t-field='product.image']" position="replace">
+                <t t-if="product.image">
+                    <center><span itemprop="image" t-field="product.image" t-field-options='{"widget": "image", "class": "product_detail_img", "alt-field": "name"}'/></center>
+                </t>
+                <t t-if="not product.image">    
+                   <span> 
+                       <img itemprop="image" class="img img-responsive" t-attf-src="/website_sale_fm/static/description/icon.png" t-att-alt="product.name"/>
+                   </span> 
+                </t>
+                <div itemprop="description" t-field="product.description" class="oe_structure mt16" id="product_full_description"/>
+            </xpath> 
+            <xpath expr="//section/div/div/p[@class='text-muted']" position="replace">
+                  <!-- after the company description, some data harcoded in website_sale -->
+                  <center><p class='text-muted'>Powered by <a href="https://fair.coop">FairCoop</a></p></center>
+            </xpath> 
+        </template>
+
 </data>
 </openerp>
